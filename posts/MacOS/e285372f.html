@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="MacOS-Web开发工具安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS-Web开发工具安装">
+<meta property="og:url" content="https://codezm.github.io/posts/MacOS/e285372f.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:description" content="MacOS-Web开发工具安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-04T08:32:14.000Z">
+<meta property="article:modified_time" content="2025-12-01T08:02:38.197Z">
+<meta property="article:author" content="codezm">
+<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/posts/MacOS/e285372f.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MacOS-Web开发工具安装 | codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MacOS/e285372f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MacOS-Web开发工具安装
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-04 08:32:14" itemprop="dateCreated datePublished" datetime="2021-11-04T08:32:14+00:00">2021-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MacOS/" itemprop="url" rel="index"><span itemprop="name">MacOS</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MacOS/e285372f.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MacOS/e285372f.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>16k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>27 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>MacOS-Web开发工具安装</p>
+<hr>
+<a id="more"></a>
+
+<h4 id="brew-软件包工具安装"><a href="#brew-软件包工具安装" class="headerlink" title="brew 软件包工具安装"></a>brew 软件包工具安装</h4><ol>
+<li><p>到 <a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh</a> 网站复制 <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code> 脚本，在终端中，执行安装 <code>brew</code> 工具。</p>
+</li>
+<li><p><code>brew</code> 安装过程中，卡在 <code>Downloading Command Line Tools for Xcode</code>，至 <a target="_blank" rel="noopener" href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a> 下载，对应 <code>xcode</code> 版本的 <code>Command_Line_Tools_for_Xcode_12.4.dmg</code> 安装文件，进行手动安装。或者通过 <code>xcode-select --intall</code> 命令进行安装（可查看安装进度）。</p>
+</li>
+<li><p><code>Xcode</code> 命令行工具安装成功后，继续执行 <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</code> 命令，安装 <code>brew</code>。</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">error: Not a valid ref: refs/remotes/origin/master</span><br><span class="line">fatal: ambiguous argument <span class="string">'refs/remotes/origin/master'</span>: unknown revision or path not <span class="keyword">in</span> the working tree.</span><br><span class="line">$ rm -rf $(brew --repo homebrew/core)</span><br><span class="line">$ brew tap homebrew/core</span><br><span class="line">$ brew install nginx mysql</span><br><span class="line">$ brew services start nginx</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="启动系统自带-php-版本的-php-fpm-程序。"><a href="#启动系统自带-php-版本的-php-fpm-程序。" class="headerlink" title="启动系统自带 php 版本的 php-fpm 程序。"></a>启动系统自带 php 版本的 php-fpm 程序。</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解决：</span></span><br><span class="line"><span class="comment"># 1. ERROR: failed to open configuration file '/private/etc/php-fpm.conf': No such file or directory (2)</span></span><br><span class="line">$ sudo cp /private/etc/php-fpm.conf.default /private/etc/php-fpm.conf</span><br><span class="line"><span class="comment"># 2. ERROR: No pool defined. at least one pool section must be specified in config file</span></span><br><span class="line">$ sudo cp /private/etc/php-fpm.d/www.conf.default /private/etc/php-fpm.d/www.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 系统中并无 `/usr/var/log` 目录，修改配置 php-fpm.log 错误日志路径：error_log = /usr/local/var/log/php-fpm.log</span></span><br><span class="line"><span class="comment"># ERROR: failed to open error_log (/usr/var/log/php-fpm.log): No such file or directory (2)</span></span><br><span class="line">$ sudo vi /private/etc/php-fpm.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 php-fpm</span></span><br><span class="line">$ sudo php-fpm</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="启动-mysql-服务"><a href="#启动-mysql-服务" class="headerlink" title="启动 mysql 服务"></a>启动 mysql 服务</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ mysql --version</span><br><span class="line">mysql  Ver 8.0.23 <span class="keyword">for</span> osx10.15 on x86_64 (Homebrew)</span><br><span class="line">$ brew services start mysql</span><br><span class="line">$ mysql -uroot phpcms &lt; /Users/codezm/www/police/phpcmsv9.sql</span><br><span class="line"><span class="comment"># mysql 8.0 对 enum 有更严格的要求，对插入数据的 `5724` 行开始起，修改 `enum` 字段默认值由 `''` 为 `'0'`。</span></span><br><span class="line">$ vi /Users/codezm/www/police/phpcmsv9.sql</span><br><span class="line">$ mysql -uroot phpcms &lt; /Users/codezm/www/police/phpcmsv9.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 mysql root 账号密码</span></span><br><span class="line">$ mysql -uroot</span><br><span class="line">mysql&gt; use mysql</span><br><span class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED WITH mysql_native_password BY <span class="string">'1234'</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql 配置文件</span></span><br><span class="line">$ ls -la /usr/<span class="built_in">local</span>/etc/my.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># brew services start mysql 实际上将 /usr/local/opt/mysql/homebrew.mxcl.mysql.plist 复制到 /Users/codezm/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql.server start</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql 8.0</span></span><br><span class="line">vim /usr/<span class="built_in">local</span>/etc/my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">default_authentication_plugin=mysql_native_password</span><br><span class="line"><span class="comment"># ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="解决上传图片问题"><a href="#解决上传图片问题" class="headerlink" title="解决上传图片问题"></a>解决上传图片问题</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解决 nginx：413 状态码错误</span></span><br><span class="line">$ vi /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line">http {</span><br><span class="line">	...</span><br><span class="line">	client_max_body_size 20m;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	server {</span><br><span class="line">		...</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认配置项值</span></span><br><span class="line">$ vi php.ini</span><br><span class="line">upload_max_filesize = 2M</span><br><span class="line">post-max-size = 8M</span><br><span class="line"></span><br><span class="line">$ vi /usr/<span class="built_in">local</span>/var/<span class="built_in">log</span>/nginx/error.log</span><br><span class="line">[error] 63127<span class="comment">#0: *180 FastCGI sent in stderr: "PHP message: PHP Warning:  POST Content-Length of 11096034 bytes exceeds the limit of 10485760 bytes in Unknown on line 0" while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /index.php"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改配置项值</span></span><br><span class="line">$ vi php.ini</span><br><span class="line">upload_max_filesize = 100M</span><br><span class="line">post-max-size = 100M</span><br><span class="line"></span><br><span class="line">$ chmod -R 777 caches sites</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><h4 id="Mac-自带-php-版本-GD-库缺少-Freetype"><a href="#Mac-自带-php-版本-GD-库缺少-Freetype" class="headerlink" title="Mac 自带 php 版本 GD 库缺少 Freetype"></a>Mac 自带 php 版本 GD 库缺少 <code>Freetype</code></h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install php@7.2 --build-from-source</span><br><span class="line"><span class="comment"># 7.4 起, 已将 get_magic_quotes_gpc() is deprecated</span></span><br><span class="line">$ brew install php@7.4 --build-from-source</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="配置-php-环境变量"><a href="#配置-php-环境变量" class="headerlink" title="配置 php 环境变量"></a>配置 php 环境变量</h4><p>默认系统自带 php 的版本是 <code>7.1.23</code>，而新安装的 php 版本是 <code>7.2.34</code>。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link --overwrite php@7.2</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="PHP-安装部署相关路径"><a href="#PHP-安装部署相关路径" class="headerlink" title="PHP 安装部署相关路径"></a>PHP 安装部署相关路径</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># php-fpm 日志路径</span></span><br><span class="line">$ tail -f /usr/<span class="built_in">local</span>/var/<span class="built_in">log</span>/php-fpm.log</span><br><span class="line"></span><br><span class="line"><span class="comment"># php 可执行文件</span></span><br><span class="line">$ ls -la /usr/<span class="built_in">local</span>/Cellar/php@7.4/7.4.16_1/bin</span><br><span class="line">total 78640</span><br><span class="line">drwxr-xr-x  12 codezm  admin       384  6  3 15:48 .</span><br><span class="line">drwxr-xr-x  15 codezm  admin       480  6  3 15:48 ..</span><br><span class="line">-r-xr-xr-x   1 codezm  admin       970  6  3 15:48 pear</span><br><span class="line">-r-xr-xr-x   1 codezm  admin       991  6  3 15:48 peardev</span><br><span class="line">-r-xr-xr-x   1 codezm  admin       904  6  3 15:48 pecl</span><br><span class="line">lrwxr-xr-x   1 codezm  admin         9  3  2 18:35 phar -&gt; phar.phar</span><br><span class="line">-rwxr-xr-x   1 codezm  admin     14912  6  3 15:48 phar.phar</span><br><span class="line">-r-xr-xr-x   1 codezm  admin  13377808  6  3 15:48 php</span><br><span class="line">-r-xr-xr-x   1 codezm  admin  13322488  6  3 15:48 php-cgi</span><br><span class="line">-r-xr-xr-x   1 codezm  admin      7108  6  3 15:48 php-config</span><br><span class="line">-r-xr-xr-x   1 codezm  admin  13510436  6  3 15:48 phpdbg</span><br><span class="line">-r-xr-xr-x   1 codezm  admin      4581  6  3 15:48 phpize</span><br><span class="line">ls -la /usr/<span class="built_in">local</span>/Cellar/php@7.4/7.4.16_1/sbin</span><br><span class="line">-r-xr-xr-x   1 codezm  admin  13411132  6  3 15:48 php-fpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置文件</span></span><br><span class="line">$ php --ini</span><br><span class="line">$ vim /usr/<span class="built_in">local</span>/etc/php/7.4/php.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># PHP扩展目录</span></span><br><span class="line">$ ls -la /usr/<span class="built_in">local</span>/lib/php/pecl/20190902</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="安装PHP扩展"><a href="#安装PHP扩展" class="headerlink" title="安装PHP扩展"></a>安装PHP扩展</h4><p>在安装 php-7.2.34_2 版本时，通过执行 <code>pecl install</code> 安装命令，<code>so</code> 文件生成路径与 <code>php.ini</code> 中路径配置不一致。</p>
+<p>下面将介绍如何使两处配置为同一引用路径。</p>
+<p>修改 <code>vim $(which php-config)</code> 生成 <code>so</code> 文件保存路径。</p>
+<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 源</span></span><br><span class="line"><span class="attr">extension_dir</span>=<span class="string">'/usr/local/Cellar/php@7.2/7.2.34_2/pecl/20170718'</span></span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line"><span class="attr">extension_dir</span>=<span class="string">'/usr/local/Cellar/php@7.2/7.2.34_2/lib/php/20170718'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>vim $(php --ini | grep Loaded | awk '{print $4}') </code></p>
+<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 源</span></span><br><span class="line"><span class="comment">;extension_dir = "/usr/local/lib/php/pecl/20170718"</span></span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line"><span class="attr">extension_dir</span> = <span class="string">"/usr/local/Cellar/php@7.2/7.2.34_2/lib/php/20170718"</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="安装PHP扩展：swoole"><a href="#安装PHP扩展：swoole" class="headerlink" title="安装PHP扩展：swoole"></a>安装PHP扩展：swoole</h5><p>配置 openssl 库路径</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/usr/local/opt/openssl/lib"</span></span><br><span class="line"><span class="built_in">export</span> CPPFLAGS=<span class="string">"-I/usr/local/opt/openssl/include"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># swoole-4.6.6</span></span><br><span class="line">pecl install --configureoptions <span class="string">'enable-sockets="yes" enable-openssl="yes" enable-http2="yes" enable-mysqlnd="yes" enable-swoole-json="yes" enable-swoole-curl="yes"'</span> swoole</span><br><span class="line"><span class="comment"># pecl install -D 'enable-sockets="no" enable-openssl="yes" enable-http2="yes" enable-mysqlnd="yes" enable-swoole-json="no" enable-swoole-curl="yes"' swoole</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># swoole-1.10.5</span></span><br><span class="line">pecl install --configureoptions <span class="string">'enable-swoole-debug="no" enable-sockets="no" enable-openssl="no" enable-http2="no" enable-async-redis="no" enable-mysqlnd="no"'</span> https://pecl.php.net/get/swoole-1.10.5.tgz</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="安装PHP扩展：yaf、redis、memcached、"><a href="#安装PHP扩展：yaf、redis、memcached、" class="headerlink" title="安装PHP扩展：yaf、redis、memcached、"></a>安装PHP扩展：yaf、redis、memcached、</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yaf-3.3.2</span></span><br><span class="line">pecl install yaf</span><br><span class="line"></span><br><span class="line"><span class="comment"># redis-5.3.4</span></span><br><span class="line">pecl install -D <span class="string">'enable-redis-igbinary="no" enable-redis-lzf="yes" enable-redis-zstd="yes"'</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># memcached-3.1.5</span></span><br><span class="line">pecl install memcached libmemcached</span><br><span class="line">pecl install -D <span class="string">'with-libmemcached-dir="yes" with-zlib-dir="yes" with-system-fastlz="no" enable-memcached-igbinary="no" enable-memcached-msgpack="no" enable-memcached-json="yes" enable-memcached-protocol="no" enable-memcached-sasl="yes" enable-memcached-session="yes"'</span> memcached</span><br><span class="line"></span><br><span class="line"><span class="comment"># memcache-4.0.5.2</span></span><br><span class="line"><span class="comment"># pecl install -D 'enable-memcache-session="yes"' https://pecl.php.net/get/memcache-4.0.5.2.tgz</span></span><br><span class="line"><span class="comment"># checking for the location of zlib... configure: error: memcache support requires ZLIB. Use --with-zlib-dir=&lt;DIR&gt; to specify prefix where ZLIB include and library are located</span></span><br><span class="line"><span class="comment"># ERROR: `/private/tmp/memcache/configure --with-php-config=/usr/local/opt/php@7.4/bin/php-config --enable-memcache-session=yes' failed</span></span><br><span class="line">brew install zlib</span><br><span class="line">pecl download https://pecl.php.net/get/memcache-4.0.5.2.tgz</span><br><span class="line">tar zxf memcache-4.0.5.2.tgz</span><br><span class="line"><span class="built_in">cd</span> <span class="built_in">cd</span> memcache-4.0.5.2</span><br><span class="line">/usr/<span class="built_in">local</span>/opt/php@7.4/bin/phpize</span><br><span class="line">./configure --with-php-config=/usr/<span class="built_in">local</span>/opt/php@7.4/bin/php-config --enable-memcache-session=yes --with-zlib-dir=<span class="string">"/usr/local/Cellar/zlib/1.2.11"</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="多个php版本切换使用"><a href="#多个php版本切换使用" class="headerlink" title="多个php版本切换使用"></a>多个php版本切换使用</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 php@7.2 版本</span></span><br><span class="line">brew unlink php@7.4</span><br><span class="line">brew link php@7.2</span><br><span class="line"></span><br><span class="line">brew link --overwrite php@7.4</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="php-多版本启用"><a href="#php-多版本启用" class="headerlink" title="php 多版本启用"></a>php 多版本启用</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># listen=127.0.0.1:9074</span></span><br><span class="line">vim /usr/<span class="built_in">local</span>/etc/php/7.4/php-fpm.d/www.conf</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Mysql-Server"><a href="#Mysql-Server" class="headerlink" title="Mysql-Server"></a>Mysql-Server</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://imysql.com/my-cnf-wizard.html">my.cnf 配置文件生成工具</a></li>
+</ul>
+<h4 id="mysql-8-0-24-server-部署"><a href="#mysql-8-0-24-server-部署" class="headerlink" title="mysql-8.0.24 server 部署"></a>mysql-8.0.24 server 部署</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">mv ~/Downloads/mysql-8.0.24-macos11-x86_64 /usr/<span class="built_in">local</span>/opt/mysql@8.0</span><br><span class="line">mdkir /Volumes/work/web/databases/3309-8.0</span><br><span class="line">mkdir /usr/<span class="built_in">local</span>/etc/mysql@8.0</span><br><span class="line">vim /usr/<span class="built_in">local</span>/etc/mysql@8.0/my.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库初始化</span></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/my.cnf --initialize</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动数据库 Server</span></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/my.cnf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysql --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/my.cnf -u mysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld_safe --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/master.cnf --user=mysql --skip-grant-tables --skip-networking</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir /Volumes/work/web/databases/master-13306-8.0.23 /Volumes/work/web/databases/slave-23306-8.0.23 /Volumes/work/web/databases/slave-33306-8.0.23</span><br><span class="line"></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/master.cnf --initialize</span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/slave.cnf --initialize</span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/slave-33306.cnf --initialize</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动主库</span></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/master.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动从库</span></span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/slave.cnf</span><br><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@8.0/bin/mysqld --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@8.0/slave-33306.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取主库临时密码</span></span><br><span class="line">grep <span class="string">"A temporary password"</span> /Volumes/work/web/databases/master-13306-8.0.23/error.log</span><br><span class="line"><span class="comment"># 更改主库临时密码</span></span><br><span class="line">mysql80-master -u root -p</span><br><span class="line">alter user <span class="string">"root"</span>@<span class="string">"localhost"</span> identified by <span class="string">"1234"</span>;</span><br><span class="line"><span class="comment"># 查看主库状态</span></span><br><span class="line">show master status\G;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取从库临时密码</span></span><br><span class="line">grep <span class="string">"A temporary password"</span> /Volumes/work/web/databases/slave-23306-8.0.23/error.log</span><br><span class="line"><span class="comment"># 更改主库临时密码</span></span><br><span class="line">mysql80-master -u root -p</span><br><span class="line">alter user <span class="string">"root"</span>@<span class="string">"localhost"</span> identified by <span class="string">"1234"</span>;</span><br><span class="line"><span class="comment"># 1130 - Host '127.0.0.1' is not allowed to connect to this MySQL server</span></span><br><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host =<span class="string">'%'</span><span class="built_in">where</span> user =<span class="string">'root'</span> and host =<span class="string">'localhost'</span>;</span><br><span class="line"><span class="comment"># 刷新使用权限命令</span></span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从库订阅主库</span></span><br><span class="line">change master to master_host=<span class="string">'127.0.0.1'</span>,master_port=13306,master_user=<span class="string">'root'</span>,master_password=<span class="string">'1234'</span>,master_log_file=<span class="string">'mybinlog.000002'</span>,master_log_pos=477;</span><br><span class="line"><span class="comment"># 启动 slave 同步</span></span><br><span class="line">start slave;</span><br><span class="line"><span class="comment"># 查看同步状态</span></span><br><span class="line">show slave status\G;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><code>vim /usr/local/opt/mysql@8.0/homebrew.mxcl.mysql.plist</code></p>
+<p>原文件内容</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span><br><span class="line">&lt;plist version="1.0"&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">  &lt;key&gt;KeepAlive&lt;/key&gt;</span><br><span class="line">  &lt;true/&gt;</span><br><span class="line">  &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;homebrew.mxcl.mysql&lt;/string&gt;</span><br><span class="line">  &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">  &lt;array&gt;</span><br><span class="line">    &lt;string&gt;/usr/local/opt/mysql/bin/mysqld_safe&lt;/string&gt;</span><br><span class="line">    &lt;string&gt;--datadir=/usr/local/var/mysql&lt;/string&gt;</span><br><span class="line">  &lt;/array&gt;</span><br><span class="line">  &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">  &lt;true/&gt;</span><br><span class="line">  &lt;key&gt;WorkingDirectory&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;/usr/local/var/mysql&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>改为：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span><br><span class="line">&lt;plist version="1.0"&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">  &lt;key&gt;KeepAlive&lt;/key&gt;</span><br><span class="line">  &lt;true/&gt;</span><br><span class="line">  &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;homebrew.mxcl.mysql&lt;/string&gt;</span><br><span class="line">  &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">  &lt;array&gt;</span><br><span class="line">    &lt;string&gt;/usr/local/opt/mysql/bin/mysqld_safe&lt;/string&gt;</span><br><span class="line">    &lt;string&gt;--defaults-file=/usr/local/etc/mysql@8.0/master.cnf&lt;/string&gt;</span><br><span class="line">  &lt;/array&gt;</span><br><span class="line">  &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">  &lt;true/&gt;</span><br><span class="line">  &lt;key&gt;WorkingDirectory&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;/Volumes/work/web/databases/master-13306-8.0.23&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="mysql-5-5-3-server-部署"><a href="#mysql-5-5-3-server-部署" class="headerlink" title="mysql-5.5.3 server 部署"></a>mysql-5.5.3 server 部署</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/23/file/mysql-5.5.3-m3-osx10.6-x86_64.tar.gz">https://downloads.mysql.com/archives/get/p/23/file/mysql-5.5.3-m3-osx10.6-x86_64.tar.gz</a></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">mv ~/Downloads/mysql-5.5.3-m3-osx10.6-x86_64/ /usr/<span class="built_in">local</span>/opt/mysql@5.5</span><br><span class="line">chown -R codezm:staff /usr/<span class="built_in">local</span>/opt/mysql@5.5</span><br><span class="line">mkdir /Volumes/work/web/databases/3305</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置文件</span></span><br><span class="line">mkdir /usr/<span class="built_in">local</span>/etc/mysql@5.5</span><br><span class="line">vim /usr/<span class="built_in">local</span>/etc/mysql@5.5/my.cnf</span><br><span class="line"></span><br><span class="line">[client]</span><br><span class="line">port=3305</span><br><span class="line">socket=/Volumes/work/web/databases/3305/mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">bind-address = 127.0.0.1</span><br><span class="line">port=3305</span><br><span class="line">datadir=/Volumes/work/web/databases/3305</span><br><span class="line">socket=/Volumes/work/web/databases/3305/mysql.sock</span><br><span class="line">pid-file=/Volumes/work/web/databases/3305/mysql.pid</span><br><span class="line">table_open_cache=1024</span><br><span class="line">max_allowed_packet=104857600</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化数据库</span></span><br><span class="line">sudo /usr/<span class="built_in">local</span>/opt/mysql@5.5/scripts/mysql_install_db --user=root --datadir=/Volumes/work/web/databases/3305 --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@5.5/my.cnf</span><br><span class="line">chown -R codezm:staff /Volumes/work/web/databases/3305</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 mysql server</span></span><br><span class="line">sudo /usr/<span class="built_in">local</span>/opt/mysql@5.5/bin/mysqld_safe --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@5.5/my.cnf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># /usr/local/opt/mysql@5.5/bin/mysqld --defaults-file=/usr/local/etc/mysql@5.5/my.cnf --basedir=/usr/local/opt/mysql@5.5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="遇到的问题及解决方案"><a href="#遇到的问题及解决方案" class="headerlink" title="遇到的问题及解决方案"></a>遇到的问题及解决方案</h5><h6 id="ERROR-Can-39-t-find-messagefile-39-usr-share-errmsg-sys-39"><a href="#ERROR-Can-39-t-find-messagefile-39-usr-share-errmsg-sys-39" class="headerlink" title="[ERROR] Can't find messagefile '/usr/share/errmsg.sys'"></a><code>[ERROR] Can't find messagefile '/usr/share/errmsg.sys'</code></h6><p>mysql的启动目录不正确，使用 <code>--basedir</code> 参数设置启动目录。</p>
+<h6 id="Can-39-t-find-file-39-mysql-plugin-frm-39-errno-13"><a href="#Can-39-t-find-file-39-mysql-plugin-frm-39-errno-13" class="headerlink" title="Can't find file: './mysql/plugin.frm' (errno: 13)"></a><code>Can't find file: './mysql/plugin.frm' (errno: 13)</code></h6><p>mysql 脚本目录 或 mysql 数据库目录权限有问题。</p>
+<h5 id="修改默认-root-账号密码"><a href="#修改默认-root-账号密码" class="headerlink" title="修改默认 root 账号密码"></a>修改默认 root 账号密码</h5><p>默认 root 账号的密码是空的。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/opt/mysql@5.5/bin/mysql --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@5.5/my.cnf -u root</span><br><span class="line">mysql&gt; <span class="built_in">set</span> password <span class="keyword">for</span> root@localhost = password(<span class="string">'1234'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>注意：不要漏了 <code>-u root</code> 参数，作用是使用 <code>root</code> 账号登录。不加则是匿名登录，权限有限无法实现更改密码操作。</p>
+<p>mysql&gt; show databases;<br>+——————–+<br>| Database           |<br>+——————–+<br>| information_schema |<br>| test               |<br>+——————–+<br>2 rows in set (0.00 sec)</p>
+<p>mysql&gt; set password for root@localhost = password(‘1234’);<br>ERROR 1044 (42000): Access denied for user ‘’@’localhost’ to database ‘mysql’</p>
+</blockquote>
+<h6 id="禁止匿名登录"><a href="#禁止匿名登录" class="headerlink" title="禁止匿名登录"></a>禁止匿名登录</h6><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; delete from user where user='';</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; \q</span><br></pre></td></tr></tbody></table></figure>
+
+<h6 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><p>修改了 root 账号密码、禁用了匿名登录，如何再使用命令行模式时无需输入账号密码？</p>
+<p><code>vim /usr/local/etc/mysql@5.5/my.cnf</code></p>
+<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3305</span></span><br><span class="line"><span class="attr">socket</span>=/Volumes/work/web/databases/<span class="number">3305</span>/mysql.sock</span><br><span class="line"><span class="attr">user</span>=root</span><br><span class="line"><span class="attr">password</span>=<span class="number">1234</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>保存配置文件后，再通过 client 命令登录时，就无需输入账号及密码了。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/opt/mysql@5.5/bin/mysql --defaults-file=/usr/<span class="built_in">local</span>/etc/mysql@5.5/my.cnf</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| <span class="built_in">test</span>               |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h5><h6 id="1-更改-mysqld-监听IP地址。"><a href="#1-更改-mysqld-监听IP地址。" class="headerlink" title="1. 更改 mysqld 监听IP地址。"></a>1. 更改 mysqld 监听IP地址。</h6><p>编辑 <code>vim /usr/local/etc/mysql@5.5/my.cnf</code> 配置文件，在 <code>mysqld</code> 中，禁用监听本地IP。</p>
+<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment"># bind-address = 127.0.0.1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h6 id="2-开启外网访问权限。"><a href="#2-开启外网访问权限。" class="headerlink" title="2. 开启外网访问权限。"></a>2. 开启外网访问权限。</h6><p><code>grant all privileges on *.* to 'root'@'[允许的ip]' identified by '[密码]' with grant option;</code></p>
+<p>其中 <code>[允许的ip]</code> 如果设置为 <code>%</code> 的话则表示所有ip都可以访问，<code>[密码]</code> 表示外网访问的密码是什么。此处设置成所有ip都可访问，密码是 <code>1234</code>：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; select user,host from user;</span><br><span class="line">+------+--------------------+</span><br><span class="line">| user | host               |</span><br><span class="line">+------+--------------------+</span><br><span class="line">| root | 127.0.0.1          |</span><br><span class="line">| root | ::1                |</span><br><span class="line">| root | codezmdeiMac.local |</span><br><span class="line">| root | localhost          |</span><br><span class="line">+------+--------------------+</span><br><span class="line">4 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; grant all privileges on *.* to 'root'@'%' identified by '1234' with grant option;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; select user,host from user;</span><br><span class="line">+------+--------------------+</span><br><span class="line">| user | host               |</span><br><span class="line">+------+--------------------+</span><br><span class="line">| root | %                  |</span><br><span class="line">| root | 127.0.0.1          |</span><br><span class="line">| root | ::1                |</span><br><span class="line">| root | codezmdeiMac.local |</span><br><span class="line">| root | localhost          |</span><br><span class="line">+------+--------------------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="优化-mysql-server-启动方式、客户端连接方式。"><a href="#优化-mysql-server-启动方式、客户端连接方式。" class="headerlink" title="优化 mysql-server 启动方式、客户端连接方式。"></a>优化 mysql-server 启动方式、客户端连接方式。</h5><p>记不住这一长串命令启动 mysql-server 命令，客户端连接命令。通过以下方式创建命令别名。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"alias mysql55='/usr/local/opt/mysql@5.5/bin/mysql --defaults-file=/usr/local/etc/mysql@5.5/my.cnf'"</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"alias mysqld55='cd /usr/local/opt/mysql@5.5 &amp;&amp; (/usr/local/opt/mysql@5.5/bin/mysqld_safe --defaults-file=/usr/local/etc/mysql@5.5/my.cnf &amp;) &amp;&amp; cd -'"</span> &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 mysql-5.5.3 server</span></span><br><span class="line">mysqld55</span><br><span class="line"><span class="comment"># 运行 mysql 客户端</span></span><br><span class="line">mysql55</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="Redis-Server"><a href="#Redis-Server" class="headerlink" title="Redis Server"></a>Redis Server</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install redis</span><br><span class="line">redis-server /usr/<span class="built_in">local</span>/etc/redis.conf</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h4 id="Nginx-每次必须使用-sudo-权限，否则无法上传图片"><a href="#Nginx-每次必须使用-sudo-权限，否则无法上传图片" class="headerlink" title="Nginx 每次必须使用 sudo 权限，否则无法上传图片"></a>Nginx 每次必须使用 sudo 权限，否则无法上传图片</h4><p>查看错误日志： <code>tail -f /usr/local/var/log/nginx/error.log</code>，日志详情如下。</p>
+<blockquote>
+<p>2021/05/11 13:49:26 [crit] 97853#0: *4 open() “/usr/local/var/run/nginx/client_body_temp/0000000001” failed (13: Permission denied), client: 192.168.36.47, server: , request: “POST /index.php?m=attachment&amp;c=attachments&amp;a=upload&amp;module=content&amp;catid=17&amp;dosubmit=1 HTTP/1.1”, host: “192.168.36.47:8080”, referrer: “<a target="_blank" rel="noopener" href="http://192.168.36.47:8080/index.php?m=content&amp;c=content&amp;a=add&amp;menuid=&amp;catid=17&amp;pc_hash=542G5c&amp;pc_hash=542G5c&quot;">http://192.168.36.47:8080/index.php?m=content&amp;c=content&amp;a=add&amp;menuid=&amp;catid=17&amp;pc_hash=542G5c&amp;pc_hash=542G5c"</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/var/run/</span><br><span class="line">drwxr-xr-x   6 codezm  admin  192  5 11 13:47 .</span><br><span class="line">drwxrwxr-x  10 codezm  admin  320  5 10 17:16 ..</span><br><span class="line">drwxr-xr-x   2 codezm  admin   64  3 11 17:21 httpd</span><br><span class="line">drwxr-xr-x   4 codezm  admin  128  9 29  2019 libvirt</span><br><span class="line">drwxr-xr-x   7 codezm  admin  224  7 11  2017 nginx</span><br><span class="line">-rw-r--r--   1 codezm  admin    6  5 11 13:47 nginx.pid</span><br><span class="line">$ ls -la /usr/<span class="built_in">local</span>/var/run/nginx/</span><br><span class="line">drwx------   2 nobody  admin   64  5 11 13:34 client_body_temp</span><br><span class="line">drwx------   2 nobody  admin   64  7 11  2017 fastcgi_temp</span><br><span class="line">drwx------  12 nobody  admin  384  9 11  2017 proxy_temp</span><br><span class="line">drwx------   2 nobody  admin   64  7 11  2017 scgi_temp</span><br><span class="line">drwx------   2 nobody  admin   64  7 11  2017 uwsgi_temp</span><br><span class="line">$ sudo chown -R codezm:admin /usr/<span class="built_in">local</span>/var/run/nginx</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services start mysql@5.7 /usr/<span class="built_in">local</span>/Cellar/mysql@5.7/5.7.32/homebrew.mxcl.mysql@5.7.plist</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="关于-brew-加速"><a href="#关于-brew-加速" class="headerlink" title="关于 brew 加速"></a>关于 brew 加速</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89941189">https://zhuanlan.zhihu.com/p/89941189</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/90508170">https://zhuanlan.zhihu.com/p/90508170</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="codezm 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="codezm 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>codezm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codezm.github.io/posts/MacOS/e285372f.html" title="MacOS-Web开发工具安装">https://codezm.github.io/posts/MacOS/e285372f.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MacOS/" rel="tag"># MacOS</a>
+              <a href="/tags/web/" rel="tag"># web</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/Windows/4bd4e2a3.html" rel="prev" title="Windows10自定义右键菜单">
+      <i class="fa fa-chevron-left"></i> Windows10自定义右键菜单
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86/79d87208.html" rel="next" title="Postman利用Pre-request脚本实现自动登录接口Token设置">
+      Postman利用Pre-request脚本实现自动登录接口Token设置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#brew-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">brew 软件包工具安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6-php-%E7%89%88%E6%9C%AC%E7%9A%84-php-fpm-%E7%A8%8B%E5%BA%8F%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">启动系统自带 php 版本的 php-fpm 程序。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-mysql-%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">启动 mysql 服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">解决上传图片问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP"><span class="nav-number"></span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-%E8%87%AA%E5%B8%A6-php-%E7%89%88%E6%9C%AC-GD-%E5%BA%93%E7%BC%BA%E5%B0%91-Freetype"><span class="nav-number">1.</span> <span class="nav-text">Mac 自带 php 版本 GD 库缺少 Freetype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-php-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">配置 php 环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E7%9B%B8%E5%85%B3%E8%B7%AF%E5%BE%84"><span class="nav-number">3.</span> <span class="nav-text">PHP 安装部署相关路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PHP%E6%89%A9%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">安装PHP扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PHP%E6%89%A9%E5%B1%95%EF%BC%9Aswoole"><span class="nav-number">4.1.</span> <span class="nav-text">安装PHP扩展：swoole</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PHP%E6%89%A9%E5%B1%95%EF%BC%9Ayaf%E3%80%81redis%E3%80%81memcached%E3%80%81"><span class="nav-number">4.2.</span> <span class="nav-text">安装PHP扩展：yaf、redis、memcached、</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AAphp%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">多个php版本切换使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#php-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%90%AF%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">php 多版本启用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-Server"><span class="nav-number"></span> <span class="nav-text">Mysql-Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql-8-0-24-server-%E9%83%A8%E7%BD%B2"><span class="nav-number">1.</span> <span class="nav-text">mysql-8.0.24 server 部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql-5-5-3-server-%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">mysql-5.5.3 server 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.1.</span> <span class="nav-text">遇到的问题及解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ERROR-Can-39-t-find-messagefile-39-usr-share-errmsg-sys-39"><span class="nav-number">2.1.1.</span> <span class="nav-text">[ERROR] Can&#39;t find messagefile &#39;&#x2F;usr&#x2F;share&#x2F;errmsg.sys&#39;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Can-39-t-find-file-39-mysql-plugin-frm-39-errno-13"><span class="nav-number">2.1.2.</span> <span class="nav-text">Can&#39;t find file: &#39;.&#x2F;mysql&#x2F;plugin.frm&#39; (errno: 13)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4-root-%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">修改默认 root 账号密码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A6%81%E6%AD%A2%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">禁止匿名登录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.2.</span> <span class="nav-text">修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.3.</span> <span class="nav-text">开启远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E6%9B%B4%E6%94%B9-mysqld-%E7%9B%91%E5%90%ACIP%E5%9C%B0%E5%9D%80%E3%80%82"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 更改 mysqld 监听IP地址。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%BC%80%E5%90%AF%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E3%80%82"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 开启外网访问权限。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%8C%96-mysql-server-%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F%E3%80%82"><span class="nav-number">2.4.</span> <span class="nav-text">优化 mysql-server 启动方式、客户端连接方式。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Server"><span class="nav-number">3.</span> <span class="nav-text">Redis Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx-%E6%AF%8F%E6%AC%A1%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8-sudo-%E6%9D%83%E9%99%90%EF%BC%8C%E5%90%A6%E5%88%99%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">Nginx 每次必须使用 sudo 权限，否则无法上传图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-brew-%E5%8A%A0%E9%80%9F"><span class="nav-number">5.</span> <span class="nav-text">关于 brew 加速</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://codezm.github.io/posts/MacOS/e285372f.html";
+    this.page.identifier = "posts/MacOS/e285372f.html";
+    this.page.title = "MacOS-Web开发工具安装";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codezm.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

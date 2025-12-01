@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="饿了么element-ui中el-table组件根据列内容实现列宽自适应，本项目将以 ruoyi-ui 修改为例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="饿了么element-ui中el-table组件列宽自适应">
+<meta property="og:url" content="https://codezm.github.io/posts/Vue/dce48eb0.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:description" content="饿了么element-ui中el-table组件根据列内容实现列宽自适应，本项目将以 ruoyi-ui 修改为例。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-28T17:31:17.000Z">
+<meta property="article:modified_time" content="2025-12-01T08:02:38.316Z">
+<meta property="article:author" content="codezm">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="element-ui">
+<meta property="article:tag" content="el-table">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/posts/Vue/dce48eb0.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>饿了么element-ui中el-table组件列宽自适应 | codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Vue/dce48eb0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          饿了么element-ui中el-table组件列宽自适应
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-28 17:31:17" itemprop="dateCreated datePublished" datetime="2023-09-28T17:31:17+00:00">2023-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Vue/dce48eb0.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Vue/dce48eb0.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>16 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>饿了么element-ui中el-table组件根据列内容实现列宽自适应，本项目将以 <code>ruoyi-ui</code> 修改为例。</p>
+<a id="more"></a>
+
+<h2 id="单页示例代码"><a href="#单页示例代码" class="headerlink" title="单页示例代码"></a>单页示例代码</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table</span><br><span class="line">    v-loading="loading"</span><br><span class="line">    :data="deptList"</span><br><span class="line">    row-key="deptId"</span><br><span class="line">    resizable</span><br><span class="line">    :border="true"</span><br><span class="line">    :fit="false"</span><br><span class="line">    ref="elTable"</span><br><span class="line">    @header-dragend="handleTableHeaderDragend"</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;el-table-column prop="deptName" label="全称" /&gt;</span><br><span class="line">    &lt;el-table-column prop="phone" label="手机号" class-name="auto-width" /&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default {</span><br><span class="line">      name: "Dept",</span><br><span class="line">      data() {</span><br><span class="line">        return {</span><br><span class="line">          // 遮罩层</span><br><span class="line">          loading: true,</span><br><span class="line">          // 表格树数据</span><br><span class="line">          deptList: [],</span><br><span class="line">        }</span><br><span class="line">      },</span><br><span class="line">      created() {</span><br><span class="line">         this.getSchoolList();</span><br><span class="line">      },</span><br><span class="line">      methods: {</span><br><span class="line">        adjustColumnWidth(table, padding, dragClsName, increaseWidth) {</span><br><span class="line">            var padding = padding || 32;</span><br><span class="line">            const colgroup = table.querySelector("colgroup");</span><br><span class="line">            const colDefs = [...colgroup.querySelectorAll("col")];</span><br><span class="line">            const tableScrollWidth = table.scrollWidth;</span><br><span class="line">            var totalWidth = 0; // 累计剩余列宽度和</span><br><span class="line">            var autoWith = 0; // 自动列宽度</span><br><span class="line">            var autoWithClsName = null; // 自动列class-name</span><br><span class="line">            colDefs.forEach((col) =&gt; {</span><br><span class="line">              const clsName = col.getAttribute("name");</span><br><span class="line">              const cells = [</span><br><span class="line">                ...table.querySelectorAll(`td.${clsName}`),</span><br><span class="line">                ...table.querySelectorAll(`th.${clsName}`),</span><br><span class="line">              ];</span><br><span class="line">              if (cells[0]?.classList?.contains?.("leave-alone")) {</span><br><span class="line">                return;</span><br><span class="line">              }</span><br><span class="line">              const widthList = cells.map((el) =&gt; {</span><br><span class="line">                return el.querySelector(".cell")?.scrollWidth || 0;</span><br><span class="line">              });</span><br><span class="line">              const max = Math.max(...widthList);</span><br><span class="line">              var elWidth = max + padding;</span><br><span class="line">              if (!dragClsName &amp;&amp; cells[0]?.classList?.contains?.("auto-width")) {</span><br><span class="line">                autoWithClsName = clsName;</span><br><span class="line">                autoWith = elWidth;</span><br><span class="line">                return;</span><br><span class="line">              }</span><br><span class="line">              table.querySelectorAll(`col[name=${clsName}]`).forEach((el) =&gt; {</span><br><span class="line">                const oElWidth = parseInt(el.getAttribute("_width"));</span><br><span class="line">                if (oElWidth) {</span><br><span class="line">                  if (dragClsName === clsName) {</span><br><span class="line">                    if (oElWidth + increaseWidth &gt;= elWidth) {</span><br><span class="line">                      elWidth = oElWidth + increaseWidth;</span><br><span class="line">                    }</span><br><span class="line">                  } else {</span><br><span class="line">                    if (dragClsName) {</span><br><span class="line">                      elWidth = oElWidth;</span><br><span class="line">                    }</span><br><span class="line">                  }</span><br><span class="line">                }</span><br><span class="line">                el.setAttribute("width", elWidth);</span><br><span class="line">                el.setAttribute("_width", elWidth);</span><br><span class="line">              });</span><br><span class="line">              totalWidth += elWidth;</span><br><span class="line">            });</span><br><span class="line">            if (autoWithClsName &amp;&amp; !dragClsName) {</span><br><span class="line">              if (tableScrollWidth &gt; totalWidth) {</span><br><span class="line">                var willSettingAutoWith = tableScrollWidth - totalWidth + padding;</span><br><span class="line">                if (willSettingAutoWith &gt; autoWith) {</span><br><span class="line">                  autoWith = willSettingAutoWith;</span><br><span class="line">                }</span><br><span class="line">              }</span><br><span class="line">              table.querySelectorAll(`col[name=${autoWithClsName}]`).forEach((el) =&gt; {</span><br><span class="line">                el.setAttribute("width", autoWith);</span><br><span class="line">                el.setAttribute("_width", autoWith);</span><br><span class="line">              });</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        handleTableHeaderDragend(newWidth, oldWidth, column, event) {</span><br><span class="line">          // this.$nextTick((e) =&gt; {</span><br><span class="line">            setTimeout(() =&gt; {</span><br><span class="line">                this.adjustColumnWidth(this.$refs.elTable.$el, 6, column.id, newWidth - oldWidth);</span><br><span class="line">            }, 100);</span><br><span class="line">          // })</span><br><span class="line">        },</span><br><span class="line">        getSchoolList() {</span><br><span class="line">          this.loading = true;</span><br><span class="line">          listDeptType(this.queryParams).then(response =&gt; {</span><br><span class="line">            this.deptList = this.handleTree(response.rows, "deptId");</span><br><span class="line">            this.total = response.total;</span><br><span class="line">        		this.loading = false;</span><br><span class="line">            this.$nextTick((e) =&gt; {</span><br><span class="line">              this.adjustColumnWidth(this.$refs.elTable.$el, 6);</span><br><span class="line">            })</span><br><span class="line">          })</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">/deep/.el-table .cell {</span><br><span class="line">  display: inline-block !important;</span><br><span class="line">  white-space: nowrap !important;</span><br><span class="line">  width: auto !important;</span><br><span class="line">  overflow: auto !important;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">/deep/.el-table .el-table__body-wrapper {</span><br><span class="line">  overflow-x: auto;</span><br><span class="line">}</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="挂载全局样式及全局方法"><a href="#挂载全局样式及全局方法" class="headerlink" title="挂载全局样式及全局方法"></a>挂载全局样式及全局方法</h2><ul>
+<li><p>src/assets/styles/index.scss</p>
+<figure class="highlight scss"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.adjust-cw-el-table</span> <span class="selector-class">.cell</span> {</span><br><span class="line">  <span class="attribute">display</span>: inline-block <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: auto <span class="meta">!important</span>;</span><br><span class="line">  <span class="comment">// white-space: pre-wrap !important;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.adjust-cw-el-table</span> <span class="selector-class">.el-table__body-wrapper</span> {</span><br><span class="line">  <span class="attribute">overflow-x</span>: auto;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>src/utils/ruoyi.js</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// el-table 自适应列宽</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">adjustColumnWidth</span>(<span class="params">table, padding, dragClsName, increaseWidth</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> padding = padding || <span class="number">32</span>;</span><br><span class="line">  <span class="keyword">const</span> colgroup = table.querySelector(<span class="string">"colgroup"</span>);</span><br><span class="line">  <span class="keyword">const</span> colDefs = [...colgroup.querySelectorAll(<span class="string">"col"</span>)];</span><br><span class="line">  <span class="keyword">const</span> tableScrollWidth = table.scrollWidth;</span><br><span class="line">  <span class="keyword">var</span> totalWidth = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> autoWith = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> autoWithClsName = <span class="literal">null</span>;</span><br><span class="line">  colDefs.forEach(<span class="function">(<span class="params">col</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">const</span> clsName = col.getAttribute(<span class="string">"name"</span>);</span><br><span class="line">    <span class="keyword">const</span> cells = [</span><br><span class="line">      ...table.querySelectorAll(<span class="string">`td.<span class="subst">${clsName}</span>`</span>),</span><br><span class="line">      ...table.querySelectorAll(<span class="string">`th.<span class="subst">${clsName}</span>`</span>),</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">if</span> (cells[<span class="number">0</span>]?.classList?.contains?.(<span class="string">"leave-alone"</span>)) {</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">const</span> widthList = cells.map(<span class="function">(<span class="params">el</span>) =&gt;</span> {</span><br><span class="line">      <span class="keyword">return</span> el.querySelector(<span class="string">".cell"</span>)?.scrollWidth || <span class="number">0</span>;</span><br><span class="line">    });</span><br><span class="line">    <span class="keyword">const</span> max = <span class="built_in">Math</span>.max(...widthList);</span><br><span class="line">    <span class="keyword">var</span> elWidth = max + padding;</span><br><span class="line">    <span class="keyword">if</span> (!dragClsName &amp;&amp; cells[<span class="number">0</span>]?.classList?.contains?.(<span class="string">"auto-width"</span>)) {</span><br><span class="line">      autoWithClsName = clsName;</span><br><span class="line">      autoWith = elWidth;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    table.querySelectorAll(<span class="string">`col[name=<span class="subst">${clsName}</span>]`</span>).forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> {</span><br><span class="line">      <span class="keyword">const</span> oElWidth = <span class="built_in">parseInt</span>(el.getAttribute(<span class="string">"_width"</span>));</span><br><span class="line">      <span class="keyword">if</span> (oElWidth) {</span><br><span class="line">        <span class="keyword">if</span> (dragClsName === clsName) {</span><br><span class="line">          <span class="keyword">if</span> (oElWidth + increaseWidth &gt;= elWidth) {</span><br><span class="line">            elWidth = oElWidth + increaseWidth;</span><br><span class="line">          }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">          <span class="keyword">if</span> (dragClsName) {</span><br><span class="line">            elWidth = oElWidth;</span><br><span class="line">          }</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">      el.setAttribute(<span class="string">"width"</span>, elWidth);</span><br><span class="line">      el.setAttribute(<span class="string">"_width"</span>, elWidth);</span><br><span class="line">    });</span><br><span class="line">    totalWidth += elWidth;</span><br><span class="line">  });</span><br><span class="line">  <span class="keyword">if</span> (autoWithClsName &amp;&amp; !dragClsName) {</span><br><span class="line">    <span class="keyword">if</span> (tableScrollWidth &gt; totalWidth) {</span><br><span class="line">      <span class="keyword">var</span> willSettingAutoWith = tableScrollWidth - totalWidth + padding;</span><br><span class="line">      <span class="keyword">if</span> (willSettingAutoWith &gt; autoWith) {</span><br><span class="line">        autoWith = willSettingAutoWith;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    table.querySelectorAll(<span class="string">`col[name=<span class="subst">${autoWithClsName}</span>]`</span>).forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> {</span><br><span class="line">      el.setAttribute(<span class="string">"width"</span>, autoWith);</span><br><span class="line">      el.setAttribute(<span class="string">"_width"</span>, autoWith);</span><br><span class="line">    });</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>添加全局方法：src/main.js</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> { parseTime, resetForm, addDateRange, selectDictLabel, selectDictLabels, handleTree, adjustColumnWidth } <span class="keyword">from</span> <span class="string">"@/utils/ruoyi"</span>;</span><br><span class="line"></span><br><span class="line">Vue.prototype.adjustColumnWidth = adjustColumnWidth</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>示例</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;        </span><br><span class="line">	&lt;el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange"</span><br><span class="line">    resizable</span><br><span class="line">    :border="true"</span><br><span class="line">    :fit="false"</span><br><span class="line">    ref="elTable"</span><br><span class="line">    @header-dragend="handleTableHeaderDragend"</span><br><span class="line">    class="adjust-cw-el-table"</span><br><span class="line">		&gt;</span><br><span class="line">    &lt;el-table-column type="selection"  align="center" /&gt;</span><br><span class="line">    &lt;el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns[0].visible" /&gt;</span><br><span class="line">    &lt;el-table-column label="账户名" align="center" key="userName" prop="userName" v-if="columns[1].visible" :show-overflow-tooltip="true"&gt;&lt;/el-table-column&gt;</span><br><span class="line">    &lt;el-table-column align="center" key="nickName" prop="nickName" v-if="columns[2].visible" :show-overflow-tooltip="true"&gt;</span><br><span class="line">    &lt;template slot="header"&gt;</span><br><span class="line">        &lt;div&gt;姓名&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;手机号&lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;template slot-scope="scope"&gt;</span><br><span class="line">        {{ scope.row.nickName }}&lt;br/&gt;{{ scope.row.phonenumber }}</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;/el-table-column&gt;</span><br><span class="line">    &lt;el-table-column</span><br><span class="line">    label="操作"</span><br><span class="line">    align="center"</span><br><span class="line">    class-name="small-padding auto-width"</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;template slot-scope="scope" v-if="scope.row.userId !== 1"&gt;</span><br><span class="line">        &lt;el-button</span><br><span class="line">        size="mini"</span><br><span class="line">        type="text"</span><br><span class="line">        icon="el-icon-edit"</span><br><span class="line">        @click="handleUpdate(scope.row)"</span><br><span class="line">        v-hasPermi="['system:user:edit']"</span><br><span class="line">        &gt;修改&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button</span><br><span class="line">        size="mini"</span><br><span class="line">        type="text"</span><br><span class="line">        icon="el-icon-delete"</span><br><span class="line">        @click="handleDelete(scope.row)"</span><br><span class="line">        v-hasPermi="['system:user:remove']"</span><br><span class="line">        &gt;删除&lt;/el-button&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;/el-table-column&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default {</span><br><span class="line">  methods: {</span><br><span class="line">    handleTableHeaderDragend(newWidth, oldWidth, column, event) {</span><br><span class="line">      setTimeout(() =&gt; {</span><br><span class="line">          this.adjustColumnWidth(this.$refs.elTable.$el, 6, column.id, newWidth - oldWidth);</span><br><span class="line">      }, 100);</span><br><span class="line">    },</span><br><span class="line">    getList() {</span><br><span class="line">      this.loading = true;</span><br><span class="line">      listUser(this.addDateRange(this.queryParams, this.dateRange)).then(response =&gt; {</span><br><span class="line">          this.userList = response.rows;</span><br><span class="line">          this.$nextTick((e) =&gt; {</span><br><span class="line">            this.adjustColumnWidth(this.$refs.elTable.$el, 6);</span><br><span class="line">          })</span><br><span class="line">          this.total = response.total;</span><br><span class="line">          this.loading = false;</span><br><span class="line">        }</span><br><span class="line">      );</span><br><span class="line">    },</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lzkwin/p/13575805.html">（几乎）完美实现 el-table 列宽自适应 </a> <a target="_blank" rel="noopener" href="https://github.com/kaysonli/v-fit-column">https://github.com/kaysonli/v-fit-column</a></p>
+<blockquote>
+<p>通过 Vue 的directive指令(自定义指令）实现</p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/legendJaden/AFTableColumn">https://github.com/legendJaden/AFTableColumn</a></p>
+<blockquote>
+<p>不支持 Vue 3.0</p>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="codezm 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="codezm 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>codezm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codezm.github.io/posts/Vue/dce48eb0.html" title="饿了么element-ui中el-table组件列宽自适应">https://codezm.github.io/posts/Vue/dce48eb0.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
+              <a href="/tags/element-ui/" rel="tag"># element-ui</a>
+              <a href="/tags/el-table/" rel="tag"># el-table</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/mirrors/5e3aa94a.html" rel="prev" title="包管理器镜像源配置">
+      <i class="fa fa-chevron-left"></i> 包管理器镜像源配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/Vue/5e5ddc84.html" rel="next" title="项目中添加 jsconfig.json 文件">
+      项目中添加 jsconfig.json 文件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E9%A1%B5%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">单页示例代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E5%8F%8A%E5%85%A8%E5%B1%80%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">挂载全局样式及全局方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://codezm.github.io/posts/Vue/dce48eb0.html";
+    this.page.identifier = "posts/Vue/dce48eb0.html";
+    this.page.title = "饿了么element-ui中el-table组件列宽自适应";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codezm.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

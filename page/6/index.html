@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="codezm 的个人博客">
+<meta property="og:url" content="https://codezm.github.io/page/6/index.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="codezm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/HTTPS/41d04e92.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/HTTPS/41d04e92.html" class="post-title-link" itemprop="url">http升级https</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-02 17:57:34" itemprop="dateCreated datePublished" datetime="2021-09-02T17:57:34+00:00">2021-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTPS/" itemprop="url" rel="index"><span itemprop="name">HTTPS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/HTTPS/41d04e92.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/HTTPS/41d04e92.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在大数据时代，http被劫持已经成为常态了，近期公司决定对全站做https升级。</p>
+<p>要实现https升级需要以下步骤：</p>
+<ol>
+<li>将http请求强制转换成https。</li>
+<li>受同源策略的影响，源网页中所有的资源也需要改成https请求，不然http资源文件将无法被加载。</li>
+</ol>
+<p>第一步骤实现起来简单，做下强制跳转即可，但要想实现第二步骤确很麻烦，业务中有很多老项目。</p>
+<p>为了实现第二步骤，采用的方案是源代码中继续使用http，通过在服务端响应 <code>Upgrade-Insecure-Requests: 1</code> 头，</p>
+<ol>
+<li>服务端设置响应</li>
+</ol>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-Security-Policy: upgrade-insecure-requests"</span>);</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="comment">// header('Upgrade-Insecure-Requests: 1');</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="2">
+<li>HTML中配置</li>
+</ol>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Security-Policy"</span> <span class="attr">content</span>=<span class="string">"upgrade-insecure-requests"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h4 id="1-添加-Content-Security-Policy-后，导致页面中的-Ajax-请求丢失-X-Requested-With-XMLHttpRequest-头信息："><a href="#1-添加-Content-Security-Policy-后，导致页面中的-Ajax-请求丢失-X-Requested-With-XMLHttpRequest-头信息：" class="headerlink" title="1. 添加 Content-Security-Policy 后，导致页面中的 Ajax 请求丢失 X-Requested-With: XMLHttpRequest 头信息："></a>1. 添加 <code>Content-Security-Policy</code> 后，导致页面中的 Ajax 请求丢失 <code>X-Requested-With: XMLHttpRequest</code> 头信息：</h4><blockquote>
+<p>注意：此问题只出现在服务端做 isAjax 请求的处理逻辑中，如下面基于 Yaf 框架示例的代码。</p>
+</blockquote>
+<ul>
+<li><p>PHP 代码：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoController</span> <span class="keyword">extends</span> \<span class="title">Yaf</span>\<span class="title">Controller_Abstract</span> </span>{</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">indexAction</span>(<span class="params"></span>) </span>{</span><br><span class="line">    $name = <span class="string">'codezm'</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// isAjax</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;getRequest()-&gt;isXmlHttpRequest()){</span><br><span class="line">      $name = <span class="keyword">$this</span>-&gt;getRequest()-&gt;getPost(<span class="string">'name'</span>, <span class="string">'nothing'</span>);</span><br><span class="line">      <span class="keyword">echo</span> $name;</span><br><span class="line">      <span class="keyword">exit</span>;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">		header(<span class="string">"Content-Security-Policy: upgrade-insecure-requests"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">$this</span>-&gt;_view-&gt;assign(<span class="string">'name'</span>, $name);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>HTML 代码：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    {{ name }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="javascript">    $.ajax({</span></span><br><span class="line"><span class="javascript">        type: <span class="string">"POST"</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">// headers: {'X-Requested-With': 'XMLHttpRequest'},</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// crossDomain: false,</span></span></span><br><span class="line"><span class="javascript">        url: <span class="string">"https://yaf.codezm.com:8081/demo/index"</span>,</span></span><br><span class="line"><span class="handlebars"><span class="xml">        data: {'name': "</span><span class="template-variable">{{ <span class="name">name</span> }}</span><span class="xml">"},</span></span></span><br><span class="line"><span class="javascript">        dataType: <span class="string">"json"</span></span></span><br><span class="line"><span class="javascript">    }).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{</span></span><br><span class="line">    </span><br><span class="line"><span class="javascript">    }).fail(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span></span><br><span class="line">    </span><br><span class="line">    })</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+</li>
+</ul>
+<p>在浏览器中访问 <code>https://yaf.codezm.com:8081/demo/index</code> 地址：</p>
+<ol>
+<li>将HTML代码中ajax的url值改成 <code>https://yaf.codezm.com:8081/demo/index</code> 时，<code>Requset Headers</code> 中携带了 <code>X-Requested-With: XMLHttpRequest</code> 头。</li>
+</ol>
+<p><img data-src="/posts/HTTPS/41d04e92/image-20210831152311079.png" alt="image-20210831152311079"></p>
+<ol start="2">
+<li>HTML中添加CSP <code>&lt;meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"&gt;</code>，将ajax的url值改成 <code>http://yaf.codezm.com:8081/demo/index</code> 时，<code>Requset Headers</code> 中并未携带 <code>X-Requested-With: XMLHttpRequest</code> 头，服务端也就没有办法确定是否是 ajax 请求了。</li>
+</ol>
+<p><img data-src="/posts/HTTPS/41d04e92/image-20210831152731652.png" alt="image-20210831152731652"></p>
+<p>分析 Ajax ：</p>
+<p><code>crossDomain</code> 的值是 <code>false</code> 时，才会增加 <code>X-Requested-With: XMLHttpRequest</code> 头信息。</p>
+<p><img data-src="/posts/HTTPS/41d04e92/image-20210831161820012.png" alt="image-20210831161820012"></p>
+<p>那为什么 crossDomain 为 true 了呢？<a target="_blank" rel="noopener" href="https://github.com/jquery/jquery/blob/main/src/ajax.js#L555">https://github.com/jquery/jquery/blob/main/src/ajax.js#L555</a></p>
+<p><img data-src="/posts/HTTPS/41d04e92/image-20210831161728378.png" alt="image-20210831161728378"></p>
+<p>解决方案：</p>
+<ol>
+<li>手动添加 <code>X-Requested-With: XMLHttpRequest</code> 头信息。</li>
+<li>配置 <code>crossDomain: false</code> ，使其同源。</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax({</span><br><span class="line">    type: <span class="string">"POST"</span>,</span><br><span class="line">    <span class="comment">//headers: {'X-Requested-With': 'XMLHttpRequest'},</span></span><br><span class="line">    crossDomain: <span class="literal">false</span>,</span><br><span class="line">    url: <span class="string">"http://yaf.codezm.com:8081/demo/index"</span>,</span><br><span class="line">    data: {<span class="string">'name'</span>: <span class="string">"{{ userName }}"</span>},</span><br><span class="line">    dataType: <span class="string">"json"</span></span><br><span class="line">}).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{</span><br><span class="line"></span><br><span class="line">}).fail(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><code>ThinkPHP</code> 中的 <code>isAjax</code> 代码：</p>
+<p><img data-src="/posts/HTTPS/41d04e92/image-20210831143210228.png" alt="image-20210831143210228"></p>
+<h4 id="2-Referer-丢失。"><a href="#2-Referer-丢失。" class="headerlink" title="2. Referer 丢失。"></a>2. Referer 丢失。</h4><p>因为 <code>upgrade-insecure-requests</code> 会将站点的所有非导航不安全 URL (HTTP) 自动升级（第一方 和第三方请求）。</p>
+<blockquote>
+<p>非导航不安全 URL是指：<code>&lt;a&gt;</code> 标签不会升级，即还是原来的 <code>&lt;a href="http://not-example.com/"&gt;Home&lt;/a&gt;</code>。</p>
+</blockquote>
+<ul>
+<li>no-referrer</li>
+<li>no-referrer-when-downgrade</li>
+<li>same-origin</li>
+<li>origin</li>
+<li>strict-origin</li>
+<li>strict-origin-when-cross-origin</li>
+<li>unsafe-url</li>
+</ul>
+<blockquote>
+<p> 自 Chrome 85 版本之后，已将原来的 referer策略（policy）：由 <code>no-referrer-when-downgrade</code>，变更为 <code>strict-origin-when-cross-origin</code>。</p>
+</blockquote>
+<h5 id="strict-origin-when-cross-origin"><a href="#strict-origin-when-cross-origin" class="headerlink" title="strict-origin-when-cross-origin"></a><code>strict-origin-when-cross-origin</code></h5><p>同源时，发送完整的 <code>Referer</code> 字段。跨域时，https跳转https 仅发送源信息（协议+域名+端口）、https跳http不发送任何referer数据。http跳转跨域仅发送源信息。</p>
+<blockquote>
+<p>同源：协议+域名+端口 都相同。</p>
+<p>跨域：协议、域名、端口 任一不同。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>页面地址</th>
+<th>跳转地址</th>
+<th>referer值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index">https://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/r">https://yaf.codezm.com/demo/r</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/r">https://yaf.codezm.com/demo/r</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index">https://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/r">http://yaf.codezm.com/demo/r</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index">https://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="https://api.codezm.com/">https://api.codezm.com/</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/">https://yaf.codezm.com/</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index">https://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="http://api.codezm.com/">http://api.codezm.com/</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index">http://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/r">http://yaf.codezm.com/demo/r</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index">http://yaf.codezm.com/demo/index</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index">http://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/r">https://yaf.codezm.com/demo/r</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/">http://yaf.codezm.com/</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index">http://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="https://api.codezm.com/">https://api.codezm.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/">http://yaf.codezm.com/</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index">http://yaf.codezm.com/demo/index</a></td>
+<td><a target="_blank" rel="noopener" href="http://api.codezm.com/">http://api.codezm.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/">http://yaf.codezm.com/</a></td>
+</tr>
+</tbody></table>
+<h5 id="no-referrer-when-downgrade"><a href="#no-referrer-when-downgrade" class="headerlink" title="no-referrer-when-downgrade"></a><code>no-referrer-when-downgrade</code></h5><p>从 HTTPS 网址链接到 HTTP 网址，不发送<code>Referer</code>字段，其他情况发送。</p>
+<table>
+<thead>
+<tr>
+<th>页面地址</th>
+<th>跳转地址</th>
+<th>referer值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index?id=1#10">https://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/r">https://yaf.codezm.com/demo/r</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index?id=1">https://yaf.codezm.com/demo/index?id=1</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index?id=1#10">https://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/r">http://yaf.codezm.com/demo/r</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index?id=1#10">https://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="https://api.codezm.com/">https://api.codezm.com/</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index?id=1">https://yaf.codezm.com/demo/index?id=1</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/index?id=1#10">https://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="http://api.codezm.com/">http://api.codezm.com/</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1#10">http://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/r">http://yaf.codezm.com/demo/r</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1">http://yaf.codezm.com/demo/index?id=1</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1#10">http://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="https://yaf.codezm.com/demo/r">https://yaf.codezm.com/demo/r</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1">http://yaf.codezm.com/demo/index?id=1</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1#10">http://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="https://api.codezm.com/">https://api.codezm.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1">http://yaf.codezm.com/demo/index?id=1</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1#10">http://yaf.codezm.com/demo/index?id=1#10</a></td>
+<td><a target="_blank" rel="noopener" href="http://api.codezm.com/">http://api.codezm.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://yaf.codezm.com/demo/index?id=1">http://yaf.codezm.com/demo/index?id=1</a></td>
+</tr>
+</tbody></table>
+<h4 id="升级https，Yaf-框架类调整："><a href="#升级https，Yaf-框架类调整：" class="headerlink" title="升级https，Yaf 框架类调整："></a>升级https，Yaf 框架类调整：</h4><h5 id="1-调整页面-url-渲染"><a href="#1-调整页面-url-渲染" class="headerlink" title="1. 调整页面 url 渲染"></a>1. 调整页面 url 渲染</h5><blockquote>
+<p>示例：<code>&lt;a href="{{ url('members/index') }}"&gt;用户列表&lt;/a&gt;</code></p>
+</blockquote>
+<p>文件路径：webservice/application/plugins/Twig.php</p>
+<p>要修改的代码：</p>
+  <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$twig-&gt;twig-&gt;addFunction(<span class="string">"url"</span>, <span class="keyword">new</span> Twig_Function_Function(<span class="string">"Tools_help::url"</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<p> PHP&gt;=5.4更改后：</p>
+  <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$twig-&gt;twig-&gt;addFunction(<span class="string">"url"</span>, <span class="keyword">new</span> Twig_Function_Function(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> str_replace([<span class="string">'http:'</span>, <span class="string">'https:'</span>], <span class="string">''</span>, call_user_func_array(<span class="string">"Tools_help::url"</span>, func_get_args()));</span><br><span class="line">}));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>PHP5.3更改后:</p>
+  <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$twig-&gt;twig-&gt;addFunction(<span class="string">"url"</span>, <span class="keyword">new</span> Twig_Function_Function(<span class="keyword">array</span>(<span class="keyword">$this</span>, <span class="string">'url'</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在当前文件中新增 url() 方法。</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">url</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> str_replace(<span class="keyword">array</span>(<span class="string">'http:'</span>, <span class="string">'https:'</span>), <span class="string">''</span>, call_user_func_array(<span class="string">"Tools_help::url"</span>, func_get_args()));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="2-调整页面静态资源引用路径"><a href="#2-调整页面静态资源引用路径" class="headerlink" title="2. 调整页面静态资源引用路径"></a>2. 调整页面静态资源引用路径</h5><blockquote>
+<p>示例：<code>&lt;link rel="stylesheet" href="{{config['application']['site']['assetsUri']}}admin/css/bootstrap.min.css" /&gt;</code></p>
+</blockquote>
+<p>更改配置文件：</p>
+<p><code>application.site.assetsUri = 'http://yaf.codezm.com/assets/'</code> </p>
+<p>调整为 <code>application.site.assetsUri = '//yaf.codezm.com/assets/'</code> </p>
+<p>或者在同域名下的 <code>application.site.assetsUri = '/assets/</code>。</p>
+<h4 id="升级https后注意事项："><a href="#升级https后注意事项：" class="headerlink" title="升级https后注意事项："></a>升级https后注意事项：</h4><ol>
+<li><p><code>Twig::url</code> 模板渲染路径去除 <code>http:</code> 及 <code>https:</code> 协议前缀，浏览器中可通过 <code>location.protocol='https:'</code> 来获取当前URL使用的协议值。</p>
+</li>
+<li><p>API: 是 <code>http</code> 强制跳转 <code>https</code> 协议，则云服务（七牛云、阿里云、gitee.com）回调地址必须是 <code>https</code> 协议地址，若还保持 <code>http</code> 会造成 <code>301</code> 等响应码及错误响应数据。</p>
+</li>
+<li><p>微信相关业务: <code>特约商户</code> 回调地址需改成 <code>https</code> 协议，否则会报：<code>页面地址：xxx 未注册</code>。</p>
+</li>
+<li><p>Chrome.93.0.4577.63: http协议设置的cookie、domain为 <code>.codezm.com</code> ，然而 ajax 在跨域请求 https 协议地址时无法携带 cookie 值。若改为https协议设置cookie即可。</p>
+<blockquote>
+<p>Set-Cookie: API_PHPSESSID=613ac2738d9ee2.02197130; expires=Thu, 06-Jun-2024 02:26:59 GMT; path=/; domain=.codezm.com</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904101826789389">混合内容 &amp; https 升级攻略</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/VSCode/37714644.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/VSCode/37714644.html" class="post-title-link" itemprop="url">Virtual Studio Code 配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-27 18:01:00" itemprop="dateCreated datePublished" datetime="2021-08-27T18:01:00+00:00">2021-08-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VSCode/" itemprop="url" rel="index"><span itemprop="name">VSCode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/VSCode/37714644.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/VSCode/37714644.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Virtual-Studio-Code-Setup"><a href="#Virtual-Studio-Code-Setup" class="headerlink" title="Virtual Studio Code Setup"></a>Virtual Studio Code Setup</h2><p>vscode 提供了两种设置方式：</p>
+<ul>
+<li><strong>User Settings（用户设置）</strong>：全局设置，对任意一个运行的 VS Code 都会起作用。</li>
+<li><strong>Workspace Settings（项目设置）</strong>：只对当前项目的设置。</li>
+</ul>
+<blockquote>
+<p> Workspace Settings 会覆盖 User Settings。</p>
+</blockquote>
+<p>打开用户设置和项目设置的方法如下：</p>
+<ul>
+<li>Windows/Linux： <code>File &gt; Preferences &gt; Settings</code></li>
+<li>macOS：<code>Code &gt; Preferences &gt; Settings</code></li>
+</ul>
+<p>或直接通过命令行面板（**<code>Ctrl/Command+Shift+P</code>**）输入 <code>Open Settings (JSON)</code> 进行调出</p>
+<p>vscode 中的 <strong>设置选项</strong> 都配置在一个 <code>settings.json</code> 文件中。<br> 其中，<em>用户设置（User Settings）</em> 的路径为：</p>
+<ul>
+<li>Windows <code>%APPDATA%\Code\User\settings.json</code></li>
+<li>macOS <code>$HOME/Library/Application Support/Code/User/settings.json</code></li>
+<li>Linux <code>$HOME/.config/Code/User/settings.json</code></li>
+</ul>
+<p>而 <em>项目设置（Workspace Settings）</em> 的路径为：根目录下的 <code>.vscode</code> 中。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/VSCode/37714644.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/WeChat/28d780a7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/WeChat/28d780a7.html" class="post-title-link" itemprop="url">微信浏览器中的请求未携带referer问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-13 17:49:43" itemprop="dateCreated datePublished" datetime="2021-08-13T17:49:43+00:00">2021-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WeChat/" itemprop="url" rel="index"><span itemprop="name">WeChat</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/WeChat/28d780a7.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/WeChat/28d780a7.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>微信浏览器中的请求未携带referer问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/WeChat/28d780a7.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MySQL/7ca7ee77.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/MySQL/7ca7ee77.html" class="post-title-link" itemprop="url">canal同步主库MySQL5.6至从库MySQL8.0</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 18:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T18:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MySQL/7ca7ee77.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MySQL/7ca7ee77.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>19 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>canal同步主库MySQL5.6至从库MySQL8.0</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/MySQL/7ca7ee77.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/WeChat/ad578931.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/WeChat/ad578931.html" class="post-title-link" itemprop="url">微信授权获取用户信息时code回调了两次</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 15:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T15:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WeChat/" itemprop="url" rel="index"><span itemprop="name">WeChat</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/WeChat/ad578931.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/WeChat/ad578931.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="微信授权获取用户信息时code回调了两"><a href="#微信授权获取用户信息时code回调了两" class="headerlink" title="微信授权获取用户信息时code回调了两"></a>微信授权获取用户信息时code回调了两</h2><p>通过调用微信授权，首先要获取 <code>code</code>，微信将携带 <code>code</code> 回调至开发者指定的地址。但有部分安卓机型（截止目前发现机型有：小米）会提示 <code>errcode:40163, errmsg: code been used</code> 错误。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/WeChat/ad578931.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MacOS/7b492236.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/MacOS/7b492236.html" class="post-title-link" itemprop="url">MacOS开机自动挂载硬盘&frpc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 15:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T15:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MacOS/" itemprop="url" rel="index"><span itemprop="name">MacOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MacOS/7b492236.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MacOS/7b492236.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MacOS开机自动挂载硬盘-amp-frpc"><a href="#MacOS开机自动挂载硬盘-amp-frpc" class="headerlink" title="MacOS开机自动挂载硬盘&amp;frpc"></a>MacOS开机自动挂载硬盘&amp;frpc</h1><h4 id="开启-断电后自动启动-功能"><a href="#开启-断电后自动启动-功能" class="headerlink" title="开启 断电后自动启动 功能"></a>开启 <code>断电后自动启动</code> 功能</h4><p><code>系统偏好设置</code> -&gt; <code>节能</code> -&gt; <code>断电后自动启动</code>。</p>
+<h4 id="配置开机自动运行脚本"><a href="#配置开机自动运行脚本" class="headerlink" title="配置开机自动运行脚本"></a>配置开机自动运行脚本</h4><ul>
+<li>用户登录运行：<code>/Library/LaunchAgents/</code></li>
+<li>不需要用户登录运行：<code>/Library/LaunchDaemons/</code></li>
+<li>用户身份运行：<code>～/Library/LaunchAgents/</code></li>
+</ul>
+<p><code>macOS</code> 自动运行是通过 <code>launchd</code> 工具管理的，<code>launchd</code> 配置文件是以 <code>.plist</code> 结尾的格式文件。</p>
+<blockquote>
+<p>注意：配置文件的拥有者必须是 <code>root:wheel</code> ，命令：<code>sudo chown root:wheel com.codezm.frpc.plist</code>。读写权限需为 <code>644</code> ，命令：<code>sudo chmod 644 com.codezm.frpc.plist</code></p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/MacOS/7b492236.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MacOS/53e158f1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/MacOS/53e158f1.html" class="post-title-link" itemprop="url">MacOS软件推荐</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 15:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T15:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MacOS/" itemprop="url" rel="index"><span itemprop="name">MacOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MacOS/53e158f1.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MacOS/53e158f1.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MacOS软件推荐</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/MacOS/53e158f1.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/PHP/27c19fc0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/PHP/27c19fc0.html" class="post-title-link" itemprop="url">PHP版本升级注意事项</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 15:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T15:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/PHP/27c19fc0.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/PHP/27c19fc0.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>267</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>PHP版本升级注意事项</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/PHP/27c19fc0.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/PHP/836c210a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/PHP/836c210a.html" class="post-title-link" itemprop="url">PHP配置文件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 15:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T15:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/PHP/836c210a.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/PHP/836c210a.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>126</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>PHP配置文件</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/PHP/836c210a.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/PHP/4e89864b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/PHP/4e89864b.html" class="post-title-link" itemprop="url">SQLServer由freetds改用odbc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 15:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T15:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/PHP/4e89864b.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/PHP/4e89864b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQLServer由freetds改用odbc</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/PHP/4e89864b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>

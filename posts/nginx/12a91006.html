@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Nginx-gzip压缩  ngx_http_gzip_module  ngx_http_gzip_static_module  ngx_http_gunzip_module">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx-gzip压缩">
+<meta property="og:url" content="https://codezm.github.io/posts/nginx/12a91006.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:description" content="Nginx-gzip压缩  ngx_http_gzip_module  ngx_http_gzip_static_module  ngx_http_gunzip_module">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-28T15:43:04.000Z">
+<meta property="article:modified_time" content="2025-12-01T08:02:38.187Z">
+<meta property="article:author" content="codezm">
+<meta property="article:tag" content="nginx">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/posts/nginx/12a91006.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Nginx-gzip压缩 | codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/nginx/12a91006.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx-gzip压缩
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-28 15:43:04" itemprop="dateCreated datePublished" datetime="2020-12-28T15:43:04+00:00">2020-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/nginx/12a91006.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/nginx/12a91006.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Nginx-gzip压缩</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html">ngx_http_gzip_module</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html">ngx_http_gzip_static_module</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_gunzip_module.html">ngx_http_gunzip_module</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="nginx-推荐配置"><a href="#nginx-推荐配置" class="headerlink" title="nginx 推荐配置"></a>nginx 推荐配置</h4><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip</span>  <span class="literal">on</span>;</span><br><span class="line"><span class="attribute">gzip_min_length</span>   <span class="number">1k</span>;</span><br><span class="line"><span class="attribute">gzip_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line"><span class="attribute">gzip_types</span> text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml;</span><br><span class="line"><span class="attribute">gzip_disable</span> <span class="string">"MSIE [1-6]\."</span>;</span><br><span class="line"><span class="attribute">gzip_comp_level</span>   <span class="number">2</span>;</span><br><span class="line"><span class="attribute">gzip_vary</span> <span class="literal">on</span>;</span><br><span class="line"><span class="comment">#gzip_static on;</span></span><br><span class="line"><span class="comment">#gunzip on</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="ngx-http-gzip-module"><a href="#ngx-http-gzip-module" class="headerlink" title="ngx_http_gzip_module"></a>ngx_http_gzip_module</h4><blockquote>
+<p>默认已编译，可通过 <code>--without-http_gzip_module</code> 禁用模块。</p>
+</blockquote>
+<p>我们可通过 <code>ngx_http_gzip_module</code> 模块，使用 <code>gzip on;</code> 指令开启 gzip 压缩，实时压缩 http 包体，提升网络传输效率。</p>
+<blockquote>
+<p>Syntax: gzip on | off;</p>
+<p>Default: gzip off;</p>
+<p>Context: http,server,location, if in location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip</span> <span class="literal">on</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>指定压缩文件类型，图片类文件本身就自带压缩，再进行压缩提升并不明显。</p>
+<blockquote>
+<p>Syntax: gzip_types mime-type …;</p>
+<p>Default: gzip_types text/html;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip_types</span> text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>指定压缩文件的最小字节数，当小于此字节数时不进行压缩。</p>
+<blockquote>
+<p>Syntax:    gzip_min_length length;<br>Default:    gzip_min_length 20;<br>Context:    http, server, location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip_min_length</span> <span class="number">1k</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>通过设置正则规则，表明哪些 <code>User-Agent</code> 头不使用 gzip 压缩。</p>
+<blockquote>
+<p>Syntax:    gzip_disable regex …;<br>Default:    —<br>Context:    http, server, location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁用IE 1-6 gzip</span></span><br><span class="line"><span class="attribute">gzip_disable</span> <span class="string">"MSIE [1-6]\."</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>指定压缩的  http 版本，默认：http_version: 1.1 才启用压缩处理。</p>
+<blockquote>
+<p>Syntax:    gzip_http_version 1.0 | 1.1;<br>Default:    gzip_http_version 1.1;<br>Context:    http, server, location</p>
+</blockquote>
+<p>是否压缩上游的响应</p>
+<blockquote>
+<p>Syntax:    gzip_proxied off | expired | no-cache | no-store | private | no_last_modified | no_etag | auth | any …;<br>Default:    gzip_proxied off;<br>Context:    http, server, location</p>
+</blockquote>
+<ul>
+<li>off<ul>
+<li>不压缩来自上游的响应</li>
+</ul>
+</li>
+<li>expired<ul>
+<li>如果上游响应中含有 Expires 头部，且其值中的时间与系统时间比较后确定不会缓存，则压缩响应</li>
+</ul>
+</li>
+<li>no-cache<ul>
+<li>如果上游响应中含有 <code>Cache-Control</code> 头部，且其值含有 <code>no-cache</code> 值，则压缩响应。</li>
+</ul>
+</li>
+<li>private<ul>
+<li>如果上游响应中含有 <code>Cache-Control</code> 头部，且其值含有 <code>private</code> 值，则压缩响应</li>
+</ul>
+</li>
+<li>no_last_modified<ul>
+<li>如果上游响应中没有 <code>Last-Modified</code> 头部，则压缩响应</li>
+</ul>
+</li>
+<li>no_etag<ul>
+<li>如果上游响应中没有 <code>ETag</code> 头部，则压缩响应</li>
+</ul>
+</li>
+<li>auth<ul>
+<li>如果客户端请求中含有 <code>Authorization</code> 头部，则压缩响应</li>
+</ul>
+</li>
+<li>any<ul>
+<li>压缩所有来自上游的响应</li>
+</ul>
+</li>
+</ul>
+<p>配置缓冲区大小</p>
+<blockquote>
+<p>Syntax:    gzip_buffers number size;<br>Default:    gzip_buffers 32 4k|16 8k;<br>Context:    http, server, location</p>
+</blockquote>
+<p>压缩率等级，1-9，1：压缩速度最快，压缩率最低。</p>
+<blockquote>
+<p>Syntax:    gzip_comp_level level;<br>Default:    gzip_comp_level 1;<br>Context:    http, server, location</p>
+</blockquote>
+<p>是否在响应中返回 <code>Vary: Accept-Encoding</code>。</p>
+<blockquote>
+<p>Syntax:    gzip_vary on | off;<br>Default:    gzip_vary off;<br>Context:    http, server, location</p>
+</blockquote>
+<p>变量</p>
+<ul>
+<li>压缩率 <code>$gzip_ratio</code> </li>
+</ul>
+<h5 id="如何确定是否成功开启？"><a href="#如何确定是否成功开启？" class="headerlink" title="如何确定是否成功开启？"></a>如何确定是否成功开启？</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@codezm ~]<span class="comment"># curl -I "http://127.0.0.1/src/js/jquery.min.js"</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.18.0</span><br><span class="line">Date: Mon, 28 Dec 2020 08:07:43 GMT</span><br><span class="line">Content-Type: application/javascript</span><br><span class="line">Content-Length: 89476</span><br><span class="line">Last-Modified: Mon, 28 Dec 2020 06:39:59 GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">ETag: <span class="string">"5fe97dbf-15d84"</span></span><br><span class="line">Accept-Ranges: bytes</span><br></pre></td></tr></tbody></table></figure>
+
+<p>响应头中有 <code>Vary</code> 参数，证明已开启 <code>gzip</code> 压缩。</p>
+<h4 id="ngx-http-gzip-static-module"><a href="#ngx-http-gzip-static-module" class="headerlink" title="ngx_http_gzip_static_module"></a>ngx_http_gzip_static_module</h4><blockquote>
+<p>默认未编译，需在 <code>configure</code> 时增加 <code>--with-http_gzip_static_module</code> 参数。</p>
+</blockquote>
+<p>在启用 <code>gzip</code> 压缩后，因需要对 <code>body</code> 做压缩处理所以无法使用 sendfile 零拷贝技术。可通过 <code>ngx_http_gzip_static_module</code> 模块，它将检索请求文件相对路径下有没有同名 <code>.gz</code> 文件，有时将直接响应此文件。</p>
+<blockquote>
+<p>Syntax:    gzip_static on | off | always;<br>Default:    gzip_static off;<br>Context:    http, server, location</p>
+</blockquote>
+<p>配置文件中增加 <code>gzip_static on;</code> 指令，开启此模块，还需要在访问文件相对目录下创建同名 <code>.gz</code> 压缩文件。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@codezm js]<span class="comment"># tar -zcvf jquery.min.js.gz jquery.min.js</span></span><br><span class="line">-rwxr-xr-x. 1 apache apache 89476 12月 28 14:39 jquery.min.js</span><br><span class="line">-rw-r--r--. 1 root   root   30939 12月 28 15:36 jquery.min.js.gz</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="如何确定是否成功开启？-1"><a href="#如何确定是否成功开启？-1" class="headerlink" title="如何确定是否成功开启？"></a>如何确定是否成功开启？</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@codezm ~]<span class="comment"># curl -I -H "Accept-Encoding: gzip, deflate" "http://127.0.0.1/src/js/jquery.min.js"</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.18.0</span><br><span class="line">Date: Mon, 28 Dec 2020 08:12:12 GMT</span><br><span class="line">Content-Type: application/javascript</span><br><span class="line">Content-Length: 30939</span><br><span class="line">Last-Modified: Mon, 28 Dec 2020 07:36:38 GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">ETag: <span class="string">"5fe98b06-78db"</span></span><br><span class="line">Content-Encoding: gzip</span><br></pre></td></tr></tbody></table></figure>
+
+<p>响应头中 <code>Content-Length: 30939</code> 大小与文件压缩后大小一致。</p>
+<p>在使用 <code>tar -zcvf</code> 压缩文件后，发现浏览器并不能对压缩后文件正常解压并解析。而使用 <code>gzip</code> 命令压缩后则正常，文件也更小了。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@codezm js]<span class="comment"># gzip jquery.min.js</span></span><br><span class="line">[root@codezm js]<span class="comment"># ls -la</span></span><br><span class="line">-rwxr-xr-x. 1 apache apache 30842 12月 29 14:27 jquery.min.js.gz</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="ngx-http-gunzip-module"><a href="#ngx-http-gunzip-module" class="headerlink" title="ngx_http_gunzip_module"></a>ngx_http_gunzip_module</h4><blockquote>
+<p>默认未编译，需在 <code>configure</code> 时增加 <code>with-http_gunzip_module</code> 参数。</p>
+</blockquote>
+<p>若服务器上仅存在 <code>*.gz</code> 压缩文件，没有源文件，且客户端不支持 <code>gzip</code> 压缩，可在配置文件中添加 <code>gunzip on;</code> 指令开启此模块。</p>
+<ul>
+<li>当客户端不支持 <code>gzip</code> 压缩时，将在解压后再返回响应。</li>
+<li>若客户端支持 <code>gzip</code> 压缩，则直接输出 <code>.gz</code> 文件。</li>
+</ul>
+<blockquote>
+<p>Syntax:    gunzip on | off;<br>Default:    gunzip off;<br>Context:    http, server, location</p>
+</blockquote>
+<blockquote>
+<p>Syntax:    gunzip_buffers number size;<br>Default:    gunzip_buffers 32 4k|16 8k;<br>Context:    http, server, location</p>
+</blockquote>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yangjianbo/articles/8439764.html">https://www.cnblogs.com/yangjianbo/articles/8439764.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="codezm 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="codezm 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>codezm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codezm.github.io/posts/nginx/12a91006.html" title="Nginx-gzip压缩">https://codezm.github.io/posts/nginx/12a91006.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/%E7%BD%91%E7%BB%9C/3ccf637f.html" rel="prev" title="Aria2 使用总结">
+      <i class="fa fa-chevron-left"></i> Aria2 使用总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/Nginx/7c15ca34.html" rel="next" title="Nginx-https优化">
+      Nginx-https优化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx-%E6%8E%A8%E8%8D%90%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">nginx 推荐配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ngx-http-gzip-module"><span class="nav-number">2.</span> <span class="nav-text">ngx_http_gzip_module</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F%E5%BC%80%E5%90%AF%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">如何确定是否成功开启？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ngx-http-gzip-static-module"><span class="nav-number">3.</span> <span class="nav-text">ngx_http_gzip_static_module</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F%E5%BC%80%E5%90%AF%EF%BC%9F-1"><span class="nav-number">3.1.</span> <span class="nav-text">如何确定是否成功开启？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ngx-http-gunzip-module"><span class="nav-number">4.</span> <span class="nav-text">ngx_http_gunzip_module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://codezm.github.io/posts/nginx/12a91006.html";
+    this.page.identifier = "posts/nginx/12a91006.html";
+    this.page.title = "Nginx-gzip压缩";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codezm.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

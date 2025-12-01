@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="codezm 的个人博客">
+<meta property="og:url" content="https://codezm.github.io/page/9/index.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="codezm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/page/9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Vim/d16c64e7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/Vim/d16c64e7.html" class="post-title-link" itemprop="url">vim基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-28 13:46:12" itemprop="dateCreated datePublished" datetime="2021-01-28T13:46:12+00:00">2021-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Vim/d16c64e7.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Vim/d16c64e7.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>59</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img data-src="/posts/Vim/d16c64e7/vim.png"></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143260180">VIM学习笔记 4种Magic模式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55330855">Vim搜索字符转义与very magic搜索模式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://vimjc.com/">https://vimjc.com/</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Vim/bf56016c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/Vim/bf56016c.html" class="post-title-link" itemprop="url">vim 使用插件篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-28 13:45:45" itemprop="dateCreated datePublished" datetime="2021-01-28T13:45:45+00:00">2021-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Vim/bf56016c.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Vim/bf56016c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>824</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="代码自动补全"><a href="#代码自动补全" class="headerlink" title="代码自动补全"></a>代码自动补全</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/neoclide/coc.nvim">neoclide/coc.nvim</a></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions">编程语言扩展</a></p>
+</li>
+<li><p>教程</p>
+<ul>
+<li></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/39302327">Coc.nvim 系列（一）： 为了更好的补全体验</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cbe374491da4">coc.nvim：让 Vim 具备 VSCode 的编辑效果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345554183">神级编辑器 Vim 使用-插件篇</a></li>
+</ul>
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>可到<a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">这里</a>下载powerline字体, 我使用的是<a target="_blank" rel="noopener" href="https://github.com/powerline/fonts/tree/master/UbuntuMono">UbuntuMono</a>, 配合<code>vim-airline</code>使用。</p>
+<h4 id="Ack-用于检索关键字"><a href="#Ack-用于检索关键字" class="headerlink" title="Ack - 用于检索关键字"></a>Ack - 用于检索关键字</h4><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ack</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<ol>
+<li><p>Neovim</p>
+</li>
+<li><p>Vim Plug to install extensions</p>
+</li>
+<li><p>coc.nvim for autocompletion and imports and type definitions</p>
+<ol>
+<li><code>ctrl-space</code> autocompletion</li>
+<li><code>gd</code> goto definition</li>
+<li><code>F2</code> rename</li>
+<li><code>K</code> show tooltip</li>
+<li>created coc-pref.json</li>
+<li>:CocInstall coc-snippets<ol>
+<li>:CocCommand snippets.editSnippets</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Gruvbox theme</p>
+</li>
+<li><p>yats for typescript syntax</p>
+</li>
+<li><p>nerdtree for file tree</p>
+<ol>
+<li>auto open</li>
+<li>install fira font</li>
+</ol>
+<p>Plug ‘tsony-tsonev/nerdtree-git-plugin’ Plug ‘tiagofumo/vim-nerdtree-syntax-highlight’ Plug ‘ryanoasis/vim-devicons’</p>
+</li>
+<li><p>nerdcommenter</p>
+<ol>
+<li><code>cmd /</code> comment out code</li>
+<li>(mapped to ++ so cmd / can be mapped)</li>
+</ol>
+</li>
+<li><p>ctrlp.vim for fuzzy file finder</p>
+<ol>
+<li><code>cmd p</code> open</li>
+</ol>
+</li>
+<li><p>cmd keybindings required iTerm2 remappings</p>
+</li>
+<li><p>vim-gitgutter tells you what lines you modified</p>
+</li>
+</ol>
+</blockquote>
+<p>参考自：<a target="_blank" rel="noopener" href="https://www.notion.so/Vim-Setup-0586a2ae8466442daa293ad1297bdcd0">https://www.notion.so/Vim-Setup-0586a2ae8466442daa293ad1297bdcd0</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/ssh/427cc714.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/ssh/427cc714.html" class="post-title-link" itemprop="url">ssh使用自定义证书免密登录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-23 05:55:22" itemprop="dateCreated datePublished" datetime="2021-01-23T05:55:22+00:00">2021-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index"><span itemprop="name">ssh</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/ssh/427cc714.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/ssh/427cc714.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>N1 系统安装完成后，为了使外网登录更加安全，本篇将介绍如何把 <code>ssh 密码</code> 登录方式改为 <code>ssh 证书</code> 免密登录。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/ssh/427cc714.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/%E7%88%AC%E8%99%AB/b1a89355.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/%E7%88%AC%E8%99%AB/b1a89355.html" class="post-title-link" itemprop="url">ddrk之m3u8视频源地址解码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-23 05:55:22" itemprop="dateCreated datePublished" datetime="2021-01-23T05:55:22+00:00">2021-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/%E7%88%AC%E8%99%AB/b1a89355.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/爬虫/b1a89355.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ddrk m3u8视频源地址解码</p>
+<p><code>低端影视</code> 网站可观看各种电影，网速及分辨率也满足需求，但唯独没有视频对应下载地址（网络高峰期不给力，经常卡顿，无法正常观影~），通过网络请求分析，应该是 m3u8 格式的资源。</p>
+<h5 id="m3u8-index-文件"><a href="#m3u8-index-文件" class="headerlink" title="m3u8 index 文件"></a>m3u8 index 文件</h5><p>这里以星际迷航电影源解析为例：</p>
+<p>打开链接地址 <a target="_blank" rel="noopener" href="https://ddrk.me/star-trek-discovery/?ep=1%EF%BC%8C%E6%89%93%E5%BC%80">https://ddrk.me/star-trek-discovery/?ep=1，打开</a> chrome 开发者工具，在 network 面板中监听 <code>XHR</code> 异步网络请求，点击视频可观察到：</p>
+<p><img data-src="/posts/%E7%88%AC%E8%99%AB/b1a89355/image-20201115155154892.png" alt="image-20201115155154892"></p>
+<p><img data-src="/posts/%E7%88%AC%E8%99%AB/b1a89355/image-20201115155239705.png" alt="image-20201115155239705"></p>
+<p>第一个 <code>video</code> 请求应该就是 m3u8 文件的 index，但响应值中的 <code>pin</code> 明显是加密过的。</p>
+<p>接着通过 <code>Sources</code> 面板，全局搜索下源代码中的 <code>pin</code> 关键字，最终找到相关后续处理的 javascript 代码，里面有 <code>ungzip</code> 关键字，可得出是 <code>pin</code> 值通过 <code>gzip</code> 加密的。</p>
+<p><img data-src="/posts/%E7%88%AC%E8%99%AB/b1a89355/image-20201115155509206.png" alt="image-20201115155509206"></p>
+<p>而这里也可以看出结果是通过第三方库 <code>pako</code>，接着我们本地搭建下开发环境，模拟解析下 <code>pin</code> 值，示例代码如下：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/pako/1.0.6/pako.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"decode()"</span>&gt;</span>decode<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ciphertext"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">decode</span>(<span class="params"></span>)</span>{</span></span><br><span class="line"><span class="javascript">            $.ajax({</span></span><br><span class="line"><span class="javascript">                <span class="comment">//headers: {  'origin': "https://ddrk.me" },</span></span></span><br><span class="line"><span class="javascript">                type: <span class="string">"get"</span>,</span></span><br><span class="line"><span class="javascript">                url: <span class="string">"http://test.codezm.com/test/cors"</span>,</span></span><br><span class="line">                data: {},</span><br><span class="line"><span class="javascript">                dataType: <span class="string">"json"</span></span></span><br><span class="line"><span class="javascript">            }).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(data)</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> encodedData = data.pin;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//var decodedData = window.atob(encodedData);</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> data = pako.ungzip(encodedData, {<span class="attr">to</span>: <span class="string">"string"</span>});</span></span><br><span class="line"><span class="javascript">                $(<span class="string">'#ciphertext'</span>).text(data);</span></span><br><span class="line"><span class="javascript">            }).fail(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span></span><br><span class="line">            </span><br><span class="line">            })</span><br><span class="line">    }</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>服务端对应做了个可跨域请求接口，<code>PHP</code> 代码如下：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">corsAction</span>(<span class="params"></span>) </span>{</span><br><span class="line">    header(<span class="string">"Access-Control-Allow-Origin: *"</span>);</span><br><span class="line"></span><br><span class="line">    $result = Tools_help::getget(<span class="string">'https://v.ddrk.me:9543/video?id=lKwK4yQuvITOqPfIV5uAXv4YBvZ0qNX5owCjNlFG3JixIwBLvmOcfTj442xQP28mq17kzCVdO8BhYqQP4tHv36OKHGdc5oM5liL2h86V4j3CnHXFUF6W07W5%2BDu7LfwYXbdBDNqxxKahlDQIz7lZwQ%3D%3D&amp;type=mix'</span>);</span><br><span class="line">    $result = json_decode($result, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    Tools_help::ajaxReturn($result);</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>此时访问前端页面，即可解出 index 地址。</p>
+<p><img data-src="/posts/%E7%88%AC%E8%99%AB/b1a89355/image-20201115154854708.png" alt="image-20201115154854708"></p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ol>
+<li><p>index 请求地址有时效性，过期后需要重新获取 index 地址。</p>
+</li>
+<li><p>index 地址做了 <code>origin</code> 限制，需要在服务端做个跨域中转请求，才能拿到其响应数据。</p>
+</li>
+<li><p>index 中的 ts 地址没有时间限制。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/PHP/b4d53a9d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/PHP/b4d53a9d.html" class="post-title-link" itemprop="url">php Extensions</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-15 14:11:27" itemprop="dateCreated datePublished" datetime="2021-01-15T14:11:27+00:00">2021-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/PHP/b4d53a9d.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/PHP/b4d53a9d.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>245</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>PHP 扩展</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/PHP/b4d53a9d.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/%E7%88%AC%E8%99%AB/776a25d9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/%E7%88%AC%E8%99%AB/776a25d9.html" class="post-title-link" itemprop="url">自定义whistle插件抓取抖音账号内视频数据</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-12 13:59:05" itemprop="dateCreated datePublished" datetime="2021-01-12T13:59:05+00:00">2021-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/%E7%88%AC%E8%99%AB/776a25d9.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/爬虫/776a25d9.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天接到任务需要抓取下我司抖音号里所有视频的：点赞数、评论数、转发数 数据。大概是因为临近年终了。。。</p>
+<h4 id="抓取流程解析"><a href="#抓取流程解析" class="headerlink" title="抓取流程解析"></a>抓取流程解析</h4><ol>
+<li><p>开启代理工具</p>
+</li>
+<li><p>手机添加代理</p>
+</li>
+<li><p>打开抖音App，进入对应抖音账号，开始抓取数据，重复通过手势向上滑动以加载更多数据，直至显示所有视频。</p>
+</li>
+<li><p>抓包完毕。</p>
+</li>
+</ol>
+<h4 id="工具准备篇"><a href="#工具准备篇" class="headerlink" title="工具准备篇"></a>工具准备篇</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g whistle whistle.autosave mysql --registry=https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将源地址改为淘宝源</span></span><br><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br><span class="line"><span class="comment"># 将源地址改为官方源</span></span><br><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npmjs.org</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>whistle</code> 网络数据抓包。</li>
+<li><code>whistle.autosave</code> whistle 官方插件，默认将 response 数据记录到文件。对其改造（仅获取需要的字段数据）并存储至数据库。</li>
+<li><code>mysql</code> MySQL 数据库操作包，用于将数据存储到数据库。</li>
+</ul>
+<h4 id="抓包数据分析"><a href="#抓包数据分析" class="headerlink" title="抓包数据分析"></a>抓包数据分析</h4><p>通过 <code>w2 run</code> 启动 <code>whistle</code> 抓包工具。</p>
+<p>在抓取数据之前需要找到对应数据 <code>URL</code> 和 <code>response</code> 字段。</p>
+<h5 id="视频列表"><a href="#视频列表" class="headerlink" title="视频列表"></a>视频列表</h5><ul>
+<li><code>https://api3-core-c-hl.amemv.com/aweme/v1/aweme/post/</code></li>
+<li><code>https://api5-core-c-hl.amemv.com/aweme/v1/aweme/post/</code></li>
+</ul>
+<h5 id="视频分享地址"><a href="#视频分享地址" class="headerlink" title="视频分享地址"></a>视频分享地址</h5><ul>
+<li><code>https://www.iesdouyin.com/share/video/${aweme_id}</code></li>
+</ul>
+<p>涉及字段</p>
+<blockquote>
+<p><code>resBody</code> 是 <code>JSON</code> 格式的 body 数据。</p>
+</blockquote>
+<ul>
+<li><code>resBody.aweme_list[i].statistics.digg_count</code> 点赞数量</li>
+<li><code>resBody.aweme_list[i].aweme_id</code> 视频ID</li>
+<li><code>resBody.aweme_list[i].desc</code> 视频描述</li>
+<li><code>resBody.aweme_list[i].statistics.comment_count</code> 评论数量</li>
+<li><code>resBody.aweme_list[i].statistics.share_count</code> 转发数量</li>
+<li><code>resBody.aweme_list[i].create_time</code> 发布时间</li>
+<li><code>resBody.aweme_list[i].duration</code> 视频时长</li>
+</ul>
+<h4 id="添加匹配规则"><a href="#添加匹配规则" class="headerlink" title="添加匹配规则"></a>添加匹配规则</h4><p>通过 <code>抓包数据分析</code> 得知，<code>host</code> 是变动的，而剩下的 <code>URI</code> 是固定格式。</p>
+<p>浏览器，打开 <code>http://127.0.01:8899/#plugins</code> 地址，添加<strong>过滤条件</strong> <code>/aweme\/v1\/aweme\/post/</code>，这时只有匹配到过滤条件的请求才会请求到 <code>whistle.autosave</code> 插件。</p>
+<h4 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `douyin` (</span><br><span class="line">  `id` bigint unsigned NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `sid` bigint unsigned NOT NULL DEFAULT '0' COMMENT '视频ID',</span><br><span class="line">  `name` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '视频描述',</span><br><span class="line">  `digg` int unsigned NOT NULL DEFAULT '0' COMMENT '点赞数量',</span><br><span class="line">  `comment` int unsigned NOT NULL DEFAULT '0' COMMENT '评论数量',</span><br><span class="line">  `share` int unsigned NOT NULL DEFAULT '0' COMMENT '分享数量',</span><br><span class="line">  `duration` int unsigned DEFAULT '0' COMMENT '视频时长',</span><br><span class="line">  `create_time` int unsigned DEFAULT '0' COMMENT '发布时间',</span><br><span class="line">  `update_time` int unsigned DEFAULT '0' COMMENT '更新时间',</span><br><span class="line">  PRIMARY KEY (`id`) USING BTREE,</span><br><span class="line">  UNIQUE KEY `id` (`sid`) USING BTREE</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="whistle-autosave-插件改造"><a href="#whistle-autosave-插件改造" class="headerlink" title="whistle.autosave 插件改造"></a>whistle.autosave 插件改造</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> $(npm root -g)/whistle.autosave/lib</span><br><span class="line">$ vim resStatsServer.js</span><br></pre></td></tr></tbody></table></figure>
+
+<p>编辑文件 <code>resStatsServer.js</code> ，代码修改如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> { <span class="attr">check</span>: checkFilter, <span class="attr">update</span>: updateFilter } = <span class="built_in">require</span>(<span class="string">'./filter'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MAX_LENGTH = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> noop = <span class="function">() =&gt;</span> {};</span><br><span class="line"><span class="keyword">var</span> mysql  = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> connection = mysql.createConnection({</span><br><span class="line">	host     : <span class="string">'127.0.0.1'</span>,</span><br><span class="line">	user     : <span class="string">'root'</span>,</span><br><span class="line">	password : <span class="string">'1234'</span>,</span><br><span class="line">	port: <span class="string">'3306'</span>,</span><br><span class="line">	database: <span class="string">'test'</span>,</span><br><span class="line">	charset: <span class="string">'UTF8MB4_BIN'</span></span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> formatDate = <span class="function"><span class="keyword">function</span> (<span class="params">now</span>) </span>{</span><br><span class="line">	<span class="keyword">var</span> year = now.getFullYear();</span><br><span class="line">	<span class="keyword">var</span> month = now.getMonth() + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">var</span> date = now.getDate();</span><br><span class="line">	<span class="keyword">var</span> hour = now.getHours();</span><br><span class="line">	<span class="keyword">var</span> minute = now.getMinutes();</span><br><span class="line">	<span class="keyword">var</span> second = now.getSeconds();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + date + <span class="string">" "</span> + hour + <span class="string">":"</span> + minute + <span class="string">":"</span> + second;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">connection.connect();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> insertSql = <span class="string">'INSERT INTO douyin(sid,name,digg,comment,share,create_time,duration,update_time) VALUES(?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE digg = ?, comment = ?, share = ?, create_time = ?, update_time = ?'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">server, { storage }</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">let</span> sessions = [];</span><br><span class="line">  <span class="keyword">let</span> timer;</span><br><span class="line">  <span class="keyword">const</span> writeSessions = <span class="function">(<span class="params">dir</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">      <span class="keyword">const</span> text = <span class="built_in">JSON</span>.stringify(sessions.slice(), <span class="literal">null</span>, <span class="string">'  '</span>);</span><br><span class="line">      sessions = [];</span><br><span class="line">      <span class="comment">//dir = path.resolve(dir, `${Date.now()}.txt`);</span></span><br><span class="line">      dir = path.resolve(dir, <span class="string">`浪涨小青岛.txt`</span>);</span><br><span class="line">      fs.writeFile(dir, text, <span class="function">(<span class="params">err</span>) =&gt;</span> {</span><br><span class="line">        <span class="keyword">if</span> (err) {</span><br><span class="line">          fs.writeFile(dir, text, noop);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    } <span class="keyword">catch</span> (e) {}</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  updateFilter(storage.getProperty(<span class="string">'filterText'</span>));</span><br><span class="line">  server.on(<span class="string">'request'</span>, <span class="function">(<span class="params">req</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">// filter</span></span><br><span class="line">    <span class="keyword">const</span> active = storage.getProperty(<span class="string">'active'</span>);</span><br><span class="line">    <span class="keyword">if</span> (!active) {</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">const</span> dir = storage.getProperty(<span class="string">'sessionsDir'</span>);</span><br><span class="line">    <span class="keyword">if</span> (!dir || <span class="keyword">typeof</span> dir !== <span class="string">'string'</span>) {</span><br><span class="line">      sessions = [];</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (!checkFilter(req.originalReq.url)) {</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    req.getSession(<span class="function">(<span class="params">s</span>) =&gt;</span> {</span><br><span class="line">      <span class="keyword">if</span> (!s) {</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> resBody = <span class="built_in">JSON</span>.parse(s.res.body);</span><br><span class="line">      <span class="comment">//var currentTime = Date.now().toString().substr(0, 10);</span></span><br><span class="line">      <span class="keyword">var</span> currentTime = <span class="built_in">parseInt</span>(<span class="built_in">Date</span>.now() / <span class="number">1000</span>);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;resBody.aweme_list.length; i++) {</span><br><span class="line">	      <span class="built_in">console</span>.log(</span><br><span class="line">		      resBody.aweme_list[i].aweme_id,</span><br><span class="line">		      resBody.aweme_list[i].create_time,</span><br><span class="line">		      resBody.aweme_list[i].desc,</span><br><span class="line">		      resBody.aweme_list[i].statistics.digg_count,</span><br><span class="line">		      resBody.aweme_list[i].statistics.comment_count,</span><br><span class="line">		      resBody.aweme_list[i].statistics.share_count,</span><br><span class="line">		      formatDate(</span><br><span class="line">		      	<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">parseInt</span>(resBody.aweme_list[i].create_time + <span class="string">"000"</span>))</span><br><span class="line">		      )</span><br><span class="line">	      );</span><br><span class="line"></span><br><span class="line">		  <span class="keyword">var</span>  insertSqlData = [</span><br><span class="line">			  resBody.aweme_list[i].aweme_id,</span><br><span class="line">			  resBody.aweme_list[i].desc,</span><br><span class="line">			  resBody.aweme_list[i].statistics.digg_count,</span><br><span class="line">			  resBody.aweme_list[i].statistics.comment_count,</span><br><span class="line">			  resBody.aweme_list[i].statistics.share_count,</span><br><span class="line">			  resBody.aweme_list[i].create_time,</span><br><span class="line">			  resBody.aweme_list[i].duration,</span><br><span class="line">			  currentTime,</span><br><span class="line">        <span class="comment">// update</span></span><br><span class="line">			  resBody.aweme_list[i].statistics.digg_count,</span><br><span class="line">			  resBody.aweme_list[i].statistics.comment_count,</span><br><span class="line">			  resBody.aweme_list[i].statistics.share_count,</span><br><span class="line">			  resBody.aweme_list[i].create_time,</span><br><span class="line">			  currentTime,</span><br><span class="line">		  ];</span><br><span class="line">		  connection.query(insertSql, insertSqlData, <span class="function"><span class="keyword">function</span> (<span class="params">err, result</span>) </span>{</span><br><span class="line">			  <span class="keyword">if</span>(err){</span><br><span class="line">				  <span class="built_in">console</span>.log(<span class="string">'[SQL ERROR]'</span>, err.message);</span><br><span class="line">				  <span class="keyword">return</span>;</span><br><span class="line">			  }</span><br><span class="line"></span><br><span class="line">			  <span class="built_in">console</span>.log(<span class="string">'INSERT OR UPDATE:'</span>, result.insertId, result.affectedRows);</span><br><span class="line">		  });</span><br><span class="line">        </span><br><span class="line">    });</span><br><span class="line">  });</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="启动抓包程序"><a href="#启动抓包程序" class="headerlink" title="启动抓包程序"></a>启动抓包程序</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ w2 run</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="蝉妈妈"><a href="#蝉妈妈" class="headerlink" title="蝉妈妈"></a>蝉妈妈</h4><p>我同事之前也做过类似的事情，但通过的是第三方平台再处理的数据。跟同事要来了一份数据，对比下第三方平台数据与原数据的差异：</p>
+<ol>
+<li>确认蝉妈妈90天数据，有无丢失视频</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">		* </span><br><span class="line">FROM</span><br><span class="line">		douyin </span><br><span class="line">WHERE</span><br><span class="line">		-- 推算今天(2021-01-12) 近90天日期：(2020-10-14 00:00:00)</span><br><span class="line">		sid NOT IN ( SELECT aweme_id FROM dylist WHERE NAME = 'xxx' AND `publish_time` &gt; 1602604800 ) </span><br><span class="line">		-- 今日抓取蝉妈妈最后一个视频发布时间: (2021-01-12 05:33:55)</span><br><span class="line">		AND create_time &lt;= 1610400835 AND create_time &gt; 1602604800 </span><br><span class="line">ORDER BY</span><br><span class="line">		create_time DESC;</span><br><span class="line">	</span><br><span class="line">	-- 共丢失 184 条视频，最近一条视频发布时间：2020-12-17 09:30:48</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>​<br>2. 计算差异</p>
+  <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">-- select count(*) from dylist where name = 'xxx' and `publish_time` &gt; 1602604800;</span><br><span class="line">-- 4419</span><br><span class="line">-- select count(*) from douyin where create_time &lt;= 1610400835 AND create_time &gt; 1602604800;</span><br><span class="line">-- 4603</span><br><span class="line"></span><br><span class="line">SELECT</span><br><span class="line">	a.NAME,</span><br><span class="line">	a.`comment`,</span><br><span class="line">	a.digg as "点赞A",</span><br><span class="line">	a.`comment` as "评论",</span><br><span class="line">	a.SHARE as "转发",</span><br><span class="line">	b.digg_count as "点赞B-蝉妈妈",</span><br><span class="line">	b.comment_count as "评论-蝉妈妈",</span><br><span class="line">	b.share_count as "转发-蝉妈妈",</span><br><span class="line">	( CONVERT ( a.digg, SIGNED ) - CONVERT ( b.digg_count, SIGNED ) ) AS "点赞差(A-B)",</span><br><span class="line">	( CONVERT ( a.comment, SIGNED ) - CONVERT ( b.comment_count, SIGNED ) ) AS "评论差",</span><br><span class="line">	( CONVERT ( a.share, SIGNED ) - CONVERT ( b.share_count, SIGNED ) ) AS "转发差",</span><br><span class="line">	FROM_UNIXTIME( a.create_time, '%Y-%m-%d %H' ) </span><br><span class="line">FROM</span><br><span class="line">	douyin AS a</span><br><span class="line">	right JOIN dylist AS b ON a.sid = b.aweme_id </span><br><span class="line">WHERE</span><br><span class="line">	b.NAME = 'xxx' </span><br><span class="line">	-- 今日抓取蝉妈妈最后一个视频发布时间: (2021-01-12 05:33:55)</span><br><span class="line">	AND a.create_time &lt;= 1610400835</span><br><span class="line">	AND a.create_time &gt; 1602604800</span><br><span class="line">	-- 推算今天(2021-01-12) 近90天日期：(2020-10-14 00:00:00)</span><br><span class="line">	AND `publish_time` &gt; 1602604800;</span><br><span class="line">ORDER BY a.create_time desc;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ol>
+<li>第三方平台并不只是抓取 90 天之内的视频，有可能只是记录了，并显示出对应视频数据，在同事抓取时仅做了更新操作，并未对有差异的再做更新。</li>
+<li>第三方平台视频数据缺少。</li>
+<li>第三方平台可能对历史视频数据不再处理了，导致点赞数、评论数等数据统计不准确。</li>
+</ol>
+<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p><del>部分视频可以直接通过 <code>URL</code> 获取，有时限（过一段时间后将无法获取数据）。</del></p>
+<ul>
+<li><p><code>https://api3-core-c-hl.amemv.com/aweme/v1/aweme/post/?page_from=1&amp;user_id=3293759164133159&amp;publish_video_strategy_type=2</code></p>
+</li>
+<li><p><code>https://api3-core-c-hl.amemv.com/aweme/v1/aweme/post/?page_from=2&amp;user_id=68310389333&amp;publish_video_strategy_type=2</code></p>
+</li>
+<li><p><code>https://api3-core-c-hl.amemv.com/aweme/v1/aweme/post/?count=21&amp;publish_video_strategy_type=2&amp;page_from=2&amp;user_id=566969479994331</code></p>
+</li>
+</ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-mysql.html">nodejs-mysql</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/whistle-plugins/whistle.autosave">whistle.autosave</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1008866">https://cloud.tencent.com/developer/article/1008866</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/uncategorized/98223286.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/uncategorized/98223286.html" class="post-title-link" itemprop="url">CentOS之yum命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-11 21:37:29" itemprop="dateCreated datePublished" datetime="2021-01-11T21:37:29+00:00">2021-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/uncategorized/98223286.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/uncategorized/98223286.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>yum 源管理命令</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/uncategorized/98223286.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Ansible/cb961a65.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/Ansible/cb961a65.html" class="post-title-link" itemprop="url">Ansible 使用总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-11 21:36:14" itemprop="dateCreated datePublished" datetime="2021-01-11T21:36:14+00:00">2021-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ansible/" itemprop="url" rel="index"><span itemprop="name">Ansible</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Ansible/cb961a65.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Ansible/cb961a65.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>21 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Ansible 使用总结</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/Ansible/cb961a65.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Ansible/af3f283b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/Ansible/af3f283b.html" class="post-title-link" itemprop="url">Ansible 实用代码总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-11 21:34:30" itemprop="dateCreated datePublished" datetime="2021-01-11T21:34:30+00:00">2021-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ansible/" itemprop="url" rel="index"><span itemprop="name">Ansible</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Ansible/af3f283b.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Ansible/af3f283b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>718</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Ansible 实用代码总结</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/Ansible/af3f283b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Ansible/6f5838da.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/Ansible/6f5838da.html" class="post-title-link" itemprop="url">Ansible 目录、文件操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-11 21:33:02" itemprop="dateCreated datePublished" datetime="2021-01-11T21:33:02+00:00">2021-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ansible/" itemprop="url" rel="index"><span itemprop="name">Ansible</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Ansible/6f5838da.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Ansible/6f5838da.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>735</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Ansible 目录、文件操作</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/Ansible/6f5838da.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>

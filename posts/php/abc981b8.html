@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="常用 php composer 库汇总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用php-composer库汇总">
+<meta property="og:url" content="https://codezm.github.io/posts/php/abc981b8.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:description" content="常用 php composer 库汇总">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-31T10:50:59.000Z">
+<meta property="article:modified_time" content="2025-12-01T08:02:38.316Z">
+<meta property="article:author" content="codezm">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="composer">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/posts/php/abc981b8.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>常用php-composer库汇总 | codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/php/abc981b8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          常用php-composer库汇总
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-31 10:50:59" itemprop="dateCreated datePublished" datetime="2020-12-31T10:50:59+00:00">2020-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/php/abc981b8.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/php/abc981b8.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="常用-php-composer-库汇总"><a href="#常用-php-composer-库汇总" class="headerlink" title="常用 php composer 库汇总"></a>常用 php composer 库汇总</h1><a id="more"></a>
+
+<h5 id="PHP-CodeSniffer"><a href="#PHP-CodeSniffer" class="headerlink" title="PHP_CodeSniffer"></a><a target="_blank" rel="noopener" href="https://github.com/squizlabs/PHP_CodeSniffer">PHP_CodeSniffer</a></h5><p>PHP_CodeSniffer是两个PHP脚本的集合;主要的phpcs脚本，用于标记PHP、JavaScript和CSS文件，以检测违反已定义的编码标准，以及第二个phpcbf脚本，用于自动纠正违反编码标准的行为。PHP_CodeSniffer是一个重要的开发工具，它可以确保代码保持干净和一致</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">composer global require <span class="string">"squizlabs/php_codesniffer=*"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/.composer/vendor/bin"</span> &gt;&gt; ~/.zshrc</span><br><span class="line">phpcs --version</span><br><span class="line">PHP_CodeSniffer version 3.6.0 (stable) by Squiz (http://www.squiz.net)</span><br><span class="line">phpcbf --verion</span><br><span class="line">PHP_CodeSniffer version 3.6.0 (stable) by Squiz (http://www.squiz.net)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="PHPCompatibility"><a href="#PHPCompatibility" class="headerlink" title="PHPCompatibility"></a><a target="_blank" rel="noopener" href="https://github.com/PHPCompatibility/PHPCompatibility">PHPCompatibility</a></h5><p>这是一组用于检查PHP跨版本兼容性的PHP CodeSniffer嗅探器。它将允许您分析您的代码与更高和更低版本的PHP的兼容性。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">composer global require <span class="string">"phpcompatibility/php-compatibility=*"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加 PHPCompatibility 检测扩展</span></span><br><span class="line"><span class="comment"># 此命令实际操作的配置文件：~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer.conf</span></span><br><span class="line">phpcs --config-set installed_paths ~/.composer/vendor/phpcompatibility/php-compatibility</span><br><span class="line"><span class="comment"># 检测代码是否兼容 php-7.4 版本</span></span><br><span class="line">phpcs --standard=PHPCompatibility --runtime-set testVersion 7.4  --extensions=php ./</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="Snowflake，Snowflake-Algorithm-Twitter-announced"><a href="#Snowflake，Snowflake-Algorithm-Twitter-announced" class="headerlink" title="Snowflake，Snowflake Algorithm (Twitter announced)."></a><a target="_blank" rel="noopener" href="https://github.com/godruoyi/php-snowflake">Snowflake</a>，Snowflake Algorithm (Twitter announced).</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://packagist.org/packages/godruoyi/php-snowflake">Packagist</a></li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require godruoyi/php-snowflake</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="Hashids，从整数中生成简短的唯一id"><a href="#Hashids，从整数中生成简短的唯一id" class="headerlink" title="Hashids，从整数中生成简短的唯一id"></a><a target="_blank" rel="noopener" href="https://github.com/vinkla/hashids">Hashids</a>，从整数中生成简短的唯一id</h5><ul>
+<li><p><a target="_blank" rel="noopener" href="https://hashids.org/">官方网站</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://packagist.org/packages/hashids/hashids">Packagist</a></p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require hashids/hashids</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a><a target="_blank" rel="noopener" href="https://github.com/firebase/php-jwt">JWT</a></h5><ul>
+<li><a target="_blank" rel="noopener" href="https://packagist.org/packages/firebase/php-jwt">Packagist</a></li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require firebase/php-jwt</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="Guzzle"><a href="#Guzzle" class="headerlink" title="Guzzle"></a><a target="_blank" rel="noopener" href="https://github.com/guzzle/guzzle">Guzzle</a></h5><ul>
+<li><a target="_blank" rel="noopener" href="http://guzzlephp.org/">官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://guzzle-cn.readthedocs.io/zh_CN/latest/">Guzzle 6 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://learnku.com/articles/31855">使用 Guzzle 中间件进行优雅的请求重试</a></li>
+<li><a target="_blank" rel="noopener" href="https://packagist.org/packages/guzzlehttp/guzzle">Packagist</a></li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require guzzlehttp/guzzle</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="PHPUnit"><a href="#PHPUnit" class="headerlink" title="PHPUnit"></a><a target="_blank" rel="noopener" href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a></h5><ul>
+<li><a target="_blank" rel="noopener" href="https://phpunit.readthedocs.io/zh_CN/latest/installation.html">官方中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://packagist.org/packages/phpunit/phpunit">Packagist</a></li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require phpunit/phpunit</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="Easywechat"><a href="#Easywechat" class="headerlink" title="Easywechat"></a><a target="_blank" rel="noopener" href="https://github.com/w7corp/easywechat">Easywechat</a></h5><ul>
+<li><a target="_blank" rel="noopener" href="https://packagist.org/packages/overtrue/wechat">Packagist</a></li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># php &gt;= 7.2</span></span><br><span class="line">composer require <span class="string">"overtrue/wechat:^4.2"</span></span><br><span class="line"><span class="comment"># php &gt;= 7.4</span></span><br><span class="line">composer require <span class="string">"overtrue/wechat:^5.0"</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://github.com/PHPOffice/PhpSpreadsheet">PhpSpreadsheet</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://phpspreadsheet.readthedocs.io/">官方文档</a></li>
+</ul>
+<p>是 PHPExcel 的新版本，要求 PHP 版本 &gt;= 7.3。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require --prefer-dist phpoffice/phpspreadsheet</span><br><span class="line">composer dumpautoload -o</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="Composer-命令行工具使用"><a href="#Composer-命令行工具使用" class="headerlink" title="Composer 命令行工具使用"></a>Composer 命令行工具使用</h2><h4 id="Composer-包安装"><a href="#Composer-包安装" class="headerlink" title="Composer 包安装"></a>Composer 包安装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">composer install --prefer-dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生产模式，优化</span></span><br><span class="line">save_handler</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="Composer-script"><a href="#Composer-script" class="headerlink" title="Composer script"></a>Composer script</h4><h5 id="composer-script-定义"><a href="#composer-script-定义" class="headerlink" title="composer script 定义"></a>composer script 定义</h5><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">	"test": [</span><br><span class="line">		"php -r 'echo \"Hello World!\" . PHP_EOL;// echo Hello World!'",</span><br><span class="line">	]</span><br><span class="line">},</span><br><span class="line">"scripts-descriptions": {</span><br><span class="line">  "test": "Hello World!",</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="查看-script-列表"><a href="#查看-script-列表" class="headerlink" title="查看 script 列表"></a>查看 script 列表</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ composer run -l</span><br><span class="line">scripts:</span><br><span class="line"><span class="built_in">test</span>                     Hello World!</span><br><span class="line">$ composer run-script -l</span><br><span class="line">scripts:</span><br><span class="line"><span class="built_in">test</span>                     Hello World!</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="执行-script"><a href="#执行-script" class="headerlink" title="执行 script"></a>执行 script</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ composer <span class="built_in">test</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="Composer-2-0"><a href="#Composer-2-0" class="headerlink" title="Composer 2.0"></a>Composer 2.0</h4><h5 id="升级到-2-0"><a href="#升级到-2-0" class="headerlink" title="升级到 2.0"></a>升级到 2.0</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer self-update --2</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="降级到-1-0"><a href="#降级到-1-0" class="headerlink" title="降级到 1.0"></a>降级到 1.0</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer self-update --rollback</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">composer self-update --1</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://laravelacademy.org/post/22100">Composer 2.0 发布带来的性能优化、新特性和升级指南</a></li>
+</ul>
+<h4 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h4><h5 id="常用全局dev包"><a href="#常用全局dev包" class="headerlink" title="常用全局dev包"></a>常用全局dev包</h5><p>全局安装路径可通过 <code>composer config -l</code> 命令查看。</p>
+<h6 id="Registry-管理"><a href="#Registry-管理" class="headerlink" title="Registry 管理"></a>Registry 管理</h6><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ composer global require slince/composer-registry-manager ^2.0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>用法：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line"><span class="comment"># 使用 aliyun registry 镜像站</span></span><br><span class="line">$ composer repo:use aliyun</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h6 id="phpunit"><a href="#phpunit" class="headerlink" title="phpunit"></a>phpunit</h6><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ composer global require --dev phpunit/phpunit</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget -c https://phar.phpunit.de/phpunit-8.5.15.phar -O /usr/<span class="built_in">local</span>/bin/phpunit</span><br><span class="line">$ chmod u+x /usr/<span class="built_in">local</span>/bin/phpunit</span><br><span class="line">$ phpunit --version</span><br><span class="line">PHPUnit 8.5.15 by Sebastian Bergmann and contributors.</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h5><h6 id="phpunit-1"><a href="#phpunit-1" class="headerlink" title="phpunit"></a>phpunit</h6><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">composer require --prefer-dist --dev <span class="string">"phpunit/phpunit"</span></span><br><span class="line">composer dumpautoload -o -a</span><br><span class="line">composer <span class="built_in">exec</span> phpunit</span><br><span class="line"></span><br><span class="line">composer install</span><br><span class="line">./vendor/bin/phpunit</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="移除包"><a href="#移除包" class="headerlink" title="移除包"></a>移除包</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer remove phpunit/phpunit</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 阿里云 Composer 镜像站</span></span><br><span class="line">composer config repo.packagist composer https://mirrors.aliyun.com/composer</span><br><span class="line"></span><br><span class="line"><span class="comment"># 还原官方 Composer 镜像站</span></span><br><span class="line">composer config -g --<span class="built_in">unset</span> repo.packagist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全局配置</span></span><br><span class="line">composer config -g -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 thinkphp 框架</span></span><br><span class="line">composer create-project topthink/think</span><br><span class="line"><span class="comment"># 安装 Laravel 框架</span></span><br><span class="line">composer require laravel/framework</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略平台版本要求</span></span><br><span class="line">composer create-project composer/satis:dev-main --ignore-platform-reqs</span><br><span class="line"><span class="comment"># 扫描构建</span></span><br><span class="line">php bin/satis build satis.json public -v</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="安装-monolog-日志库范例"><a href="#安装-monolog-日志库范例" class="headerlink" title="安装 monolog 日志库范例"></a>安装 monolog 日志库范例</h5><ol>
+<li><p>在项目目录中，执行 <code>composer require monolog/monolog</code> 命令。</p>
+<blockquote>
+<p>会自动创建 <code>composer.json</code> 文件。</p>
+</blockquote>
+</li>
+<li><p>新建 <code>composer.json</code> 文件</p>
+<ol>
+<li>登记需要安装的依赖。</li>
+<li>执行 <code>composer install</code> 安装命令。</li>
+</ol>
+<blockquote>
+<p>若没有任何依赖，直接运行 <code>composer install</code> 会安装 <code>Composer</code> 的自动加载文件。</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="composer-create-project-命令解析"><a href="#composer-create-project-命令解析" class="headerlink" title="composer create-project 命令解析"></a><code>composer create-project</code> 命令解析</h5><p>从功能上来说等价于 <code>git clone</code> 和 <code>composer install</code> 两个命令。</p>
+<h4 id="VCS（Version-Control-System-版本控制系统）版本状态标识"><a href="#VCS（Version-Control-System-版本控制系统）版本状态标识" class="headerlink" title="VCS（Version Control System 版本控制系统）版本状态标识"></a>VCS（Version Control System 版本控制系统）版本状态标识</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>实例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>空版本号</td>
+<td>monolog/monolog</td>
+<td>默认使用最新稳定版本</td>
+</tr>
+<tr>
+<td>确切版本号</td>
+<td>monolog/monolog:”1.0.2”</td>
+<td>指定包的确切版本</td>
+</tr>
+<tr>
+<td>范围<br>&gt;<br>&lt;<br>!=<br>|| 或者<br>- 连接符</td>
+<td>monolog/monolog:”&gt;=1.0”,monolog/monolog:”=2.0”</td>
+<td>使用比较操作符可以指定有效的版本范围。有效的操作符：&gt;、&gt;=、&lt;、&lt;=、!=。你可以定义多个范围，用逗号隔开，这将被视为一个逻辑 AND 处理。管道符号 || 将作为逻辑 OR 处理。AND 的优先级高于 OR。<br>优先使用最高版本。</td>
+</tr>
+<tr>
+<td>通配符</td>
+<td>1.0.* 或 *</td>
+<td>使用通配符 * 来指定一种模式。<br><code>1.0.*</code> 与 <code>&gt;=1.0,&lt;1.</code> 是等效的。</td>
+</tr>
+<tr>
+<td>赋值运算符（最低版本）</td>
+<td>~1.2.3</td>
+<td>对于遵循语义化版本号的项目非常有用。<br><code>~1.2.3</code> 与 <code>&gt;=1.2.3,&lt;1.3</code> 是等效的。<br><code>~1.2</code> 与 <code>&gt;=1.2.0,&lt;2.0.0</code> 是等效的</td>
+</tr>
+<tr>
+<td>脱字号版本（最低版本） carret</td>
+<td>^1.2.3</td>
+<td>比 ~ 范围大一级。<br><code>^1.2.3</code> 与 <code>&gt;=1.2.3,&lt;2.0.0</code>是等效的。<br><code>^1.2</code> 与 <code>&gt;=1.2.0,&lt;2.0.0</code> 是等效的</td>
+</tr>
+</tbody></table>
+<h6 id="与-修饰符区别。"><a href="#与-修饰符区别。" class="headerlink" title="~ 与 ^ 修饰符区别。"></a><code>~</code> 与 <code>^</code> 修饰符区别。</h6><ul>
+<li><p><code>~</code> 与 <code>^</code> 在修饰两个版本号时，效果是一样的，示例：</p>
+<ul>
+<li><code>~1.2</code> 与 <code>^1.2</code> 都与 <code>&gt;=1.2.0,&lt;2.0</code> 是等效的</li>
+</ul>
+</li>
+<li><p><code>~</code> 与 <code>^</code> 在修饰三个版本号时，<code>^</code> 比 <code>~</code> 范围更大，示例：</p>
+<ul>
+<li><code>~1.2.3</code>  与 <code>&gt;=1.2.3,&lt;1.3</code> 是等效的。</li>
+<li><code>^1.2.3</code> 与 <code>&gt;=1.2.3,&lt;2.0</code> 是等效的。</li>
+</ul>
+</li>
+</ul>
+<h5 id="版本变化"><a href="#版本变化" class="headerlink" title="版本变化"></a>版本变化</h5><ul>
+<li>alpha<ul>
+<li>内测版</li>
+<li>bug多</li>
+<li>不稳定</li>
+<li>内部版本</li>
+<li>不断添加新功能</li>
+</ul>
+</li>
+<li>beta1、beta2<ul>
+<li>公测版</li>
+<li>不稳定（相比alpha稳定一些）</li>
+<li>bug相对多</li>
+<li>不断添加新功能</li>
+</ul>
+</li>
+<li>RC<ul>
+<li>候选版</li>
+<li>经过多个 beta 版本逐渐稳定</li>
+<li>基本不添加新功能</li>
+<li>修复完 bug 即可进入正式发布版</li>
+</ul>
+</li>
+<li>GA、Release、Stable、Final 等<ul>
+<li>正式版</li>
+<li>稳定</li>
+<li>bug很少</li>
+<li>推荐生产使用</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://packagist.org/packages/">Composer 官方仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://getcomposer.org/">Composer 官方网站</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.phpcomposer.com/">Composer 中文网站</a></li>
+<li><a target="_blank" rel="noopener" href="https://phpunit.de/getting-started/phpunit-8.html">phpunit</a></li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##### 使用私有composer-repo</span></span><br><span class="line">composer create-project codezm/php-skeleton:dev-master yaf-test --repository-url http://packagist.codezm.com:8081 --no-secure-http</span><br><span class="line"></span><br><span class="line"><span class="comment">##### 使用私有git-repo</span></span><br><span class="line">composer create-project codezm/php-skeleton yaf_tests --repository=<span class="string">"{\"url\": \"https://gitee.com/codezm/php-skeleton.git\", \"type\": \"vcs\"}"</span> --stability=dev --remove-vcs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 失败</span></span><br><span class="line">composer create-project codezm/php-skeleton --repository-url=https://gitee.com/codezm/php-skeleton.git yaf-tests</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h5><ol>
+<li>所有带有 <code>Yaf</code> 前缀的，均在 <code>skeleton</code> 包中继承。</li>
+</ol>
+<h6 id="删除-composer-repo-缓存代码"><a href="#删除-composer-repo-缓存代码" class="headerlink" title="删除 composer repo 缓存代码"></a>删除 composer repo 缓存代码</h6><p>在新服务器克隆私有仓库代码时，会提示输入账号信息，composer 会提示是否 store credentials。若存储后删除了 <code>~/.config/composer/auth.json</code> 文件，则需要删除 composer repo 缓存代码，否则将会导致无法更新最新包。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /root/.cache/composer/repo/</span><br><span class="line">$ rm -rf https---gitee.com-codezm*</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h4 id="安装某扩展而不更新其他依赖"><a href="#安装某扩展而不更新其他依赖" class="headerlink" title="安装某扩展而不更新其他依赖"></a>安装某扩展而不更新其他依赖</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">composer require iflytekop/xfyun-sdk --no-update</span><br><span class="line">composer update iflytekop/xfyun-sdk</span><br><span class="line">composer dump-autoload -o</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定版本号</span></span><br><span class="line">composer update iflytekop/xfyun-sdk:2.0.0</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="只添加扩展到-composer-json（不更新composer-lock）-而不安装此扩展"><a href="#只添加扩展到-composer-json（不更新composer-lock）-而不安装此扩展" class="headerlink" title="只添加扩展到 composer.json（不更新composer.lock） 而不安装此扩展"></a>只添加扩展到 composer.json（不更新composer.lock） 而不安装此扩展</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require iflytekop/xfyun-sdk --no-update</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://learnku.com/php/t/1901/correct-method-for-installing-composer-expansion-pack">正确的 Composer 扩展包安装方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zpchcbd/p/17050970.html">firebase/php-jwt库的引入加密混淆问题CVE-2021-46743 </a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="codezm 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="codezm 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>codezm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codezm.github.io/posts/php/abc981b8.html" title="常用php-composer库汇总">https://codezm.github.io/posts/php/abc981b8.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"># php</a>
+              <a href="/tags/composer/" rel="tag"># composer</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/Nginx/7c15ca34.html" rel="prev" title="Nginx-https优化">
+      <i class="fa fa-chevron-left"></i> Nginx-https优化
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/web-safe/4305d38b.html" rel="next" title="web安全之隐藏 nginx、php 版本号">
+      web安全之隐藏 nginx、php 版本号 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8-php-composer-%E5%BA%93%E6%B1%87%E6%80%BB"><span class="nav-number">1.</span> <span class="nav-text">常用 php composer 库汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PHP-CodeSniffer"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">PHP_CodeSniffer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PHPCompatibility"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">PHPCompatibility</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Snowflake%EF%BC%8CSnowflake-Algorithm-Twitter-announced"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">Snowflake，Snowflake Algorithm (Twitter announced).</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hashids%EF%BC%8C%E4%BB%8E%E6%95%B4%E6%95%B0%E4%B8%AD%E7%94%9F%E6%88%90%E7%AE%80%E7%9F%AD%E7%9A%84%E5%94%AF%E4%B8%80id"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">Hashids，从整数中生成简短的唯一id</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JWT"><span class="nav-number">1.0.0.0.5.</span> <span class="nav-text">JWT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Guzzle"><span class="nav-number">1.0.0.0.6.</span> <span class="nav-text">Guzzle</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PHPUnit"><span class="nav-number">1.0.0.0.7.</span> <span class="nav-text">PHPUnit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Easywechat"><span class="nav-number">1.0.0.0.8.</span> <span class="nav-text">Easywechat</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composer-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">Composer 命令行工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Composer-%E5%8C%85%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Composer 包安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Composer-script"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">Composer script</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#composer-script-%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.0.2.1.</span> <span class="nav-text">composer script 定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-script-%E5%88%97%E8%A1%A8"><span class="nav-number">1.1.0.2.2.</span> <span class="nav-text">查看 script 列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C-script"><span class="nav-number">1.1.0.2.3.</span> <span class="nav-text">执行 script</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Composer-2-0"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">Composer 2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7%E5%88%B0-2-0"><span class="nav-number">1.1.0.3.1.</span> <span class="nav-text">升级到 2.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%8D%E7%BA%A7%E5%88%B0-1-0"><span class="nav-number">1.1.0.3.2.</span> <span class="nav-text">降级到 1.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.0.3.3.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">安装包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%A8%E5%B1%80dev%E5%8C%85"><span class="nav-number">1.1.0.4.1.</span> <span class="nav-text">常用全局dev包</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Registry-%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.0.4.1.1.</span> <span class="nav-text">Registry 管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#phpunit"><span class="nav-number">1.1.0.4.1.2.</span> <span class="nav-text">phpunit</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8C%85"><span class="nav-number">1.1.0.4.2.</span> <span class="nav-text">常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#phpunit-1"><span class="nav-number">1.1.0.4.2.1.</span> <span class="nav-text">phpunit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E5%8C%85"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">移除包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-monolog-%E6%97%A5%E5%BF%97%E5%BA%93%E8%8C%83%E4%BE%8B"><span class="nav-number">1.1.0.6.1.</span> <span class="nav-text">安装 monolog 日志库范例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#composer-create-project-%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">1.1.0.6.2.</span> <span class="nav-text">composer create-project 命令解析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VCS%EF%BC%88Version-Control-System-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%89%E7%89%88%E6%9C%AC%E7%8A%B6%E6%80%81%E6%A0%87%E8%AF%86"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">VCS（Version Control System 版本控制系统）版本状态标识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8E-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%8C%BA%E5%88%AB%E3%80%82"><span class="nav-number">1.1.0.7.0.1.</span> <span class="nav-text">~ 与 ^ 修饰符区别。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E5%8F%98%E5%8C%96"><span class="nav-number">1.1.0.7.1.</span> <span class="nav-text">版本变化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.0.8.1.</span> <span class="nav-text">原则</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%A0%E9%99%A4-composer-repo-%E7%BC%93%E5%AD%98%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.0.8.1.1.</span> <span class="nav-text">删除 composer repo 缓存代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%9F%90%E6%89%A9%E5%B1%95%E8%80%8C%E4%B8%8D%E6%9B%B4%E6%96%B0%E5%85%B6%E4%BB%96%E4%BE%9D%E8%B5%96"><span class="nav-number">1.1.0.9.</span> <span class="nav-text">安装某扩展而不更新其他依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AA%E6%B7%BB%E5%8A%A0%E6%89%A9%E5%B1%95%E5%88%B0-composer-json%EF%BC%88%E4%B8%8D%E6%9B%B4%E6%96%B0composer-lock%EF%BC%89-%E8%80%8C%E4%B8%8D%E5%AE%89%E8%A3%85%E6%AD%A4%E6%89%A9%E5%B1%95"><span class="nav-number">1.1.0.10.</span> <span class="nav-text">只添加扩展到 composer.json（不更新composer.lock） 而不安装此扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://codezm.github.io/posts/php/abc981b8.html";
+    this.page.identifier = "posts/php/abc981b8.html";
+    this.page.title = "常用php-composer库汇总";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codezm.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

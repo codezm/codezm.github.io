@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="codezm 的个人博客">
+<meta property="og:url" content="https://codezm.github.io/page/11/index.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="codezm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://codezm.github.io/page/11/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/CentOS/a51399a8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/CentOS/a51399a8.html" class="post-title-link" itemprop="url">VirtualBox CentOS-8 虚拟机配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-10 11:16:49" itemprop="dateCreated datePublished" datetime="2020-12-10T11:16:49+00:00">2020-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/CentOS/a51399a8.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/CentOS/a51399a8.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为了后续能重复使用虚拟机，下面将进行简单配置。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/CentOS/a51399a8.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/CentOS/a80c8457.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/CentOS/a80c8457.html" class="post-title-link" itemprop="url">CentOS 8 基础配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-10 11:16:49" itemprop="dateCreated datePublished" datetime="2020-12-10T11:16:49+00:00">2020-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/CentOS/a80c8457.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/CentOS/a80c8457.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>786</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="常用工具汇总"><a href="#常用工具汇总" class="headerlink" title="常用工具汇总"></a>常用工具汇总</h4><ul>
+<li><p><code>vim</code> 文件编辑工具。</p>
+</li>
+<li><p><code>net-tools</code> 网络工具包：<code>ifconfig</code>、<code>netstat</code>、<code>route</code>，详情见：<code>yum info net-tools</code></p>
+</li>
+<li><p><code>pcre2-tools</code> 工具包: <code>pcre2test</code>：可效验 <code>nginx</code> 路由正则规则。</p>
+</li>
+<li><p><code>tcpdump</code> 用于抓取、分析网络包。</p>
+</li>
+</ul>
+<h4 id="配置-SSH-远程登录"><a href="#配置-SSH-远程登录" class="headerlink" title="配置 SSH 远程登录"></a>配置 SSH 远程登录</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@codezm ~]<span class="comment"># vi /etc/ssh/sshd_config</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>vi <code>normal</code> 模式下，可使用 <code>/</code> 搜索关键字，示例：依次按键 <code>/</code> + <code>Port</code> +<code>Enter</code>。使用 <code>x</code> 删除 <code>#</code> 注释符号。</p>
+<blockquote>
+<p>Port 22<br>ListenAddress 0.0.0.0</p>
+<p>ListenAddress ::</p>
+<p>PermitRootLogin yes<br>PubkeyAuthentication yes</p>
+</blockquote>
+<p>更改完毕后键入 <code>:wq</code> 保存并退出文件编辑操作。</p>
+<p>为使配置生效，需重启 <code>sshd</code> 服务。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl restart sshd</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl stop firewalld</span><br><span class="line">$ systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="关闭SELinux"><a href="#关闭SELinux" class="headerlink" title="关闭SELinux"></a>关闭SELinux</h4><ul>
+<li><p>查看 <code>SELinux</code> 状态</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@codezm ~]<span class="comment"># /usr/sbin/sestatus -v</span></span><br><span class="line">SELinux status:                 disabled</span><br><span class="line">[root@codezm ~]<span class="comment"># getenforce</span></span><br><span class="line">Disabled</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>Disabled 表示关闭</li>
+<li>Enabled 表示开启</li>
+</ul>
+</li>
+<li><p>临时关闭 <code>SELinux</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ setenforce 0</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>永久关闭 <code>SELinux</code>，更改配置文件之后需重启机器使之生效。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sed -i <span class="string">'s/SELINUX=enforcing/SELINUX=disabled/'</span> /etc/selinux/config</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="CentOS-系统没落后记"><a href="#CentOS-系统没落后记" class="headerlink" title="CentOS 系统没落后记"></a>CentOS 系统没落后记</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://rockylinux.org/">https://rockylinux.org/</a> 将继续延续 CentOS ，并基于上游稳定 <code>RHEL</code> 版本构建。</li>
+<li>迁移 CentOS 8、7、6 至 <code>Oracle Linux</code>。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/VirtualBox/ff2b433e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/VirtualBox/ff2b433e.html" class="post-title-link" itemprop="url">VirtualBox CentOS-8 虚拟机搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-10 11:15:24" itemprop="dateCreated datePublished" datetime="2020-12-10T11:15:24+00:00">2020-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VirtualBox/" itemprop="url" rel="index"><span itemprop="name">VirtualBox</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/VirtualBox/ff2b433e.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/VirtualBox/ff2b433e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本文主要记录在 <a target="_blank" rel="noopener" href="http://virtualbox.org/"><code>VirtualBox</code></a> 中安装 <code>CentOS-8</code> 虚拟操作系统(即：虚拟机)的流程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/VirtualBox/ff2b433e.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/CentOS/f7b2779f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/CentOS/f7b2779f.html" class="post-title-link" itemprop="url">CentOS 系统时间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-09 10:42:44" itemprop="dateCreated datePublished" datetime="2020-12-09T10:42:44+00:00">2020-12-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/CentOS/f7b2779f.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/CentOS/f7b2779f.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为保证各项服务正常运行，其中系统时间的准确性是至关重要的。在 CentOS-7 之后的版本默认使用 <code>chrony</code> 做系统时间同步服务，而 <code>CentOS-6</code> 版本中使用 <code>ntp</code> 服务来同步时间。</p>
+<p><code>chrony</code> 采用 Client-Server(C/S) 架构，对应服务端： <code>chronyd</code>，客户端： <code>chronyc</code>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/CentOS/f7b2779f.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/nginx/1ef4791e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/nginx/1ef4791e.html" class="post-title-link" itemprop="url">nginx 极客时间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-08 11:11:51" itemprop="dateCreated datePublished" datetime="2020-12-08T11:11:51+00:00">2020-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/nginx/1ef4791e.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/nginx/1ef4791e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>22 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Nginx 采用 master-worker 进程模式，worker 进程数需与CPU核数量相同。多进程之间使用共享内存，父子进程之间是使用信号管理的。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginx 重新载入配置文件</span></span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="built_in">kill</span> -SIGHUP $(ps aux | grep nginx | grep -v grep | grep master | awk <span class="string">'{print $2}'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginx 结束 worker 进程。master 进程会创建新进程以维持一定数量的 worker 进程</span></span><br><span class="line"><span class="built_in">kill</span> -SIGTERM $(ps aux | grep nginx | grep -v grep | grep master | awk <span class="string">'{print $2}'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>Master 进程</p>
+<ul>
+<li>监控 worker 进程: chld</li>
+<li>接收信号，管理 worker 进程<ul>
+<li>TERM, INT 立刻停止</li>
+<li>QUIT 优雅的停止</li>
+<li>HUP 重载配置文件</li>
+<li>USR1 重新打开日志文件，做日志文件切割</li>
+<li><strong>USR2</strong> 使用 kill 命令管理，用于升级 nginx。</li>
+<li><strong>WINCH</strong>  使用 kill 命令管理，用于升级 nginx。</li>
+</ul>
+</li>
+</ul>
+<p>Worker 进程</p>
+<ul>
+<li>TERM, INT</li>
+<li>QUIT</li>
+<li>USR1</li>
+<li>WINCH</li>
+</ul>
+<p>Nginx 命令行</p>
+<ul>
+<li>reload:  HUP</li>
+<li>reopen: USR1</li>
+<li>stop: TERM</li>
+<li>quit: QUIT</li>
+</ul>
+<p>正则表达式效验工具 <code>pcretest</code></p>
+<ul>
+<li><p>CentOS 8</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -y pcre2-tools</span><br><span class="line">$ pcre2test</span><br><span class="line">PCRE2 version 10.32 2018-09-10</span><br><span class="line">  re&gt; /article\/detail\?id=(\d+)/</span><br><span class="line">data&gt; article/detail?id=123</span><br><span class="line"> 0: article/detail?id=123</span><br><span class="line"> 1: 123</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h5 id="平滑升级-nginx"><a href="#平滑升级-nginx" class="headerlink" title="平滑升级 nginx"></a>平滑升级 nginx</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mv nginx nginx.old</span><br><span class="line">mv nginx ./</span><br><span class="line"><span class="comment"># 告诉旧的 nginx master 要开始升级，新的请求由新启的 nginx 处理。</span></span><br><span class="line"><span class="built_in">kill</span> -USR2 $(ps aux | grep nginx | grep -v grep | grep master | awk <span class="string">'{print $2}'</span>)</span><br><span class="line"><span class="comment"># 告诉旧的 nginx master 平滑关闭 worker 进程</span></span><br><span class="line"><span class="built_in">kill</span> -WINCH $(ps aux | grep nginx | grep -v grep | grep master | awk <span class="string">'{print $2}'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 旧版 nginx 还存在，可备用快速还原老版本</span></span><br><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="日志切割"><a href="#日志切割" class="headerlink" title="日志切割"></a>日志切割</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv logs/access.log back.log</span><br><span class="line"><span class="comment"># reopen 同 kill -USR1</span></span><br><span class="line">../sbin/nginx -s reopen</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><code>GoAccess</code> 可视化实时监控 access 日志。</p>
+<h4 id="HTTPS-部署"><a href="#HTTPS-部署" class="headerlink" title="HTTPS 部署"></a>HTTPS 部署</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python2-certbot-nginx</span><br><span class="line">cerbot --nginx --nginx-server-root=/usr/<span class="built_in">local</span>/nginx/conf/ -d codezm.com</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>握手缓存：session</p>
+</li>
+<li><p>支持的安全套件：</p>
+</li>
+</ul>
+<h4 id="Openresty"><a href="#Openresty" class="headerlink" title="Openresty"></a>Openresty</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://openresty.org/cn">http://openresty.org/cn</a></li>
+</ul>
+<h4 id="待处理"><a href="#待处理" class="headerlink" title="待处理"></a>待处理</h4><ul>
+<li><p>gzip</p>
+</li>
+<li><p>error_page 404 =200 /404.html</p>
+</li>
+<li><p>error_page 500 502 503 504 /50x.html</p>
+</li>
+<li><p>return 200 “Hello world”</p>
+</li>
+<li><p>rewrite</p>
+<p>在 <code>server</code> 块中可通过配置 <code>rewrite_log on</code> 参数，将 <code>rewrite</code> 请求记录到 nginx <code>access</code> 日志中。</p>
+</li>
+<li><p>if</p>
+<ul>
+<li>判断文件是否存在，-f 与 !-f</li>
+<li>判断目录是否存在, -d 与 !-d</li>
+<li>判断文件、目录、软连接是否存在, -e、!-e</li>
+<li>值是否相等，=、!=</li>
+<li>正则表达式<ul>
+<li><del>、!</del></li>
+<li>忽略大小写：<code>~*</code>、<code>!~*</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>location [=|<del>|</del>*|^~] uri {…}</p>
+<ul>
+<li><p>Syntax: location [=|<del>|</del>*|^~] uri {…}</p>
+</li>
+<li><p>Context: server, location</p>
+</li>
+<li></li>
+<li><p>合并连续的 <code>/</code> 符号，Default: merg_slashes on</p>
+</li>
+<li><p>匹配规则</p>
+<ul>
+<li>前缀字符串<ul>
+<li>常规匹配，示例：location /test {…}</li>
+<li>=: 精准匹配，示例：location = /test {…}</li>
+<li>^~: 匹配后则不再进行正则表达式匹配</li>
+</ul>
+</li>
+<li>正则表达式<ul>
+<li>~: 大小写敏感的正则表达式</li>
+<li>~*: 忽略大小写的正则表达式</li>
+</ul>
+</li>
+<li>用于内部跳转的命名 location<ul>
+<li>@</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>匹配顺序</p>
+<p><code>无顺序匹配全部前缀字符串 location</code></p>
+<ol>
+<li><p>使用匹配上的 = 精确匹配 location： <code>匹配 = 字符串</code> 。</p>
+</li>
+<li><p>使用匹配上的 ^~ 字符串 location：<code>匹配 ^~ 字符串</code>。</p>
+</li>
+<li><p>多个匹配项，记住最长匹配的前缀字符串 location</p>
+<p>按照 nginx.conf 中的顺序依次匹配正则表达式 location。</p>
+<ul>
+<li>匹配成功，使用匹配上的正则表达式。</li>
+<li>匹配失败，所有表达式都不匹配，使用最长匹配的前缀字符串location。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>auth_basic </p>
+<ul>
+<li><p>auth_basic “test auth_basic”</p>
+</li>
+<li><p>auth_basic_user_file file</p>
+<p>生成工具: <code>htpasswd</code>，可通过执行 <code>yum install -y httpd-tools</code> 命令安装。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -c -b file user pass</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>try_files</p>
+<p>默认安装、无法禁用</p>
+<ul>
+<li>Syntax<ul>
+<li>try_files file … uri;</li>
+<li>try_files file … =code;</li>
+</ul>
+</li>
+<li>Context<ul>
+<li>server</li>
+<li>location</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>mirror</p>
+<p>实时拷贝流量：precontent 阶段的 mirror 模块，默认编译进 Nginx，编译时可通过 <code>--without-http_mirror_module</code> 参数移除。</p>
+<p>处理请求时，生成子请求访问其他服务，对子请求的返回值不做处理。</p>
+<p>Syntax: mirror uri | off; </p>
+<p>Default: mirror off; </p>
+<p>Context: http, server, location </p>
+</li>
+</ul>
+<p>  Syntax: mirror_request_body on | off; </p>
+<p>  Default: mirror_request_body on; </p>
+<p>  Context: http, server, location</p>
+<ul>
+<li><p>content阶段</p>
+<p>static: root 和 alias 指令</p>
+<ul>
+<li>alias<ul>
+<li>Context: location</li>
+</ul>
+</li>
+<li>root<ul>
+<li>Default: root html;</li>
+<li>Context: http, server, location, if in location</li>
+</ul>
+</li>
+</ul>
+<p>功能：将 url 映射为文件路径，以返回静态文件内容</p>
+<p>区别：</p>
+<ul>
+<li>root 会将完整 url 映射到文件路径中。</li>
+<li>alias 只会将 location 后的 URL 映射到文件路径。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>关闭未找到文件时的错误日志：log_not_found off;</p>
+</li>
+<li><p>展示目录：autoindex on;</p>
+</li>
+<li><p>将多个小文件合并到一个http请求，最终将所有文件内容合并进行响应：<code>ngx_http_concat_module</code>。</p>
+</li>
+<li><p>access_log path 可使用变量，但会造成频繁开关文件。可通过 <code>open_log_file_cache</code> 参数进行优化。</p>
+</li>
+<li><p>变量</p>
+<ul>
+<li>Nginx 内置变量<ul>
+<li>arg_参数名</li>
+<li>args 全部参数</li>
+</ul>
+</li>
+<li>http 变量</li>
+<li>tcp 变量</li>
+</ul>
+</li>
+<li><p>防盗链 valid_referers none blocked server_names *.codezm.com <code>$invalid_referer</code></p>
+</li>
+<li><p><code>keepalive</code> 提升链接效率</p>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nginx 向客户端返回的 keepalive</span></span><br><span class="line"><span class="comment"># 禁用 IE6 浏览器使用 keepalive 功能。</span></span><br><span class="line"><span class="attribute">keepalive_disable</span> msie6;</span><br><span class="line"><span class="comment"># 在同一个 Tcp 链接上最多处理几个 http 请求。 </span></span><br><span class="line"><span class="attribute">keepalive_requests</span> <span class="number">100</span>;</span><br><span class="line"><span class="comment"># Tcp 链接处理后最多保持 75s 后关闭链接，nginx 告知客户端最多 25s 后关闭链接。</span></span><br><span class="line"><span class="attribute">keepalive_timeout</span> <span class="number">75</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Connection <span class="string">"keepalive"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<ul>
+<li>在 <code>http</code> 块中增加 <code>server_tokens off;</code> 关闭 <code>Response Headers</code> 中 <code>Server</code> 对应 <code>nginx</code> 版本号，以提升安全性。</li>
+</ul>
+<h4 id="四、反向代理与负载均衡"><a href="#四、反向代理与负载均衡" class="headerlink" title="四、反向代理与负载均衡"></a>四、反向代理与负载均衡</h4><p>7层应用反向代理：</p>
+<ul>
+<li><p>uwsgi</p>
+</li>
+<li><p>fastcgi</p>
+</li>
+<li><p>scgi</p>
+</li>
+<li><p>http</p>
+</li>
+<li><p>memcached</p>
+</li>
+<li><p>websocket <a target="_blank" rel="noopener" href="http://www.websocket.org/echo.html">http://www.websocket.org/echo.html</a></p>
+<blockquote>
+<p>proxy_http_version 1.1;</p>
+<p>proxy_set_header Upgrade $http_upgrade;</p>
+<p>proxy_set_header Connection “upgrade”;</p>
+</blockquote>
+</li>
+<li><p>grpc <a target="_blank" rel="noopener" href="http://grpc.io/">http://grpc.io/</a> <a target="_blank" rel="noopener" href="https://github.com/grpc/grpc">https://github.com/grpc/grpc</a></p>
+</li>
+</ul>
+<p>stream 4层反向代理：</p>
+<h5 id="upstream-模块提供的变量"><a href="#upstream-模块提供的变量" class="headerlink" title="upstream 模块提供的变量"></a>upstream 模块提供的变量</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$upstream_addr</td>
+<td>上游服务器的IP地址，格式为可读的字符串，例如：127.0.0.1:8080</td>
+</tr>
+<tr>
+<td>$upstream_connect_time</td>
+<td>与上游服务建立连接消耗的时间，单位为秒，精确到毫秒</td>
+</tr>
+<tr>
+<td>$upstream_header_time</td>
+<td>接收上游服务发回响应中http头部所消耗的时间，单位为秒，精确到毫秒</td>
+</tr>
+<tr>
+<td>$upstream_response_time</td>
+<td>接收完整的上游服务响应所消耗的时间，单位为秒，精确到毫秒</td>
+</tr>
+<tr>
+<td>$upstream_http_名称</td>
+<td>从上游服务返回的响应头部的值</td>
+</tr>
+<tr>
+<td>$upstream_bytes_received</td>
+<td>从上游服务接收到的响应长度，单位为字节</td>
+</tr>
+<tr>
+<td>$upstream_response_length</td>
+<td>从上游服务返回的响应包体长度，单位为字节</td>
+</tr>
+<tr>
+<td>$upstream_status</td>
+<td>上游服务返回的HTTP响应中的状态码，如果未连接上，该变量值为502</td>
+</tr>
+<tr>
+<td>$upstream_cookie_名称</td>
+<td>从上游服务返回发回的 Set-Cookie 中取出的 cookie 值</td>
+</tr>
+<tr>
+<td>$upstream_trailer_名称</td>
+<td>从上游服务的响应尾部取到的值</td>
+</tr>
+<tr>
+<td>$upstream_http_server</td>
+<td>上游服务</td>
+</tr>
+<tr>
+<td>$upstream_cache_status</td>
+<td>缓存状态</td>
+</tr>
+</tbody></table>
+<h5 id="最大包体长度限制"><a href="#最大包体长度限制" class="headerlink" title="最大包体长度限制"></a>最大包体长度限制</h5><p><code>client_max_body_size 1m;</code> 仅对请求头部中含有 <code>Content-Length</code> 有效超出最大长度后，返回 <code>413</code> 错误。</p>
+<h5 id="临时文件路径格式"><a href="#临时文件路径格式" class="headerlink" title="临时文件路径格式"></a>临时文件路径格式</h5><p><code>client_body_temp_path path [level1 [level2 [level3]]]</code>，默认 <code>client_body_temp_path client_body_temp;</code>。</p>
+<p><code>client_body_in_file_only on|clean|off</code>，默认 <code>client_body_in_file_only off;</code>。</p>
+<h5 id="读取包体时的超时"><a href="#读取包体时的超时" class="headerlink" title="读取包体时的超时"></a>读取包体时的超时</h5><p><code>client_body_timeout time;</code> ，默认 <code>client_body_timeout 60s;</code>。读取包体时超时，则返回 408 错误。</p>
+<h5 id="向上游服务建立连接"><a href="#向上游服务建立连接" class="headerlink" title="向上游服务建立连接"></a>向上游服务建立连接</h5><blockquote>
+<p>Syntax: proxy_connect_timeout time;</p>
+<p>Default: proxy_connect_timeout 60s;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<p>超时后，会向客户端生成 http 响应，响应码为：502。</p>
+<blockquote>
+<p>Syntax: proxy_next_upstream http_502|…;</p>
+<p>Default: proxy_next_upstream error timeout;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<p>当上游连接返回 <code>502</code> 错误码后，可以再设置另一个上游服务提供处理。</p>
+<h5 id="上游连接启用-TCP-keepalive"><a href="#上游连接启用-TCP-keepalive" class="headerlink" title="上游连接启用 TCP keepalive"></a>上游连接启用 TCP keepalive</h5><blockquote>
+<p>Syntax: proxy_socket_keepalive on|off;</p>
+<p>Default: proxy_socket_keepalive off;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<h5 id="上游连接启用-HTTP-keepalive"><a href="#上游连接启用-HTTP-keepalive" class="headerlink" title="上游连接启用 HTTP keepalive"></a>上游连接启用 HTTP keepalive</h5><blockquote>
+<p>Syntax: keepalive connections;</p>
+<p>Default: -;</p>
+<p>Context: upstream</p>
+</blockquote>
+<p>一个 tcp 连接最多处理多少个http请求。</p>
+<blockquote>
+<p>Syntax: keepalive_requests number;</p>
+<p>Default: keepalive_requests 100;</p>
+<p>Context: upstream</p>
+</blockquote>
+<h5 id="向上游发送-HTTP-请求"><a href="#向上游发送-HTTP-请求" class="headerlink" title="向上游发送 HTTP 请求"></a>向上游发送 HTTP 请求</h5><blockquote>
+<p>Syntax: proxy_send_timeout time;</p>
+<p>Default: proxy_send_timeout 60s;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<h4 id="接收上游的-HTTP-响应头部"><a href="#接收上游的-HTTP-响应头部" class="headerlink" title="接收上游的 HTTP 响应头部"></a>接收上游的 HTTP 响应头部</h4><blockquote>
+<p>Syntax: proxy_buffer_size size;</p>
+<p>Default: proxy_buffer_size 4k|8k;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<p>error_log: upstream sent too big header</p>
+<h5 id="接收上游的-HTTP-包体"><a href="#接收上游的-HTTP-包体" class="headerlink" title="接收上游的 HTTP 包体"></a>接收上游的 HTTP 包体</h5><blockquote>
+<p>Syntax: proxy_buffer number size;</p>
+<p>Default: proxy_buffer 8 4k|8k;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<blockquote>
+<p>Syntax: proxy_buffering on|off;</p>
+<p>Default: proxy_buffering on;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<p>使用上游服务设置的 <code>Server</code> header 头配置。</p>
+<p>proxy_pass_header server;</p>
+<h5 id="用-error-page-拦截上游失败响应"><a href="#用-error-page-拦截上游失败响应" class="headerlink" title="用 error_page 拦截上游失败响应"></a>用 error_page 拦截上游失败响应</h5><p>当上游响应的响应码 &gt;= 300 时，应将响应返回客户端还是按 error_page 指令处理</p>
+<p>error_page 500 /500.html;</p>
+<p>proxy_intercept_errors on;</p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>proxy_cache_path</p>
+<p>LRU淘汰算法：末位淘汰。</p>
+<p>查看上下文切换次数</p>
+<ul>
+<li>vmstat 1</li>
+<li>dstat 1</li>
+<li>pidstat -w 1 -p <pid></pid></li>
+</ul>
+<p>惊群</p>
+<ul>
+<li><code>reuseport</code>  linux &gt; 3.9，centos &gt;= 7.0。<code>listen 80 reuseport;</code></li>
+</ul>
+<p>提升 cpu 缓存命中率</p>
+<p><code>work_cpu_affinity: auto [cpumask];</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cpu L1级指令缓存</span></span><br><span class="line">cat /sys/devices/system/cpu/cpu1/cache/index0/size</span><br><span class="line">32K</span><br><span class="line"><span class="comment"># cpu L1级数据缓存</span></span><br><span class="line">cat /sys/devices/system/cpu/cpu1/cache/index1/size</span><br><span class="line">32K</span><br><span class="line"><span class="comment"># cpu L2级缓存</span></span><br><span class="line">cat /sys/devices/system/cpu/cpu1/cache/index2/size</span><br><span class="line">256K</span><br><span class="line"><span class="comment"># cpu L3级缓存</span></span><br><span class="line">cat /sys/devices/system/cpu/cpu1/cache/index3/size</span><br><span class="line">20480K</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><p><code>netstat -nap | grep tcp</code></p>
+<h5 id="SYN-SENT状态"><a href="#SYN-SENT状态" class="headerlink" title="SYN_SENT状态"></a>SYN_SENT状态</h5><p>主动建立连接时，发 SYN 的重试次数：<code>net.ipv4.tcp_syn_retries = 6</code>。</p>
+<p>建立连接时的本地端口可用范围：<code>net.ipv4.ip_local_port_range = 32768 60999</code>。</p>
+<p>主动建立连接时，应用层超时时间：<code>proxy_connect_timeout 60s;</code>。</p>
+<h5 id="SYN-RCVD-状态-服务端"><a href="#SYN-RCVD-状态-服务端" class="headerlink" title="SYN_RCVD 状态 -服务端"></a>SYN_RCVD 状态 -服务端</h5><p>（半链接）<code>SYN Queue</code> SYN_RCVD 状态链接的最大个数：<code>net.ipv4.tcp_max_syn_backlog</code></p>
+<p>被动建立连接时，发 SYN/ACK 的重试次数：<code>net.ipv4.tcp_synack_retries</code>。</p>
+<p>（全连接）<code>ACCEPT Queue</code> 最大个数：<code>backlog</code></p>
+<h5 id="如何应对-SYN-攻击"><a href="#如何应对-SYN-攻击" class="headerlink" title="如何应对 SYN 攻击"></a>如何应对 SYN 攻击</h5><ul>
+<li>接收自网卡、但未被内核协议栈处理的报文队列长度：<code>net.core.netdev_max_backlog</code>。</li>
+<li>SYN_RCVD 状态连接的最大个数：<code>net.ipv4.tcp_max_syn_backlog</code>。</li>
+<li>超出处理能力时，对新来的SYN直接回包RST，丢弃连接：<code>net.ipv4.tcp_abort_on_overflow</code>。</li>
+<li>启用 cookie：<code>net.ipv4.tcp_syncookies=1</code>。</li>
+</ul>
+<h5 id="句柄数的上限"><a href="#句柄数的上限" class="headerlink" title="句柄数的上限"></a>句柄数的上限</h5><ul>
+<li><p>操作系统全局</p>
+<ul>
+<li>操作系统可使用的最大句柄数：<code>fs.file-max</code>，<code>sysctl -a | grep file-max</code>。</li>
+<li>使用 <code>fs.file-nr</code> 可以查看当前已分配、正使用、上限：<code>fs.file-nr=21632 0 40000500</code>，<code>sysctl -a | grep file-nr</code></li>
+</ul>
+</li>
+<li><p>限制用户</p>
+<ul>
+<li>/etc/security/limits.conf<ul>
+<li>root soft nofile 65535</li>
+<li>root hard nofile 65535</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>限制进程</p>
+<ul>
+<li><code>worker_rlimit_nofile number;</code></li>
+</ul>
+</li>
+</ul>
+<p>Nginx 上游+下游间连接句柄数限制: <code>worker_connections number;</code></p>
+<h4 id="两个队列的长度"><a href="#两个队列的长度" class="headerlink" title="两个队列的长度"></a>两个队列的长度</h4><p>SYN队列 - 未完成握手：<code>net.ipv4.tcp_max_syn_backlog = 262144</code>。</p>
+<p>ACCEPT 队列 - 已完成握手：<code>net.core.somaxconn</code> ，系统级最大 <code>backlog</code> 队列长度。</p>
+<p>Nginx： <code>listen address[:port] [backlog=number]</code>。限制已握手队列。</p>
+<h5 id="Tcp-fast-open"><a href="#Tcp-fast-open" class="headerlink" title="Tcp fast open"></a>Tcp fast open</h5><p><code>net.ipv4.tcp_fastopen</code></p>
+<ul>
+<li>0：关闭（默认）</li>
+<li>1：作为客户端时可以使用TFO</li>
+<li>2：作为服务端时可以使用TFO</li>
+<li>3：无论作为客户端还是服务端，均使用TFO</li>
+</ul>
+<p><code>proxy_timeout: 1m;</code></p>
+<h4 id="TCP缓冲区"><a href="#TCP缓冲区" class="headerlink" title="TCP缓冲区"></a>TCP缓冲区</h4><p>当读、写超时指令生效引发连接关闭时，通过发送 <code>RST</code> 立刻释放端口、内存等资源来关闭链接：  reset_timeout_connection on|off;<code>默认:</code>off`。</p>
+<h5 id="TLS-SSL-优化握手性能"><a href="#TLS-SSL-优化握手性能" class="headerlink" title="TLS/SSL 优化握手性能"></a>TLS/SSL 优化握手性能</h5><p>ssl_session_cache off | none </p>
+<ul>
+<li>off<ul>
+<li>不使用 Session 缓存，且 Nginx 在协议中明确告诉客户端 Session 缓存不被使用</li>
+</ul>
+</li>
+<li>none<ul>
+<li>不使用 Session 缓存</li>
+</ul>
+</li>
+<li>builtin<ul>
+<li>使用 Openssl 的 Session 缓存，由于在内存中使用，所以仅当同一客户端的两次链接都命中到同一个 worker 进程时，Session 缓存才会生效。</li>
+</ul>
+</li>
+<li>shared:name:size （常用）<ul>
+<li>定义共享内存，为所有 worker 进程提供 Session 缓存服务。1MB 大约可用于 4000 个 Session。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1m 大约提供 4000 个链接</span></span><br><span class="line"><span class="attribute">ssl_session_cache</span> shared:nginx_ssl:<span class="number">1m</span>;</span><br><span class="line"><span class="comment"># 超时时间：1天</span></span><br><span class="line"><span class="attribute">ssl_session_timeout</span> <span class="number">1440m</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line"><span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">ssl_ciphers</span> <span class="string">""</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://ssl-config.mozilla.org/">https://ssl-config.mozilla.org/</a></p>
+<h5 id="TLS-SSL-中的会话票证-tickets"><a href="#TLS-SSL-中的会话票证-tickets" class="headerlink" title="TLS/SSL 中的会话票证 tickets"></a>TLS/SSL 中的会话票证 tickets</h5><p>Nginx 将会话 Session 中的信息作为 tickets 加密发给客户端，当客户端下次发起 TLS 链接时带上 tickets，由 nginx 解密验证后复用会话 Session。</p>
+<p>会话票证虽然更易在 Nginx 集群中使用，但破坏了 TLS/SSL 的安全机制，有安全风险，必须频繁更换 tickets 密钥。</p>
+<ul>
+<li><p>是否开启会话票证服务：</p>
+<blockquote>
+<p>Syntax: ssl_session_tickets on | off;</p>
+<p>Default: ssl_session_tickets on;</p>
+<p>Context: http，server</p>
+</blockquote>
+</li>
+<li><p>使用会话票证时加密 tickets 的密钥文件，未配置时会随机生成：</p>
+<blockquote>
+<p>Syntax: ssl_session_ticket_key file;</p>
+<p>Default: -</p>
+<p>Context: http,server</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssl_session_ticket_key</span> ticket.key;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand 80&gt; ticket.key</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="HTTP-长连接"><a href="#HTTP-长连接" class="headerlink" title="HTTP 长连接"></a>HTTP 长连接</h5><ul>
+<li><p>优点</p>
+<blockquote>
+<ul>
+<li>减少握手次数</li>
+<li>通过减少并发连接数减少了服务器资源的消耗</li>
+<li>降低 TCP 拥塞控制的影响</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>Syntax: keepalive_requests number;</p>
+<p>Default: keepalive_requests 100;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<blockquote>
+<p>Syntax: keepalive_requests number;</p>
+<p>Default: keepalive_requests 100;</p>
+<p>Context: upstream</p>
+</blockquote>
+<h5 id="gzip-压缩-http-nginx-org-en-docs-http-ngx-http-gzip-module-html"><a href="#gzip-压缩-http-nginx-org-en-docs-http-ngx-http-gzip-module-html" class="headerlink" title="gzip 压缩 - http://nginx.org/en/docs/http/ngx_http_gzip_module.html"></a>gzip 压缩 - <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html">http://nginx.org/en/docs/http/ngx_http_gzip_module.html</a></h5><p>功能：</p>
+<p>通过实时压缩 http 包体，提升网络传输效率</p>
+<p>模块：<code>ngx_http_gzip_module</code>，通过 <code>--without-http_gzip_module</code> 禁用模块</p>
+<blockquote>
+<p>Syntax: gzip on | off;</p>
+<p>Default: gzip off;</p>
+<p>Context: http,server,location, if in location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip</span> <span class="literal">on</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>指定压缩文件类型</p>
+<blockquote>
+<p>Syntax: gzip_types mime-type …;</p>
+<p>Default: gzip_types text/html;</p>
+<p>Context: http,server,location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip_types</span> text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>指定压缩文件的最小字节数，当小于此字节数时不进行压缩。</p>
+<blockquote>
+<p>Syntax:    gzip_min_length length;<br>Default:    gzip_min_length 20;<br>Context:    http, server, location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip_min_length</span> <span class="number">1k</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>通过设置正则规则，表明哪些 <code>User-Agent</code> 头不使用 gzip 压缩。</p>
+<blockquote>
+<p>Syntax:    gzip_disable regex …;<br>Default:    —<br>Context:    http, server, location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁用IE 1-6 gzip</span></span><br><span class="line"><span class="attribute">gzip_disable</span> <span class="string">"MSIE [1-6]\."</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>指定压缩的  http 版本，默认：http_version: 1.1 才启用压缩处理。</p>
+<blockquote>
+<p>Syntax:    gzip_http_version 1.0 | 1.1;<br>Default:    gzip_http_version 1.1;<br>Context:    http, server, location</p>
+</blockquote>
+<p>是否压缩上游的响应</p>
+<blockquote>
+<p>Syntax:    gzip_proxied off | expired | no-cache | no-store | private | no_last_modified | no_etag | auth | any …;<br>Default:    gzip_proxied off;<br>Context:    http, server, location</p>
+</blockquote>
+<ul>
+<li>off<ul>
+<li>不压缩来自上游的响应</li>
+</ul>
+</li>
+<li>expired<ul>
+<li>如果上游响应中含有 Expires 头部，且其值中的时间与系统时间比较后确定不会缓存，则压缩响应</li>
+</ul>
+</li>
+<li>no-cache<ul>
+<li>如果上游响应中含有 <code>Cache-Control</code> 头部，且其值含有 <code>no-cache</code> 值，则压缩响应。</li>
+</ul>
+</li>
+<li>private<ul>
+<li>如果上游响应中含有 <code>Cache-Control</code> 头部，且其值含有 <code>private</code> 值，则压缩响应</li>
+</ul>
+</li>
+<li>no_last_modified<ul>
+<li>如果上游响应中没有 <code>Last-Modified</code> 头部，则压缩响应</li>
+</ul>
+</li>
+<li>no_etag<ul>
+<li>如果上游响应中没有 <code>ETag</code> 头部，则压缩响应</li>
+</ul>
+</li>
+<li>auth<ul>
+<li>如果客户端请求中含有 <code>Authorization</code> 头部，则压缩响应</li>
+</ul>
+</li>
+<li>any<ul>
+<li>压缩所有来自上游的响应</li>
+</ul>
+</li>
+</ul>
+<p>配置缓冲区大小</p>
+<blockquote>
+<p>Syntax:    gzip_buffers number size;<br>Default:    gzip_buffers 32 4k|16 8k;<br>Context:    http, server, location</p>
+</blockquote>
+<p>压缩率等级，1-9，1：压缩速度最快，压缩率最低。</p>
+<blockquote>
+<p>Syntax:    gzip_comp_level level;<br>Default:    gzip_comp_level 1;<br>Context:    http, server, location</p>
+</blockquote>
+<p>是否在响应中返回 <code>Vary: Accept-Encoding</code>。</p>
+<blockquote>
+<p>Syntax:    gzip_vary on | off;<br>Default:    gzip_vary off;<br>Context:    http, server, location</p>
+</blockquote>
+<p>变量</p>
+<ul>
+<li>压缩率 <code>$gzip_ratio</code> </li>
+</ul>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启缓存</span></span><br><span class="line"><span class="attribute">location</span> <span class="regexp">~* ^.+\.(ico|gif|jpg|jpeg|png)$</span> { </span><br><span class="line">    <span class="attribute">access_log</span>   <span class="literal">off</span>; </span><br><span class="line">    <span class="attribute">expires</span>      <span class="number">2d</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="attribute">location</span> <span class="regexp">~* ^.+\.(css|js|txt|xml|swf|wav)$</span> {</span><br><span class="line">    <span class="attribute">access_log</span>   <span class="literal">off</span>;</span><br><span class="line">    <span class="attribute">expires</span>      <span class="number">24h</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="attribute">location</span> <span class="regexp">~* ^.+\.(html|htm)$</span> {</span><br><span class="line">    <span class="attribute">expires</span>      <span class="number">1h</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="attribute">location</span> <span class="regexp">~* ^.+\.(eot|ttf|otf|woff|svg)$</span> {</span><br><span class="line">    <span class="attribute">access_log</span>   <span class="literal">off</span>;</span><br><span class="line">    <span class="attribute">expires</span> max;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>升级更高效的 http2 协议：向前兼容 <code>http/1.x</code> 协议</p>
+<h5 id="nginx-开启-HTTP-2-前置条件-http-nginx-org-en-docs-http-ngx-http-v2-module-html"><a href="#nginx-开启-HTTP-2-前置条件-http-nginx-org-en-docs-http-ngx-http-v2-module-html" class="headerlink" title="nginx 开启 HTTP/2 前置条件 - http://nginx.org/en/docs/http/ngx_http_v2_module.html"></a>nginx 开启 HTTP/2 前置条件 - <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_v2_module.html">http://nginx.org/en/docs/http/ngx_http_v2_module.html</a></h5><ul>
+<li><p><code>HTTP/2</code> 是建立在 <code>TLS/SSL</code> 协议上的，所以必须有证书支持。</p>
+</li>
+<li><p>nginx &gt;= 1.9.5。可通过 <code>nginx -v</code> 查看当前版本。</p>
+</li>
+<li><p>编译 nginx 时所使用的 openssl &gt;= 1.0.2。可通过 <code>openssl version</code> 查看当前系统 <code>openssl</code> 版本，通过 <code>nginx -v</code> 可查看编译 nginx 时 <code>openssl</code> 版本。</p>
+</li>
+</ul>
+<h5 id="开启-HTTP-2"><a href="#开启-HTTP-2" class="headerlink" title="开启 HTTP/2"></a>开启 HTTP/2</h5><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> {</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl http2;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> server.crt;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> server.key;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="检查开启状态"><a href="#检查开启状态" class="headerlink" title="检查开启状态"></a>检查开启状态</h5><ul>
+<li>Chrome 扩展程序：<code>HTTP/2 and SPDY indicator</code>。</li>
+<li></li>
+</ul>
+<h4 id="磁盘IO优化"><a href="#磁盘IO优化" class="headerlink" title="磁盘IO优化"></a>磁盘IO优化</h4><ul>
+<li><p>适用于大文件：直接IO。- <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_core_module.html#directio">http://nginx.org/en/docs/http/ngx_http_core_module.html#directio</a></p>
+<blockquote>
+<p>Syntax:    directio size | off;<br>Default:    directio off;<br>Context:    http, server, location</p>
+</blockquote>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当文件 size 大于 10M 时，启用 directio。</span></span><br><span class="line"><span class="attribute">directio</span> <span class="number">10m</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当启用 <code>directio</code> 时，将自动禁用 <code>sendfile</code>。</p>
+</li>
+<li><p>异步IO - <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_core_module.html#aio">http://nginx.org/en/docs/http/ngx_http_core_module.html#aio</a></p>
+<blockquote>
+<p>Syntax:    aio on | off | threads[=pool];<br>Default:    aio off;<br>Context:    http, server, location</p>
+</blockquote>
+</li>
+</ul>
+<p><code>sendfile on;</code> 将使用零拷贝技术：通过获取对应文件的句柄发送给 socket 缓冲区。</p>
+<h5 id="gzip-static-模块-http-nginx-org-en-docs-http-ngx-http-gzip-static-module-html"><a href="#gzip-static-模块-http-nginx-org-en-docs-http-ngx-http-gzip-static-module-html" class="headerlink" title="gzip_static 模块 - http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html"></a>gzip_static 模块 - <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html">http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html</a></h5><p>模块：<code>ngx_http_gzip_static_module</code>，通过 <code>--with-http_gzip_static_module</code> 启用模块。</p>
+<p>功能：检测到同名 <code>.gz</code> 文件时，返回 <code>.gz</code> 文件内容。</p>
+<blockquote>
+<p>Syntax:    gzip_static on | off | always;<br>Default:    gzip_static off;<br>Context:    http, server, location</p>
+</blockquote>
+<h4 id="nginx-性能分析"><a href="#nginx-性能分析" class="headerlink" title="nginx 性能分析"></a>nginx 性能分析</h4><h4 id="Google-PerfTools-https-github-com-gperftools-gperftools"><a href="#Google-PerfTools-https-github-com-gperftools-gperftools" class="headerlink" title="Google PerfTools https://github.com/gperftools/gperftools"></a>Google PerfTools <a target="_blank" rel="noopener" href="https://github.com/gperftools/gperftools">https://github.com/gperftools/gperftools</a></h4><h4 id="stub-status-http-nginx-org-en-docs-http-ngx-http-stub-status-module-html"><a href="#stub-status-http-nginx-org-en-docs-http-ngx-http-stub-status-module-html" class="headerlink" title="stub_status http://nginx.org/en/docs/http/ngx_http_stub_status_module.html"></a>stub_status <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_stub_status_module.html">http://nginx.org/en/docs/http/ngx_http_stub_status_module.html</a></h4><p>lua 防火墙 <a target="_blank" rel="noopener" href="https://github.com/loveshell/ngx_lua_waf">https://github.com/loveshell/ngx_lua_waf</a></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -i lo port 514 -A -s 0</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<ul>
+<li>负载均衡（Server Load Balancer，下文简称 SLB）</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">./configure --user=apache --group=apache --prefix=/data/nginx-debug \</span><br><span class="line">--with-debug \</span><br><span class="line">--with-http_ssl_module \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--with-http_gunzip_module \</span><br><span class="line">--with-http_v2_module \</span><br><span class="line">--with-http_realip_module \</span><br><span class="line">--with-http_stub_status_module</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--with-http_auth_request_module --with-http_realip_module --with-http_v2_module --with-debug --add-module=/home/web/nginx-http-concat/ --with-http_random_index_module --with-http_sub_module --with-http_addition_module --with-http_secure_link_module --with-http_geoip_module --with-http_ssl_module --with-stream_ssl_module --with-stream_realip_module --with-stream_ssl_preread_module --with-stream --add-module=/home/web/ngx_cache_purge/ --with-http_slice_module --with-google_perftools_module --with-threads --with-ld-opt=-ltcmalloc --with-http_gzip_static_module --with-http_gunzip_module --with-http_stub_status_module</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="X-Forward-For"><a href="#X-Forward-For" class="headerlink" title="X-Forward_For"></a>X-Forward_For</h4><blockquote>
+<p>HTTP请求11个阶段：<code>postread</code> 阶段</p>
+</blockquote>
+<p>在 X-Forward-For 的最左边才是真实用户的地址，右边都是代理地址，当我们把 real_ip_header 设置为  X-Forward-For 时，如果没有启用 环回地址 real_ip_recursive，我们取到的 $remote_addr 是  X-Forward-For 中最右边的 ip，无论是否设置了 set_real_ip_from；如果启用了环回地址  real_ip_recursive on，那么就获取最左边的 ip，也就是排除设置了  set_real_ip_from(可信地址外的)。不一定是最左边的IP，而是从右边开始数，第一个非可信地址的IP(set_real_ip_from 可信地址外的)</p>
+<p>当 nginx 前存在 SLB、反向代理时，我们是无法直接通过 <code>$remote_addr</code> 得到客户端IP地址的，此时变量 <code>$remote_addr</code> 的值是 <code>SLB</code> 等服务器的IP，并非真实客户端请求IP。</p>
+<p>进而无法通过 <code>$remote_addr</code> 变量来对客户端做限流、限速等策略。</p>
+<p>可通过 <code>--with-http_realip_module</code> 模块来获取真实客户端IP，默认是没有编译到 <code>nginx</code> 中的，需要通过 <code>./configure</code> 配置时手动添加，来启用此模块。</p>
+<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'X-Forwarded-For: 93.184.216.34, 192.168.96.3, 127.0.0.1'</span> -H <span class="string">'cdn-src-ip: 122.4.117.22'</span> realip.codezm.com</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h4><p>限制并发连接。</p>
+<h4 id="限速"><a href="#限速" class="headerlink" title="限速"></a>限速</h4><h5 id="时间单位"><a href="#时间单位" class="headerlink" title="时间单位"></a>时间单位</h5><ul>
+<li>ms milliseconds</li>
+<li>s seconds</li>
+<li>m minutes</li>
+<li>h hours</li>
+<li>d days</li>
+<li>w weeks</li>
+<li>M months, 30 days</li>
+<li>y years, 365 days</li>
+</ul>
+<h4 id="Nginx-内置变量"><a href="#Nginx-内置变量" class="headerlink" title="Nginx 内置变量"></a>Nginx 内置变量</h4><h5 id="在-nginx-中，如何使用-Get-参数变量"><a href="#在-nginx-中，如何使用-Get-参数变量" class="headerlink" title="在 nginx 中，如何使用 Get 参数变量"></a>在 nginx 中，如何使用 Get 参数变量</h5><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> / {</span><br><span class="line">  <span class="attribute">return</span> <span class="number">200</span> <span class="string">"Get-Request Variables: <span class="variable">$arg_name</span>, <span class="variable">$arg_age</span>\n"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">"var.codezm.com?name=codezm&amp;age=22"</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="在-nginx-中，如何使用自定义-header-变量"><a href="#在-nginx-中，如何使用自定义-header-变量" class="headerlink" title="在 nginx 中，如何使用自定义 header 变量"></a>在 nginx 中，如何使用自定义 header 变量</h5><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> / {</span><br><span class="line">	<span class="attribute">return</span> <span class="number">200</span> <span class="string">"Client real ip: <span class="variable">$http_cdn_src_ip</span>\n"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'cdn-src-ip: 93.184.216.34'</span> realip.codezm.com</span><br></pre></td></tr></tbody></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MySQL/1c587b3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/MySQL/1c587b3.html" class="post-title-link" itemprop="url">MySQL使用技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-07 10:28:14" itemprop="dateCreated datePublished" datetime="2020-12-07T10:28:14+00:00">2020-12-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MySQL/1c587b3.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MySQL/1c587b3.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MySQL使用技巧</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/MySQL/1c587b3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MacOS/20a05160.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/MacOS/20a05160.html" class="post-title-link" itemprop="url">MacOS使用技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-07 10:18:38" itemprop="dateCreated datePublished" datetime="2020-12-07T10:18:38+00:00">2020-12-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MacOS/" itemprop="url" rel="index"><span itemprop="name">MacOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MacOS/20a05160.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MacOS/20a05160.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>18 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MacOS使用技巧</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/MacOS/20a05160.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/Linux/dc3ac5b2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/Linux/dc3ac5b2.html" class="post-title-link" itemprop="url">linux 常用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-04 13:57:38" itemprop="dateCreated datePublished" datetime="2020-12-04T13:57:38+00:00">2020-12-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/Linux/dc3ac5b2.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/Linux/dc3ac5b2.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>linux 常用命令</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/Linux/dc3ac5b2.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/%E7%BD%91%E7%BB%9C/8d21f815.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/%E7%BD%91%E7%BB%9C/8d21f815.html" class="post-title-link" itemprop="url">tcpdump wireshark 使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-03 17:01:38" itemprop="dateCreated datePublished" datetime="2020-12-03T17:01:38+00:00">2020-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/%E7%BD%91%E7%BB%9C/8d21f815.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/网络/8d21f815.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>981</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>利用 <code>tcpdump</code> 抓包，利用 <code>tcpdump/wireshark</code> 来分析网络数据。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/%E7%BD%91%E7%BB%9C/8d21f815.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/hexo/55025.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/hexo/55025.html" class="post-title-link" itemprop="url">hexo 博客搭建之文章字数统计</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-02 19:45:36" itemprop="dateCreated datePublished" datetime="2020-12-02T19:45:36+00:00">2020-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/hexo/55025.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/hexo/55025.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>451</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对于阅读者来说，提供文章字数统计、阅读时长可以起到友好的提示作用。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/hexo/55025.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>

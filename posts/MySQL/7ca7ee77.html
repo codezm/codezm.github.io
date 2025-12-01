@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codezm.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="canal同步主库MySQL5.6至从库MySQL8.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canal同步主库MySQL5.6至从库MySQL8.0">
+<meta property="og:url" content="https://codezm.github.io/posts/MySQL/7ca7ee77.html">
+<meta property="og:site_name" content="codezm 的个人博客">
+<meta property="og:description" content="canal同步主库MySQL5.6至从库MySQL8.0">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://codezm.github.io/posts/MySQL/7ca7ee77/image-20201119145217478.png">
+<meta property="og:image" content="https://codezm.github.io/posts/MySQL/7ca7ee77/image-20201119145145118.png">
+<meta property="og:image" content="https://codezm.github.io/posts/MySQL/7ca7ee77/image-20201119145418590.png">
+<meta property="article:published_time" content="2021-08-09T18:20:17.000Z">
+<meta property="article:modified_time" content="2025-12-01T08:02:38.185Z">
+<meta property="article:author" content="codezm">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="canal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://codezm.github.io/posts/MySQL/7ca7ee77/image-20201119145217478.png">
+
+<link rel="canonical" href="https://codezm.github.io/posts/MySQL/7ca7ee77.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>canal同步主库MySQL5.6至从库MySQL8.0 | codezm 的个人博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?af89874b80ed6b9e553728f89852d4c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="codezm 的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">codezm 的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="/images/avatar.jpg" alt="codezm 的个人博客">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-快捷键">
+
+    <a href="/kjj.html" rel="section"><i class="fa fa-windows fa-fw"></i>快捷键</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://codezm.github.io/posts/MySQL/7ca7ee77.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="codezm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codezm 的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          canal同步主库MySQL5.6至从库MySQL8.0
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 18:20:17" itemprop="dateCreated datePublished" datetime="2021-08-09T18:20:17+00:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-01 08:02:38" itemprop="dateModified" datetime="2025-12-01T08:02:38+00:00">2025-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/MySQL/7ca7ee77.html#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/MySQL/7ca7ee77.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>19 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>canal同步主库MySQL5.6至从库MySQL8.0</p>
+<hr>
+<a id="more"></a>
+
+
+
+<h5 id="利用-docker-拉取对应-mysql-版本的镜像。"><a href="#利用-docker-拉取对应-mysql-版本的镜像。" class="headerlink" title="利用 docker 拉取对应 mysql 版本的镜像。"></a>利用 docker 拉取对应 mysql 版本的镜像。</h5><p><a target="_blank" rel="noopener" href="https://c.163.com/hub#/library/repository/info?repoId=2955">网易云 - Docker镜像</a></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull hub.c.163.com/library/mysql:5.6</span><br><span class="line">$ docker pull hub.c.163.com/library/mysql:8.0</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name mysql-5.6 -e MYSQL_ROOT_PASSWORD=1234 -d hub.c.163.com/library/mysql:5.6</span><br><span class="line">$ docker run --name mysql-8.0 -e MYSQL_ROOT_PASSWORD=1234 -d hub.c.163.com/library/mysql:8.0</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="查看各容器IP地址"><a href="#查看各容器IP地址" class="headerlink" title="查看各容器IP地址"></a>查看各容器IP地址</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip addr</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>172.17.0.2 mysql-5.6</li>
+<li>172.17.0.3 mysql-8.0</li>
+</ul>
+<h5 id="查看各容器-mysql-对应版本"><a href="#查看各容器-mysql-对应版本" class="headerlink" title="查看各容器 mysql 对应版本"></a>查看各容器 mysql 对应版本</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 172.17.0.2</span><br><span class="line">root@7ae2a6435ca1:/# /usr/bin/mysql -V</span><br><span class="line">/usr/bin/mysql  Ver 14.14 Distrib 5.6.36, for Linux (x86_64) using  EditLine wrapper</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 172.17.0.3</span></span><br><span class="line">root@cc51ae9f3098:/<span class="comment"># /usr/bin/mysql -V</span></span><br><span class="line">/usr/bin/mysql  Ver 8.0.1-dmr <span class="keyword">for</span> Linux on x86_64 (MySQL Community Server (GPL))</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="安装-vim-工具，用于编辑配置文件"><a href="#安装-vim-工具，用于编辑配置文件" class="headerlink" title="安装 vim 工具，用于编辑配置文件"></a>安装 vim 工具，用于编辑配置文件</h5><p>由于仓库还是官方源，这里改成国内源，此处使用 163 源。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ cat &gt; /etc/apt/sources.list</span><br><span class="line">deb http://mirrors.163.com/debian/ jessie main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian-archive/debian/ jessie-backports main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ jessie main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian-archive/debian/ jessie-backports main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib</span><br><span class="line"><span class="comment"># ctrl + c</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由于 jessie 源在 163 上太久没有同步，忽略对文件有效期的校验。</span></span><br><span class="line"><span class="comment"># E: Release file for http://mirrors.163.com/debian-archive/debian/dists/jessie-backports/InRelease is expired (invalid since 632d12h 4min 50s). Updates for this repository will not be applied.</span></span><br><span class="line">$ apt-get -o Acquire::Check-Valid-Until=<span class="literal">false</span> update</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get update</span><br><span class="line">$ apt-get install -y vim</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="主库-172-17-0-2"><a href="#主库-172-17-0-2" class="headerlink" title="主库 172.17.0.2"></a>主库 172.17.0.2</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"># Copyright (c) 2014, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line">#</span><br><span class="line"># This program is free software; you can redistribute it and/or modify</span><br><span class="line"># it under the terms of the GNU General Public License as published by</span><br><span class="line"># the Free Software Foundation; version 2 of the License.</span><br><span class="line">#</span><br><span class="line"># This program is distributed in the hope that it will be useful,</span><br><span class="line"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span><br><span class="line"># GNU General Public License for more details.</span><br><span class="line">#</span><br><span class="line"># You should have received a copy of the GNU General Public License</span><br><span class="line"># along with this program; if not, write to the Free Software</span><br><span class="line"># Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># The MySQL  Server configuration file.</span><br><span class="line">#</span><br><span class="line"># For explanations see</span><br><span class="line"># http://dev.mysql.com/doc/mysql/en/server-system-variables.html</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">pid-file	= /var/run/mysqld/mysqld.pid</span><br><span class="line">socket		= /var/run/mysqld/mysqld.sock</span><br><span class="line">datadir		= /var/lib/mysql</span><br><span class="line">log-error	= /var/log/mysql/error.log</span><br><span class="line"># Disabling symbolic-links is recommended to prevent assorted security risks</span><br><span class="line">symbolic-links=0</span><br><span class="line"></span><br><span class="line">server_id = 1</span><br><span class="line">log-bin = mysql-bin</span><br><span class="line">binlog-do-db = db</span><br><span class="line">log-slave-updates</span><br><span class="line">sync_binlog = 1</span><br><span class="line">#auto_increment_offset = 1</span><br><span class="line">#auto_increment_increment = 1</span><br><span class="line">#expire_logs_days = 7  </span><br><span class="line">#log_bin_trust_function_creators = 1</span><br></pre></td></tr></tbody></table></figure>
+
+<p>重启主库 <code>mysqld</code> 服务，进入 <code>mysql</code> 命令行模式。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 查看主库当前binary log文件名和位置（position）</span><br><span class="line">mysql&gt; show master status \G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">             File: mysql-bin.000001</span><br><span class="line">         Position: 1152</span><br><span class="line">     Binlog_Do_DB: db</span><br><span class="line"> Binlog_Ignore_DB:</span><br><span class="line">Executed_Gtid_Set:</span><br><span class="line">1 row in set (0.01 sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="从库-172-17-0-3"><a href="#从库-172-17-0-3" class="headerlink" title="从库 172.17.0.3"></a>从库 172.17.0.3</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mysql/conf.d/docker.cnf</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">skip-host-cache</span><br><span class="line">skip-name-resolve</span><br><span class="line"></span><br><span class="line">server_id = 2</span><br><span class="line">log-bin = mysql-bin</span><br><span class="line">log-slave-updates</span><br><span class="line">sync_binlog = 0</span><br><span class="line">innodb_flush_log_at_trx_commit = 0        </span><br><span class="line">replicate-do-db = db         </span><br><span class="line">slave-net-timeout = 60                    </span><br><span class="line">log_bin_trust_function_creators = 1</span><br></pre></td></tr></tbody></table></figure>
+
+<p>重启从库 <code>mysqld</code> 服务，进入 <code>mysql</code> 命令行模式。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置主节点参数</span></span><br><span class="line">mysql&gt; change master to master_host=<span class="string">'172.17.0.2'</span>,master_user=<span class="string">'root'</span>,master_password=<span class="string">'1234'</span>,master_log_file=<span class="string">'mysql-bin.000001'</span>,master_log_pos=120;</span><br><span class="line"><span class="comment"># 开启主从同步</span></span><br><span class="line">mysql&gt; start slave;</span><br><span class="line"><span class="comment"># 查看主从同步状态</span></span><br><span class="line">mysql&gt; show slave status \G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">               Slave_IO_State: Waiting <span class="keyword">for</span> master to send event</span><br><span class="line">                  Master_Host: 172.17.0.2</span><br><span class="line">                  Master_User: root</span><br><span class="line">                  Master_Port: 3306</span><br><span class="line">                Connect_Retry: 60</span><br><span class="line">              Master_Log_File: mysql-bin.000001</span><br><span class="line">          Read_Master_Log_Pos: 120</span><br><span class="line">               Relay_Log_File: cc51ae9f3098-relay-bin.000002</span><br><span class="line">                Relay_Log_Pos: 317</span><br><span class="line">        Relay_Master_Log_File: mysql-bin.000001</span><br><span class="line">             Slave_IO_Running: Yes</span><br><span class="line">            Slave_SQL_Running: Yes</span><br><span class="line">              Replicate_Do_DB: db</span><br><span class="line">          Replicate_Ignore_DB:</span><br><span class="line">           Replicate_Do_Table:</span><br><span class="line">       Replicate_Ignore_Table:</span><br><span class="line">      Replicate_Wild_Do_Table:</span><br><span class="line">  Replicate_Wild_Ignore_Table:</span><br><span class="line">                   Last_Errno: 0</span><br><span class="line">                   Last_Error:</span><br><span class="line">                 Skip_Counter: 0</span><br><span class="line">          Exec_Master_Log_Pos: 120</span><br><span class="line">              Relay_Log_Space: 531</span><br><span class="line">              Until_Condition: None</span><br><span class="line">               Until_Log_File:</span><br><span class="line">                Until_Log_Pos: 0</span><br><span class="line">           Master_SSL_Allowed: No</span><br><span class="line">           Master_SSL_CA_File:</span><br><span class="line">           Master_SSL_CA_Path:</span><br><span class="line">              Master_SSL_Cert:</span><br><span class="line">            Master_SSL_Cipher:</span><br><span class="line">               Master_SSL_Key:</span><br><span class="line">        Seconds_Behind_Master: 0</span><br><span class="line">Master_SSL_Verify_Server_Cert: No</span><br><span class="line">                Last_IO_Errno: 0</span><br><span class="line">                Last_IO_Error:</span><br><span class="line">               Last_SQL_Errno: 0</span><br><span class="line">               Last_SQL_Error:</span><br><span class="line">  Replicate_Ignore_Server_Ids:</span><br><span class="line">             Master_Server_Id: 1</span><br><span class="line">                  Master_UUID: a514dd91-2587-11eb-a23f-0242ac110002</span><br><span class="line">             Master_Info_File: /var/lib/mysql/master.info</span><br><span class="line">                    SQL_Delay: 0</span><br><span class="line">          SQL_Remaining_Delay: NULL</span><br><span class="line">      Slave_SQL_Running_State: Slave has <span class="built_in">read</span> all relay <span class="built_in">log</span>; waiting <span class="keyword">for</span> more updates</span><br><span class="line">           Master_Retry_Count: 86400</span><br><span class="line">                  Master_Bind:</span><br><span class="line">      Last_IO_Error_Timestamp:</span><br><span class="line">     Last_SQL_Error_Timestamp:</span><br><span class="line">               Master_SSL_Crl:</span><br><span class="line">           Master_SSL_Crlpath:</span><br><span class="line">           Retrieved_Gtid_Set:</span><br><span class="line">            Executed_Gtid_Set:</span><br><span class="line">                Auto_Position: 0</span><br><span class="line">         Replicate_Rewrite_DB:</span><br><span class="line">                 Channel_Name:</span><br><span class="line">           Master_TLS_Version:</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="主从库数据同步测试"><a href="#主从库数据同步测试" class="headerlink" title="主从库数据同步测试"></a>主从库数据同步测试</h5><h6 id="主库"><a href="#主库" class="headerlink" title="主库"></a>主库</h6><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1</span></span><br><span class="line">mysql&gt; CREATE TABLE `<span class="built_in">test</span>` (</span><br><span class="line">  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(255) CHARACTER SET utf8mb4 DEFAULT <span class="string">''</span>,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line">mysql&gt; insert into <span class="built_in">test</span>(`name`) values(<span class="string">"codezm"</span>), (<span class="string">"codezmm"</span>);</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line">mysql&gt; update <span class="built_in">test</span> <span class="built_in">set</span> name = <span class="string">"codezm1"</span> <span class="built_in">where</span> id = 1;</span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line">mysql&gt; delete from <span class="built_in">test</span> <span class="built_in">where</span> id = 2;</span><br><span class="line"><span class="comment"># 5</span></span><br><span class="line">mysql&gt; select version();</span><br><span class="line">+------------+</span><br><span class="line">| version()  |</span><br><span class="line">+------------+</span><br><span class="line">| 5.6.36-log |</span><br><span class="line">+------------+</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<h6 id="从库"><a href="#从库" class="headerlink" title="从库"></a>从库</h6><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># 1</span><br><span class="line">mysql&gt; show create table test;</span><br><span class="line">+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Table | Create Table                                                                                                                                                          |</span><br><span class="line">+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| test  | CREATE TABLE `test` (</span><br><span class="line">  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(255) DEFAULT '',</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 |</span><br><span class="line">+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"># 2</span><br><span class="line">mysql&gt; select * from test;</span><br><span class="line">+----+---------+</span><br><span class="line">| id | name    |</span><br><span class="line">+----+---------+</span><br><span class="line">|  1 | codezm1 |</span><br><span class="line">|  2 | codezmm |</span><br><span class="line">+----+---------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"># 3</span><br><span class="line">mysql&gt; select * from test;</span><br><span class="line">+----+---------+</span><br><span class="line">| id | name    |</span><br><span class="line">+----+---------+</span><br><span class="line">|  1 | codezm1 |</span><br><span class="line">|  2 | codezmm |</span><br><span class="line">+----+---------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"># 4</span><br><span class="line">mysql&gt; select * from test;</span><br><span class="line">+----+---------+</span><br><span class="line">| id | name    |</span><br><span class="line">+----+---------+</span><br><span class="line">|  1 | codezm1 |</span><br><span class="line">+----+---------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"># 5</span><br><span class="line">mysql&gt; select version();</span><br><span class="line">+---------------+</span><br><span class="line">| version()     |</span><br><span class="line">+---------------+</span><br><span class="line">| 8.0.1-dmr-log |</span><br><span class="line">+---------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h4 id="canal-中间件"><a href="#canal-中间件" class="headerlink" title="canal 中间件"></a>canal 中间件</h4><h5 id="canal-server-配置"><a href="#canal-server-配置" class="headerlink" title="canal-server 配置"></a>canal-server 配置</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker pull canal/canal-server:v1.1.4</span><br><span class="line">docker run --name canal-server -d -p 11110-11112:11110-11112 -p 9100:9100 canal/canal-server:v1.1.4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 无法指定 --ip 参数，待解决。。。</span></span><br><span class="line">docker run --name canal-server-50.83 \</span><br><span class="line">					 -e canal.instance.master.address=10.10.50.83:3306 \</span><br><span class="line">					 -e canal.admin.manager=host.docker.internal:8089 \</span><br><span class="line">					 -e canal.admin.register.auto=<span class="literal">true</span> \</span><br><span class="line">					 -d --network lnmp_backend canal/canal-server:v1.1.4</span><br><span class="line">					 </span><br><span class="line">					 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置主库信息</span></span><br><span class="line">vi ./canal-server/conf/example/instance.properties</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="canal-admin-配置"><a href="#canal-admin-配置" class="headerlink" title="canal-admin 配置"></a>canal-admin 配置</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker pull canal/canal-admin:v1.1.4</span><br><span class="line">docker run --name canal-admin -p 8089:8089 -d canal/canal-admin:v1.1.4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run --name canal-admin -p 8089:8089 -d --network lnmp_backend canal/canal-admin:v1.1.4</span><br><span class="line"></span><br><span class="line">vi canal-admin/conf/application.yml</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create database canal;</span><br><span class="line"></span><br><span class="line">CREATE TABLE `user` (</span><br><span class="line">  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` char(255) DEFAULT '',</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=MYISAM DEFAULT CHARSET=utf8mb4;</span><br><span class="line"></span><br><span class="line">use user;</span><br><span class="line">insert into user(`name`) values("codezm"), ("codejm");</span><br><span class="line">update user set name = "codezm1" where id = 1;</span><br><span class="line">delete from user where id = 2;</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="主库-1"><a href="#主库-1" class="headerlink" title="主库"></a>主库</h5><hr>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql-5.6 -p 3307:3306 -d -e MYSQL_ROOT_PASSWORD=1234  hub.c.163.com/library/mysql:5.6</span><br><span class="line"></span><br><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"><span class="comment"># Copyright (c) 2014, 2016, Oracle and/or its affiliates. All rights reserved.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This program is free software; you can redistribute it and/or modify</span></span><br><span class="line"><span class="comment"># it under the terms of the GNU General Public License as published by</span></span><br><span class="line"><span class="comment"># the Free Software Foundation; version 2 of the License.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This program is distributed in the hope that it will be useful,</span></span><br><span class="line"><span class="comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span></span><br><span class="line"><span class="comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></span><br><span class="line"><span class="comment"># GNU General Public License for more details.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># You should have received a copy of the GNU General Public License</span></span><br><span class="line"><span class="comment"># along with this program; if not, write to the Free Software</span></span><br><span class="line"><span class="comment"># Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The MySQL  Server configuration file.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For explanations see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/mysql/en/server-system-variables.html</span></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">pid-file        = /var/run/mysqld/mysqld.pid</span><br><span class="line">socket          = /var/run/mysqld/mysqld.sock</span><br><span class="line">datadir         = /var/lib/mysql</span><br><span class="line">log-error       = /var/<span class="built_in">log</span>/mysql/error.log</span><br><span class="line"><span class="comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span></span><br><span class="line">symbolic-links=0</span><br><span class="line"></span><br><span class="line">server_id = 1</span><br><span class="line">log-bin = mysql-bin</span><br><span class="line"><span class="comment">#binlog-format=ROW</span></span><br><span class="line">binlog-format=mixed</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="从库-1"><a href="#从库-1" class="headerlink" title="从库"></a>从库</h5><hr>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql-8.0 -p 3308:3306 -e MYSQL_ROOT_PASSWORD=1234 -d hub.c.163.com/library/mysql:8.0</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="canal"><a href="#canal" class="headerlink" title="canal"></a>canal</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2020-11-17 17:55:34.093 [destination = example , address = /192.168.65.2:3307 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---&gt; begin to find start position, it will be long time <span class="keyword">for</span> reset or first position</span><br><span class="line">2020-11-17 17:55:34.093 [destination = example , address = /192.168.65.2:3307 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position by switch ::1605598704000</span><br><span class="line">2020-11-17 17:55:34.109 [destination = example , address = /192.168.65.2:3307 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - Didn<span class="string">'t find the corresponding binlog files from mysql-bin.000001 to mysql-bin.000001</span></span><br><span class="line"><span class="string">2020-11-17 17:55:34.109 [destination = example , address = /192.168.65.2:3307 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.65.2:3307 has an error, retrying. caused by</span></span><br><span class="line"><span class="string">com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can'</span>t find start position <span class="keyword">for</span> example</span><br><span class="line">2020-11-17 17:55:34.110 [destination = example , address = /192.168.65.2:3307 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:example[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can<span class="string">'t find start position for exampl</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p> 原因：meta.dat 中保存的位点信息和数据库的位点信息不一致；导致canal抓取不到数据库的动作；</p>
+</blockquote>
+<h6 id="解决方案：删除-meta-dat-文件，再重启-canal-server。"><a href="#解决方案：删除-meta-dat-文件，再重启-canal-server。" class="headerlink" title="解决方案：删除 meta.dat 文件，再重启 canal-server。"></a>解决方案：删除 meta.dat 文件，再重启 canal-server。</h6><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f ./canal-server/conf/example/meta.dat</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><h5 id="10-10-50-83-news"><a href="#10-10-50-83-news" class="headerlink" title="10.10.50.83 news"></a>10.10.50.83 news</h5><p>配置 mysql</p>
+<hr>
+<p> vi /data/mysql/my.cnf</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server_id = 1</span><br><span class="line">log-bin = mysql-bin</span><br><span class="line">binlog-format=mixed</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>重启 mysql</p>
+<hr>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭 mysql</span></span><br><span class="line">/data/mysql/bin/mysqladmin -u root -p shutdown</span><br><span class="line"><span class="comment"># 启动 mysql</span></span><br><span class="line">/bin/sh /data/mysql/bin/mysqld_safe --defaults-file=/data/mysql/my.cnf &amp;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于我先开启了 binlog，但生成的 binlog 没法使用。</p>
+<blockquote>
+<p>历史数据没有 binlog。</p>
+</blockquote>
+<p>重置binlog</p>
+<hr>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">show master status \G;</span><br><span class="line"># 重置binlog，重置前需停止从库同步：slave stop</span><br><span class="line">reset master;</span><br><span class="line"># 确认重置</span><br><span class="line">show master status \G;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>测试数据库SQL</p>
+<hr>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data/mysql/bin/mysqldump -uroot -p news &gt; /tmp/news.sql;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>开启 canal dump 10.10.50.83 instance。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database news;</span><br><span class="line">use news;</span><br><span class="line"><span class="built_in">source</span> /tmp/news.sql;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>启动客户端订阅并消费。</p>
+<h4 id="历史产生的-binlog-不消费"><a href="#历史产生的-binlog-不消费" class="headerlink" title="历史产生的 binlog 不消费"></a>历史产生的 binlog 不消费</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show binary logs;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img data-src="/posts/MySQL/7ca7ee77/image-20201119145217478.png" alt="image-20201119145217478"></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">show binlog events in 'mysql-bin.000001' limit 2 \G;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img data-src="/posts/MySQL/7ca7ee77/image-20201119145145118.png" alt="image-20201119145145118"></p>
+<p><code>vi canal-server/conf/10.10.50.83/meta.dat</code></p>
+<p><img data-src="/posts/MySQL/7ca7ee77/image-20201119145418590.png" alt="image-20201119145418590"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="codezm 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="codezm 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>codezm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codezm.github.io/posts/MySQL/7ca7ee77.html" title="canal同步主库MySQL5.6至从库MySQL8.0">https://codezm.github.io/posts/MySQL/7ca7ee77.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+              <a href="/tags/canal/" rel="tag"># canal</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/WeChat/ad578931.html" rel="prev" title="微信授权获取用户信息时code回调了两次">
+      <i class="fa fa-chevron-left"></i> 微信授权获取用户信息时code回调了两次
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/WeChat/28d780a7.html" rel="next" title="微信浏览器中的请求未携带referer问题">
+      微信浏览器中的请求未携带referer问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-docker-%E6%8B%89%E5%8F%96%E5%AF%B9%E5%BA%94-mysql-%E7%89%88%E6%9C%AC%E7%9A%84%E9%95%9C%E5%83%8F%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">利用 docker 拉取对应 mysql 版本的镜像。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">启动容器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%90%84%E5%AE%B9%E5%99%A8IP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">查看各容器IP地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%90%84%E5%AE%B9%E5%99%A8-mysql-%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">查看各容器 mysql 对应版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-vim-%E5%B7%A5%E5%85%B7%EF%BC%8C%E7%94%A8%E4%BA%8E%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">安装 vim 工具，用于编辑配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BB%E5%BA%93-172-17-0-2"><span class="nav-number">6.</span> <span class="nav-text">主库 172.17.0.2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E5%BA%93-172-17-0-3"><span class="nav-number">7.</span> <span class="nav-text">从库 172.17.0.3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BB%E4%BB%8E%E5%BA%93%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%B5%8B%E8%AF%95"><span class="nav-number">8.</span> <span class="nav-text">主从库数据同步测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%BB%E5%BA%93"><span class="nav-number">8.1.</span> <span class="nav-text">主库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%8E%E5%BA%93"><span class="nav-number">8.2.</span> <span class="nav-text">从库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canal-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number"></span> <span class="nav-text">canal 中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#canal-server-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">canal-server 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#canal-admin-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">canal-admin 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BB%E5%BA%93-1"><span class="nav-number">3.</span> <span class="nav-text">主库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E5%BA%93-1"><span class="nav-number">4.</span> <span class="nav-text">从库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#canal"><span class="nav-number">5.</span> <span class="nav-text">canal</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E5%88%A0%E9%99%A4-meta-dat-%E6%96%87%E4%BB%B6%EF%BC%8C%E5%86%8D%E9%87%8D%E5%90%AF-canal-server%E3%80%82"><span class="nav-number">5.1.</span> <span class="nav-text">解决方案：删除 meta.dat 文件，再重启 canal-server。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number"></span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#10-10-50-83-news"><span class="nav-number">1.</span> <span class="nav-text">10.10.50.83 news</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E4%BA%A7%E7%94%9F%E7%9A%84-binlog-%E4%B8%8D%E6%B6%88%E8%B4%B9"><span class="nav-number"></span> <span class="nav-text">历史产生的 binlog 不消费</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">codezm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/codezm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;codezm" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/codezm@163.com" title="E-Mail → codezm@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备17052382号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codezm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">446k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12:23</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://codezm.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://codezm.github.io/posts/MySQL/7ca7ee77.html";
+    this.page.identifier = "posts/MySQL/7ca7ee77.html";
+    this.page.title = "canal同步主库MySQL5.6至从库MySQL8.0";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codezm.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
